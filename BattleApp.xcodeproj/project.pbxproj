@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C467FA9E1BCB792700AAF522 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FA9D1BCB792700AAF522 /* SearchViewController.m */; };
+		C467FAA11BCB8C6D00AAF522 /* BAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAA01BCB8C6D00AAF522 /* BAViewController.m */; };
+		C467FAA41BCB8E2A00AAF522 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */; };
+		C467FAA81BCB8F2F00AAF522 /* BANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAA71BCB8F2F00AAF522 /* BANavigationController.m */; };
+		C467FAAB1BCB929400AAF522 /* LeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAAA1BCB929400AAF522 /* LeagueViewController.m */; };
+		C467FAAE1BCB92A900AAF522 /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAAD1BCB92A900AAF522 /* MatchViewController.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
-		C4F1AEEE1BC39ED8001E22D7 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEED1BC39ED8001E22D7 /* FirstViewController.m */; };
-		C4F1AEF11BC39ED8001E22D7 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEF01BC39ED8001E22D7 /* SecondViewController.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
 		C4F1AEF61BC39ED8001E22D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF51BC39ED8001E22D7 /* Images.xcassets */; };
 		C4F1AEF91BC39ED8001E22D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF71BC39ED8001E22D7 /* LaunchScreen.xib */; };
@@ -28,15 +32,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C467FA9C1BCB792700AAF522 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		C467FA9D1BCB792700AAF522 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		C467FA9F1BCB8C6D00AAF522 /* BAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAViewController.h; sourceTree = "<group>"; };
+		C467FAA01BCB8C6D00AAF522 /* BAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAViewController.m; sourceTree = "<group>"; };
+		C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C467FAA61BCB8F2F00AAF522 /* BANavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANavigationController.h; sourceTree = "<group>"; };
+		C467FAA71BCB8F2F00AAF522 /* BANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANavigationController.m; sourceTree = "<group>"; };
+		C467FAA91BCB929400AAF522 /* LeagueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueViewController.h; sourceTree = "<group>"; };
+		C467FAAA1BCB929400AAF522 /* LeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueViewController.m; sourceTree = "<group>"; };
+		C467FAAC1BCB92A900AAF522 /* MatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
+		C467FAAD1BCB92A900AAF522 /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4F1AEE91BC39ED8001E22D7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C4F1AEEC1BC39ED8001E22D7 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		C4F1AEED1BC39ED8001E22D7 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		C4F1AEEF1BC39ED8001E22D7 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		C4F1AEF01BC39ED8001E22D7 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		C4F1AEF31BC39ED8001E22D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4F1AEF51BC39ED8001E22D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C4F1AEF81BC39ED8001E22D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -86,14 +98,22 @@
 			children = (
 				C4F1AEE91BC39ED8001E22D7 /* AppDelegate.h */,
 				C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */,
-				C4F1AEEC1BC39ED8001E22D7 /* FirstViewController.h */,
-				C4F1AEED1BC39ED8001E22D7 /* FirstViewController.m */,
-				C4F1AEEF1BC39ED8001E22D7 /* SecondViewController.h */,
-				C4F1AEF01BC39ED8001E22D7 /* SecondViewController.m */,
 				C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */,
 				C4F1AEF51BC39ED8001E22D7 /* Images.xcassets */,
 				C4F1AEF71BC39ED8001E22D7 /* LaunchScreen.xib */,
 				C4F1AEE51BC39ED8001E22D7 /* Supporting Files */,
+				C467FA9C1BCB792700AAF522 /* SearchViewController.h */,
+				C467FA9D1BCB792700AAF522 /* SearchViewController.m */,
+				C467FA9F1BCB8C6D00AAF522 /* BAViewController.h */,
+				C467FAA01BCB8C6D00AAF522 /* BAViewController.m */,
+				C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */,
+				C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */,
+				C467FAA61BCB8F2F00AAF522 /* BANavigationController.h */,
+				C467FAA71BCB8F2F00AAF522 /* BANavigationController.m */,
+				C467FAA91BCB929400AAF522 /* LeagueViewController.h */,
+				C467FAAA1BCB929400AAF522 /* LeagueViewController.m */,
+				C467FAAC1BCB92A900AAF522 /* MatchViewController.h */,
+				C467FAAD1BCB92A900AAF522 /* MatchViewController.m */,
 			);
 			path = BattleApp;
 			sourceTree = "<group>";
@@ -224,10 +244,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4F1AEF11BC39ED8001E22D7 /* SecondViewController.m in Sources */,
 				C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */,
-				C4F1AEEE1BC39ED8001E22D7 /* FirstViewController.m in Sources */,
+				C467FAA81BCB8F2F00AAF522 /* BANavigationController.m in Sources */,
 				C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */,
+				C467FAA11BCB8C6D00AAF522 /* BAViewController.m in Sources */,
+				C467FAAE1BCB92A900AAF522 /* MatchViewController.m in Sources */,
+				C467FA9E1BCB792700AAF522 /* SearchViewController.m in Sources */,
+				C467FAAB1BCB929400AAF522 /* LeagueViewController.m in Sources */,
+				C467FAA41BCB8E2A00AAF522 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +448,7 @@
 				C4F1AF0A1BC39ED9001E22D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C4F1AF0B1BC39ED9001E22D7 /* Build configuration list for PBXNativeTarget "BattleAppTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +457,7 @@
 				C4F1AF0D1BC39ED9001E22D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

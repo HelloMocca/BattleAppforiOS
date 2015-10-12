@@ -8,15 +8,21 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
-
-@end
-
 @implementation AppDelegate
 
+{
+    UITabBarController *tabBarController;
+    NSMutableArray     *viewControllers;
+}
 
+#pragma mark - UIApplicationDelegate methods
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [window makeKeyAndVisible];
+    [self setWindow:window];
+    [self setupWindowStyle];
+    [self setupTabBarController];
+    [[self window] setRootViewController:tabBarController];
     return YES;
 }
 
@@ -40,6 +46,64 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Setup methods
+- (void)setupWindowStyle {
+    UIGraphicsBeginImageContext(self.window.frame.size);
+    [[UIImage imageNamed:@"bg1242x2208"] drawInRect:self.window.bounds];
+    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.window.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+}
+
+- (void)setupTabBarController {
+    tabBarController = [[UITabBarController alloc] init];
+    [self createViewControllers];
+    [tabBarController setViewControllers:viewControllers animated:"YES"];
+    [self setupTabBar];
+    [self setupTabBarStyle];
+}
+
+- (void)setupTabBar {
+    NSArray *items = [[tabBarController tabBar] items];
+    for (int i = 0; i < [viewControllers count]; i++) {
+        UITabBarItem *item = [items objectAtIndex:i];
+        UIViewController *viewController = [viewControllers objectAtIndex:i];
+        [item setTitle:[viewController title]];
+        [item setImage:[UIImage imageNamed:[viewController title]]];
+    }
+}
+
+- (void)setupTabBarStyle {
+    UIImage *transparentBackground;
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(1, 1), NO, tabBarController.tabBar.layer.contentsScale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetRGBFillColor(context, 14/255.0f, 14/255.0f, 14/255.0f, 0.1f);
+    UIRectFill(CGRectMake(0, 0, 1, 1));
+    transparentBackground = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [[tabBarController tabBar] setBackgroundImage:transparentBackground];
+    [[tabBarController tabBar] setTintColor:[UIColor colorWithRed:44/255.0f green:192/255.0f blue:254/255.0f alpha:1]];
+}
+
+- (void)createViewControllers {
+    NSArray *viewControllerArray = [NSArray arrayWithObjects:
+                                    @[@"Home", [HomeViewController class]],
+                                    @[@"Player", [SearchViewController class]],
+                                    @[@"League", [LeagueViewController class]],
+                                    @[@"Match", [MatchViewController class]],
+                                    nil];
+    viewControllers = [[NSMutableArray alloc] init];
+    UINavigationController *navigationController;
+    NSString *viewControllerTitle;
+    Class viewControllerClass;
+    for (NSArray *viewControllerInfo in viewControllerArray) {
+        viewControllerTitle = viewControllerInfo[0];
+        viewControllerClass = viewControllerInfo[1];
+        navigationController = [[BANavigationController alloc] initWithRootViewController:[[viewControllerClass alloc] init] title:viewControllerTitle];
+        [viewControllers addObject:navigationController];
+    }
 }
 
 @end
