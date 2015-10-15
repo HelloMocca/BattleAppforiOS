@@ -12,7 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self applyTransparentBackgroundToTheNavigationBar:0.5f];
+    [self applyTransparentBackgroundToTheNavigationBar:0.9f];
 }
 
 - (void)didReceiveMemoryWarning {

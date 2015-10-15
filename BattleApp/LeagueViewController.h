@@ -7,6 +7,7 @@
 //
 
 #import "BAViewController.h"
+#import "LeagueTableViewController.h"
 
 @interface LeagueViewController : BAViewController
 

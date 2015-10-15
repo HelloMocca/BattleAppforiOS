@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BANavigationController.h"
 #import "HomeViewController.h"
-#import "SearchViewController.h"
+#import "PlayerTableViewController.h"
 #import "LeagueViewController.h"
 #import "MatchViewController.h"
 

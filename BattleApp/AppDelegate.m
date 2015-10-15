@@ -79,7 +79,7 @@
     UIImage *transparentBackground;
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(1, 1), NO, tabBarController.tabBar.layer.contentsScale);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetRGBFillColor(context, 14/255.0f, 14/255.0f, 14/255.0f, 0.1f);
+    CGContextSetRGBFillColor(context, 14/255.0f, 14/255.0f, 14/255.0f, 0.8f);
     UIRectFill(CGRectMake(0, 0, 1, 1));
     transparentBackground = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -90,7 +90,7 @@
 - (void)createViewControllers {
     NSArray *viewControllerArray = [NSArray arrayWithObjects:
                                     @[@"Home", [HomeViewController class]],
-                                    @[@"Player", [SearchViewController class]],
+                                    @[@"Player", [PlayerTableViewController class]],
                                     @[@"League", [LeagueViewController class]],
                                     @[@"Match", [MatchViewController class]],
                                     nil];
