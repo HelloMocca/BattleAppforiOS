@@ -6,20 +6,20 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Version History  
 __[Latest Version]0.1.1__  
 * SearchViewController deleted and replaced by PlayerTableViewController
-* Implement service of player search menu.
-  *API URL: http://125.209.198.90/battleapp/players.php
-  *Parameter
-    *q : letter of playId
-  *dataType: JSON
-* Implement service of league information menu.
-  *API URL: http://125.209.198.90/battleapp/leagues.php
-  *dataType: JSON
-* SearchBar added using UISearchDisplayController.
-  *UISearchDisplayController will deprecate @ iOS8.
-  *TODO : change to UISearchController.
-  *CAUTION: NavigationBar disapear bug when using UISearchController.
-* Player has thumbnail typeof UIImage.
-  *Player download thumbnail when return thumbnail variable and reuse it.
+* Implement service of player search menu.  
+  *API URL: http://125.209.198.90/battleapp/players.php  
+  *Parameter  
+    *q : letter of playId  
+  *dataType: JSON  
+* Implement service of league information menu.  
+  *API URL: http://125.209.198.90/battleapp/leagues.php  
+  *dataType: JSON  
+* SearchBar added using UISearchDisplayController.  
+  *UISearchDisplayController will deprecate @ iOS8.  
+  *TODO : change to UISearchController.  
+  *CAUTION: NavigationBar disapear bug when using UISearchController.  
+* Player has thumbnail typeof UIImage.  
+  *Player download thumbnail when return thumbnail variable and reuse it.  
 * Published 15 October, 2015.
 
 __0.0.1__  
