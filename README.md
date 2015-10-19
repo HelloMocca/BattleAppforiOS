@@ -10,7 +10,7 @@ __[Latest Version]0.2.1__
 * SubArticleView shows other 4 news.  
 * View of ArticleDetailViewController shows contents of news when tapped one of article view.  
 * PlayerTableView shows player profile thumbnail.  
-* News data API URL : http://125.209.198.90/battleapp.wcsnews.php  
+* News data API URL : http://125.209.198.90/battleapp/wcsnews.php  
 * News data API provides 'page' parameter.  
 * Published 19 October, 2015.  
    
