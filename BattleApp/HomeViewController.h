@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BAViewController.h"
+#import "Article.h"
+#import "MainArticleView.h"
+#import "SubArticleView.h"
+#import "BAArticleView.h"
+#import "ArticleDetailViewController.h"
 
 @interface HomeViewController : BAViewController
 

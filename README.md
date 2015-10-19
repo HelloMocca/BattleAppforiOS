@@ -3,13 +3,23 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 
 # Screen Shot
 
-# Version History  
-__[Latest Version]0.1.1__  
+# Version History 
+__[Latest Version]0.2.1__  
+* HomeViewController provides news contents.  
+* MainArticleView contains most recently news.  
+* SubArticleView shows other 4 news.  
+* View of ArticleDetailViewController shows contents of news when tapped one of article view.  
+* PlayerTableView shows player profile thumbnail.  
+* News data API URL : http://125.209.198.90/battleapp.wcsnews.php  
+* News data API provides 'page' parameter.  
+* Published 19 October, 2015.  
+   
+__0.1.1__  
 * SearchViewController deleted and replaced by PlayerTableViewController
 * Implement service of player search menu.  
   *API URL: http://125.209.198.90/battleapp/players.php  
-  *Parameter  
-    *q : letter of playId  
+  *Parameter :   
+    - q : letter of playId  
   *dataType: JSON  
 * Implement service of league information menu.  
   *API URL: http://125.209.198.90/battleapp/leagues.php  

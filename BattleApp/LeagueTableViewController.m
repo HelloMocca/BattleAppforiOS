@@ -15,6 +15,7 @@
     UIView  *cellView;
 }
 
+#pragma mark -Initialize methods
 - (instancetype) initWithLeagues:(NSMutableArray *)aLeagues {
     self = [super init];
     if (self) {
@@ -23,24 +24,19 @@
     return self;
 }
 
+#pragma mark -UIViewController implements
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"default cell"];
-    [[self view] setBackgroundColor:[UIColor clearColor]];
-    [[self tableView] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    cellView = [[UIView alloc] init];
-    [cellView setBackgroundColor:[UIColor blackColor]];
-
-    //[[self tableView] setTableHeaderView:segmentedControl];
-    
+    [self setupViews];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Table view data source
 
+
+#pragma mark -UITableViewController implements
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -64,6 +60,19 @@
     NSLog(@"%@", [league title]);
     LeagueInfoViewController *newViewController = [[LeagueInfoViewController alloc] initWithLeague:league];
     [[self navigationController] pushViewController:newViewController animated:YES];
+}
+
+#pragma mark -Setup View methods
+- (void)setupViews {
+    [[self view] setBackgroundColor:[UIColor clearColor]];
+    [self setupTableView];
+}
+
+- (void)setupTableView {
+    [[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"default cell"];
+    [[self tableView] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    cellView = [[UIView alloc] init];
+    [cellView setBackgroundColor:[UIColor blackColor]];
 }
 
 @end

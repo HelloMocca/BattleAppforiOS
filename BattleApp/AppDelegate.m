@@ -89,7 +89,7 @@
 
 - (void)createViewControllers {
     NSArray *viewControllerArray = [NSArray arrayWithObjects:
-                                    @[@"Home", [HomeViewController class]],
+                                    @[@"News", [HomeViewController class]],
                                     @[@"Player", [PlayerTableViewController class]],
                                     @[@"League", [LeagueViewController class]],
                                     @[@"Match", [MatchViewController class]],

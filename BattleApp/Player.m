@@ -42,7 +42,6 @@
 - (UIImage *)thumbnail {
     if (thumbnail == nil) {
         NSURL *thumbnailUrl = [NSURL URLWithString:[[@"http://125.209.198.90/battleapp/profile/" stringByAppendingString:[NSString stringWithFormat:@"%ld",(long)playerId]] stringByAppendingString:@".png"]];
-        NSLog(@"%@", thumbnailUrl);
         thumbnail = [UIImage imageWithData:[NSData dataWithContentsOfURL:thumbnailUrl]];
         if (thumbnail == nil) {
             thumbnail = [UIImage imageNamed:@"noprofile"];

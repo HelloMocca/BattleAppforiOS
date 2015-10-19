@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Player.h"
 #import "PlayerInfoViewController.h"
+#import "PlayerTableViewCell.h"
 #import "BASearchDisplayController.h"
 #import "BANavigationController.h"
 

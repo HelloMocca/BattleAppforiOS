@@ -13,7 +13,6 @@
 - (void)setActive:(BOOL)visible animated:(BOOL)animated
 {
     [super setActive: visible animated: animated];
-    
     [self.searchContentsController.navigationController setNavigationBarHidden: NO animated: NO];
 }
 

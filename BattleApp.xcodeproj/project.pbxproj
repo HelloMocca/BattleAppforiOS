@@ -19,6 +19,12 @@
 		C4A969FF1BCF37FD00412F9E /* BASearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A969FE1BCF37FD00412F9E /* BASearchDisplayController.m */; };
 		C4A96A021BCF467C00412F9E /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A011BCF467C00412F9E /* PlayerInfoViewController.m */; };
 		C4A96A051BCF80AE00412F9E /* LeagueInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A041BCF80AE00412F9E /* LeagueInfoViewController.m */; };
+		C4A96A081BCFA15300412F9E /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A071BCFA15300412F9E /* Article.m */; };
+		C4A96A0B1BD08BDC00412F9E /* MainArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A0A1BD08BDC00412F9E /* MainArticleView.m */; };
+		C4A96A0E1BD0968400412F9E /* SubArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A0D1BD0968400412F9E /* SubArticleView.m */; };
+		C4A96A111BD0B63300412F9E /* BAArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A101BD0B63300412F9E /* BAArticleView.m */; };
+		C4A96A141BD0BCC200412F9E /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A131BD0BCC200412F9E /* ArticleDetailViewController.m */; };
+		C4A96A1A1BD0DE3400412F9E /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A191BD0DE3400412F9E /* PlayerTableViewCell.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
@@ -62,6 +68,18 @@
 		C4A96A011BCF467C00412F9E /* PlayerInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoViewController.m; sourceTree = "<group>"; };
 		C4A96A031BCF80AE00412F9E /* LeagueInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueInfoViewController.h; sourceTree = "<group>"; };
 		C4A96A041BCF80AE00412F9E /* LeagueInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueInfoViewController.m; sourceTree = "<group>"; };
+		C4A96A061BCFA15300412F9E /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		C4A96A071BCFA15300412F9E /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		C4A96A091BD08BDC00412F9E /* MainArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainArticleView.h; sourceTree = "<group>"; };
+		C4A96A0A1BD08BDC00412F9E /* MainArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainArticleView.m; sourceTree = "<group>"; };
+		C4A96A0C1BD0968400412F9E /* SubArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubArticleView.h; sourceTree = "<group>"; };
+		C4A96A0D1BD0968400412F9E /* SubArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubArticleView.m; sourceTree = "<group>"; };
+		C4A96A0F1BD0B63300412F9E /* BAArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAArticleView.h; sourceTree = "<group>"; };
+		C4A96A101BD0B63300412F9E /* BAArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAArticleView.m; sourceTree = "<group>"; };
+		C4A96A121BD0BCC200412F9E /* ArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailViewController.h; sourceTree = "<group>"; };
+		C4A96A131BD0BCC200412F9E /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
+		C4A96A181BD0DE3400412F9E /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
+		C4A96A191BD0DE3400412F9E /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,6 +118,8 @@
 				C467FAB11BCCDD9300AAF522 /* Player.m */,
 				C4A969FA1BCE1FAF00412F9E /* League.h */,
 				C4A969FB1BCE1FAF00412F9E /* League.m */,
+				C4A96A061BCFA15300412F9E /* Article.h */,
+				C4A96A071BCFA15300412F9E /* Article.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -136,10 +156,20 @@
 				C467FAA01BCB8C6D00AAF522 /* BAViewController.m */,
 				C467FAA61BCB8F2F00AAF522 /* BANavigationController.h */,
 				C467FAA71BCB8F2F00AAF522 /* BANavigationController.m */,
+				C4A96A0F1BD0B63300412F9E /* BAArticleView.h */,
+				C4A96A101BD0B63300412F9E /* BAArticleView.m */,
 				C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */,
 				C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */,
+				C4A96A091BD08BDC00412F9E /* MainArticleView.h */,
+				C4A96A0A1BD08BDC00412F9E /* MainArticleView.m */,
+				C4A96A0C1BD0968400412F9E /* SubArticleView.h */,
+				C4A96A0D1BD0968400412F9E /* SubArticleView.m */,
+				C4A96A121BD0BCC200412F9E /* ArticleDetailViewController.h */,
+				C4A96A131BD0BCC200412F9E /* ArticleDetailViewController.m */,
 				C467FAB31BCCF2B100AAF522 /* PlayerTableViewController.h */,
 				C467FAB41BCCF2B100AAF522 /* PlayerTableViewController.m */,
+				C4A96A181BD0DE3400412F9E /* PlayerTableViewCell.h */,
+				C4A96A191BD0DE3400412F9E /* PlayerTableViewCell.m */,
 				C4A96A001BCF467C00412F9E /* PlayerInfoViewController.h */,
 				C4A96A011BCF467C00412F9E /* PlayerInfoViewController.m */,
 				C467FAA91BCB929400AAF522 /* LeagueViewController.h */,
@@ -282,13 +312,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A96A0E1BD0968400412F9E /* SubArticleView.m in Sources */,
+				C4A96A0B1BD08BDC00412F9E /* MainArticleView.m in Sources */,
 				C467FAB91BCDF42100AAF522 /* LeagueTableViewController.m in Sources */,
 				C467FAB51BCCF2B100AAF522 /* PlayerTableViewController.m in Sources */,
+				C4A96A1A1BD0DE3400412F9E /* PlayerTableViewCell.m in Sources */,
 				C4A96A021BCF467C00412F9E /* PlayerInfoViewController.m in Sources */,
 				C4A96A051BCF80AE00412F9E /* LeagueInfoViewController.m in Sources */,
 				C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */,
+				C4A96A081BCFA15300412F9E /* Article.m in Sources */,
 				C467FAA81BCB8F2F00AAF522 /* BANavigationController.m in Sources */,
+				C4A96A141BD0BCC200412F9E /* ArticleDetailViewController.m in Sources */,
 				C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */,
+				C4A96A111BD0B63300412F9E /* BAArticleView.m in Sources */,
 				C467FAA11BCB8C6D00AAF522 /* BAViewController.m in Sources */,
 				C4A969FC1BCE1FAF00412F9E /* League.m in Sources */,
 				C467FAAE1BCB92A900AAF522 /* MatchViewController.m in Sources */,
