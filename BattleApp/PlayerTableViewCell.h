@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
+#import "BAColor.h"
 
 @interface PlayerTableViewCell : UITableViewCell
 

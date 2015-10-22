@@ -30,14 +30,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         article = aArticle;
-        [self setBackgroundColor:[UIColor colorWithWhite:14/255.0f alpha:0.8f]];
         [self setupViews];
     }
     return self;
 }
 
 - (void)setupViews {
-        [self setBackgroundColor:[UIColor colorWithWhite:14/255.0f alpha:0.8f]];
+        [self setBackgroundColor:[UIColor colorWithWhite:14/255.0f alpha:0.6f]];
 }
 
 

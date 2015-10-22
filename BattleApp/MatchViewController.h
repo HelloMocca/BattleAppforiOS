@@ -7,7 +7,13 @@
 //
 
 #import "BAViewController.h"
+#import "MatchPlayerStandView.h"
+#import "BAPlayerSearchViewController.h"
+#import "MatchPredictViewController.h"
+#import "PlayerDescView.h"
 
-@interface MatchViewController : BAViewController
+@interface MatchViewController : BAViewController <PlayerDescViewDelegate, PlayerTableSelectDelegate>
+
+@property (nonatomic, weak) PlayerDescView *requestedView;
 
 @end

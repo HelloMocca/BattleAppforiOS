@@ -3,8 +3,19 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 
 # Screen Shot
 
-# Version History 
-__[Latest Version]0.2.1__  
+# Version History
+__[Latest Version]0.3.1__  
+* 2 Player select function implement in Match Simulator Menu.  
+* BAPlayerSearchViewController added for reuse player search function.  
+* Now PlayerTableViewController just inherits BAPlayerSearchViewController because of BAPlayerSearchViewController provides all function to Search Player.  
+* MatchPlayerStandView is subview of MatchViewController.  
+* MatchPlayerStandView has two PlayerDescView.  
+* PlayerDescView provides interface *requestPlayer* for gesture of tapping thumbnail-view area.  
+    *The Controller that supervise MatchPlayerStandView use protocol *PlayerDescViewDelegate* to response PlayerDescView's request.  
+* BAColor contains macro of UIColor sets.  
+* Published 22 October, 2015.  
+  
+__0.2.1__  
 * HomeViewController provides news contents.  
 * MainArticleView contains most recently news.  
 * SubArticleView shows other 4 news.  

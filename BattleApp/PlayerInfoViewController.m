@@ -54,15 +54,15 @@
     playerLabelView = [[UIView alloc] initWithFrame:CGRectMake(130, 100, screenSize.width-130, 80)];
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, playerLabelView.bounds.size.width, 50)];
     [nameLabel setText:player.playId];
-    [nameLabel setTextColor:[UIColor colorWithRed:0.141f green:0.608f blue:0.863f alpha:1.00f]];
+    [nameLabel setTextColor:BASunflower];
     [nameLabel setFont:[UIFont boldSystemFontOfSize:25.0f]];
     UILabel *teamLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, playerLabelView.bounds.size.width, 50)];
     [teamLabel setText:player.team];
-    [teamLabel setTextColor:[UIColor colorWithRed:0.125f green:0.514f blue:0.659f alpha:1.00f]];
+    [teamLabel setTextColor:BAPeterBlue];
     [teamLabel setFont:[UIFont systemFontOfSize:15.0f]];
     UILabel *raceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, playerLabelView.bounds.size.width, 50)];
     [raceLabel setText:player.race];
-    [raceLabel setTextColor:[UIColor colorWithRed:0.125f green:0.514f blue:0.659f alpha:1.00f]];
+    [raceLabel setTextColor:BAPeterBlue];
     [raceLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [playerLabelView addSubview:nameLabel];
     [playerLabelView addSubview:teamLabel];

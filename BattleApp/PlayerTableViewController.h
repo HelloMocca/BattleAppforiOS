@@ -12,7 +12,8 @@
 #import "PlayerTableViewCell.h"
 #import "BASearchDisplayController.h"
 #import "BANavigationController.h"
+#import "BAPlayerSearchViewController.h"
 
-@interface PlayerTableViewController : UITableViewController <UISearchDisplayDelegate>
+@interface PlayerTableViewController : BAPlayerSearchViewController <PlayerTableSelectDelegate>
 
 @end

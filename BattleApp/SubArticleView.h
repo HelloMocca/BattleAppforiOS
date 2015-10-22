@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BAArticleView.h"
+#import "BAColor.h"
 
 @interface SubArticleView : BAArticleView
 

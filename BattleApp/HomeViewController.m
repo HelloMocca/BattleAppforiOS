@@ -108,7 +108,6 @@
 #pragma mark -Event handle methods
 - (void)articleTap:(UITapGestureRecognizer *)recognizer {
     BAArticleView *tappedav = (BAArticleView *)recognizer.view;
-    NSLog(@"%@", tappedav.article.link);
     articleDetailViewController = [[ArticleDetailViewController alloc] initWithArticle:tappedav.article];
     [[self navigationController] pushViewController:articleDetailViewController animated:YES];
 }

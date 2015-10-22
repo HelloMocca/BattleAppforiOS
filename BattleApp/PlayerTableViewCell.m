@@ -41,11 +41,11 @@
     [thumbnailView setFrame:CGRectMake(5, 5, ((size.height-10) * (5 / 6.0f)), size.height-10)];
     [teamView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 5, size.width-(thumbnailView.bounds.size.width+20), 13)];
     [teamView setText:[player team]];
-    [teamView setTextColor:[UIColor colorWithRed:0.141f green:0.592f blue:0.847f alpha:1.00f]];
-    [teamView setFont:[UIFont systemFontOfSize:13]];
+    [teamView setTextColor:BASilver];
+    [teamView setFont:[UIFont systemFontOfSize:12]];
     [titleView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 15, size.width-(thumbnailView.bounds.size.width+20), 25)];
-    [titleView setTextColor:[UIColor colorWithWhite:198/255.0f alpha:1]];
-    [titleView setFont:[UIFont boldSystemFontOfSize:16]];
+    [titleView setTextColor:BACloud];
+    [titleView setFont:[UIFont boldSystemFontOfSize:20]];
     [thumbnailView setImage:[player thumbnail]];
     [titleView setText:[player playId]];
 }

@@ -25,6 +25,10 @@
 		C4A96A111BD0B63300412F9E /* BAArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A101BD0B63300412F9E /* BAArticleView.m */; };
 		C4A96A141BD0BCC200412F9E /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A131BD0BCC200412F9E /* ArticleDetailViewController.m */; };
 		C4A96A1A1BD0DE3400412F9E /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A191BD0DE3400412F9E /* PlayerTableViewCell.m */; };
+		C4A96B391BD792F300412F9E /* MatchPlayerStandView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B381BD792F300412F9E /* MatchPlayerStandView.m */; };
+		C4A96B3C1BD7939C00412F9E /* PlayerDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */; };
+		C4A96B451BD8A74F00412F9E /* BAPlayerSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B441BD8A74F00412F9E /* BAPlayerSearchViewController.m */; };
+		C4A96B481BD8B35800412F9E /* MatchPredictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B471BD8B35800412F9E /* MatchPredictViewController.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
@@ -80,6 +84,15 @@
 		C4A96A131BD0BCC200412F9E /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
 		C4A96A181BD0DE3400412F9E /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
 		C4A96A191BD0DE3400412F9E /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
+		C4A96B371BD792F300412F9E /* MatchPlayerStandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPlayerStandView.h; sourceTree = "<group>"; };
+		C4A96B381BD792F300412F9E /* MatchPlayerStandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPlayerStandView.m; sourceTree = "<group>"; };
+		C4A96B3A1BD7939C00412F9E /* PlayerDescView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDescView.h; sourceTree = "<group>"; };
+		C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDescView.m; sourceTree = "<group>"; };
+		C4A96B3D1BD8784200412F9E /* BAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAColor.h; sourceTree = "<group>"; };
+		C4A96B431BD8A74F00412F9E /* BAPlayerSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPlayerSearchViewController.h; sourceTree = "<group>"; };
+		C4A96B441BD8A74F00412F9E /* BAPlayerSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPlayerSearchViewController.m; sourceTree = "<group>"; };
+		C4A96B461BD8B35800412F9E /* MatchPredictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictViewController.h; sourceTree = "<group>"; };
+		C4A96B471BD8B35800412F9E /* MatchPredictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictViewController.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,6 +137,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C4A96B361BD6342C00412F9E /* Maltie */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Maltie;
+			sourceTree = "<group>";
+		};
 		C4F1AED91BC39ED8001E22D7 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +165,7 @@
 		C4F1AEE41BC39ED8001E22D7 /* BattleApp */ = {
 			isa = PBXGroup;
 			children = (
+				C4A96B361BD6342C00412F9E /* Maltie */,
 				C467FAB61BCCF2D700AAF522 /* Model */,
 				C4F1AEE91BC39ED8001E22D7 /* AppDelegate.h */,
 				C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */,
@@ -152,12 +173,17 @@
 				C4F1AEF51BC39ED8001E22D7 /* Images.xcassets */,
 				C4F1AEF71BC39ED8001E22D7 /* LaunchScreen.xib */,
 				C4F1AEE51BC39ED8001E22D7 /* Supporting Files */,
+				C4A96B3D1BD8784200412F9E /* BAColor.h */,
 				C467FA9F1BCB8C6D00AAF522 /* BAViewController.h */,
 				C467FAA01BCB8C6D00AAF522 /* BAViewController.m */,
 				C467FAA61BCB8F2F00AAF522 /* BANavigationController.h */,
 				C467FAA71BCB8F2F00AAF522 /* BANavigationController.m */,
 				C4A96A0F1BD0B63300412F9E /* BAArticleView.h */,
 				C4A96A101BD0B63300412F9E /* BAArticleView.m */,
+				C4A969FD1BCF37FD00412F9E /* BASearchDisplayController.h */,
+				C4A969FE1BCF37FD00412F9E /* BASearchDisplayController.m */,
+				C4A96B431BD8A74F00412F9E /* BAPlayerSearchViewController.h */,
+				C4A96B441BD8A74F00412F9E /* BAPlayerSearchViewController.m */,
 				C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */,
 				C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */,
 				C4A96A091BD08BDC00412F9E /* MainArticleView.h */,
@@ -180,8 +206,12 @@
 				C4A96A041BCF80AE00412F9E /* LeagueInfoViewController.m */,
 				C467FAAC1BCB92A900AAF522 /* MatchViewController.h */,
 				C467FAAD1BCB92A900AAF522 /* MatchViewController.m */,
-				C4A969FD1BCF37FD00412F9E /* BASearchDisplayController.h */,
-				C4A969FE1BCF37FD00412F9E /* BASearchDisplayController.m */,
+				C4A96B461BD8B35800412F9E /* MatchPredictViewController.h */,
+				C4A96B471BD8B35800412F9E /* MatchPredictViewController.m */,
+				C4A96B371BD792F300412F9E /* MatchPlayerStandView.h */,
+				C4A96B381BD792F300412F9E /* MatchPlayerStandView.m */,
+				C4A96B3A1BD7939C00412F9E /* PlayerDescView.h */,
+				C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */,
 			);
 			path = BattleApp;
 			sourceTree = "<group>";
@@ -318,7 +348,9 @@
 				C467FAB51BCCF2B100AAF522 /* PlayerTableViewController.m in Sources */,
 				C4A96A1A1BD0DE3400412F9E /* PlayerTableViewCell.m in Sources */,
 				C4A96A021BCF467C00412F9E /* PlayerInfoViewController.m in Sources */,
+				C4A96B481BD8B35800412F9E /* MatchPredictViewController.m in Sources */,
 				C4A96A051BCF80AE00412F9E /* LeagueInfoViewController.m in Sources */,
+				C4A96B451BD8A74F00412F9E /* BAPlayerSearchViewController.m in Sources */,
 				C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */,
 				C4A96A081BCFA15300412F9E /* Article.m in Sources */,
 				C467FAA81BCB8F2F00AAF522 /* BANavigationController.m in Sources */,
@@ -327,8 +359,10 @@
 				C4A96A111BD0B63300412F9E /* BAArticleView.m in Sources */,
 				C467FAA11BCB8C6D00AAF522 /* BAViewController.m in Sources */,
 				C4A969FC1BCE1FAF00412F9E /* League.m in Sources */,
+				C4A96B391BD792F300412F9E /* MatchPlayerStandView.m in Sources */,
 				C467FAAE1BCB92A900AAF522 /* MatchViewController.m in Sources */,
 				C4A969FF1BCF37FD00412F9E /* BASearchDisplayController.m in Sources */,
+				C4A96B3C1BD7939C00412F9E /* PlayerDescView.m in Sources */,
 				C467FAAB1BCB929400AAF522 /* LeagueViewController.m in Sources */,
 				C467FAB21BCCDD9300AAF522 /* Player.m in Sources */,
 				C467FAA41BCB8E2A00AAF522 /* HomeViewController.m in Sources */,

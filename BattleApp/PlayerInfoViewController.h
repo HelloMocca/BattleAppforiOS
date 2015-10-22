@@ -8,6 +8,7 @@
 
 #import "BAViewController.h"
 #import "Player.h"
+#import "BAColor.h"
 
 @interface PlayerInfoViewController : BAViewController
 
