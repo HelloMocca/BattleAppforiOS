@@ -13,13 +13,18 @@
 {
     LeagueTableViewController *leagueTableViewController;
     NSMutableArray            *leagues;
-    CGSize screenSize;
+    CGSize                    screenSize;
+    NSUInteger                segmentStatus;
 }
+
+#define PREMIER_STATE 0
+#define MAJOR_STATE 1
+#define MINOR_STATE 2
+
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self setTitle:@"WCS Leagues"];
     }
     return self;
 }
@@ -39,7 +44,7 @@
 
 - (void)setupTableView {
     leagueTableViewController = [[LeagueTableViewController alloc] initWithLeagues:leagues];
-    [[leagueTableViewController tableView] setFrame:CGRectMake(0, 50, screenSize.width, screenSize.height)];
+    [[leagueTableViewController tableView] setFrame:CGRectMake(0, 5, screenSize.width, screenSize.height)];
     [self addChildViewController:leagueTableViewController];
     [[self view] addSubview:[leagueTableViewController view]];
 }
@@ -50,14 +55,14 @@
     [[segmentViewController view] setBackgroundColor:[UIColor colorWithWhite:14/255.0f alpha:.9]];
     NSArray *segmentTextContent = [NSArray arrayWithObjects: @"Premier", @"Major", @"Minor", nil];
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentTextContent];
-    segmentedControl.frame = CGRectMake(2.5, 5, screenSize.width-5, 35);
+    segmentedControl.frame = CGRectMake(0, 5, screenSize.width-15, 35);
     [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
-    segmentedControl.tintColor = [UIColor colorWithRed:32/255.0f green:139/255.0f blue:181/255.0f alpha:1];
+    segmentedControl.tintColor = BACloud;
     segmentedControl.enabled = true;
     segmentedControl.selectedSegmentIndex = 0;
     [[[self navigationController] navigationBar] addSubview:segmentedControl];
     [[segmentViewController view] addSubview:segmentedControl];
-    [[self view] addSubview:[segmentViewController view]];
+    self.navigationItem.titleView = [segmentViewController view];
 }
 
 
@@ -65,7 +70,6 @@
 - (void)requestLeaguesData {
     leagues = [[NSMutableArray alloc] init];
     
-    //Load Json Data...
     NSString *url = @"http://125.209.198.90/battleapp/leagues.php";
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -84,6 +88,7 @@
 
 #pragma mark -Event handler methods
 - (IBAction)segmentChanged:(id)sender {
+    segmentStatus =  ((UISegmentedControl *)sender).selectedSegmentIndex;
     [self requestLeaguesData];
     [[leagueTableViewController tableView] reloadData];
 }

@@ -20,28 +20,38 @@
 @synthesize delegate = delegate;
 
 #pragma mark -Initialize methods
-- (instancetype)initWithDelegate:(id<PlayerDescViewDelegate>)aDelegate {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        delegate = aDelegate;
         [self setupViews];
     }
     return self;
 }
 
+- (instancetype)initWithDelegate:(id<PlayerDescViewDelegate>)aDelegate {
+    self = [self init];
+    if (self) {
+        [self setDelegate:aDelegate];
+    }
+    return self;
+}
+
+- (void)setDelegate:(id<PlayerDescViewDelegate>)aDelegate {
+    delegate = aDelegate;
+    [player1View setDelegate:delegate];
+    [player2View setDelegate:delegate];
+}
+
 #pragma mark -Setup view methods
 - (void)setupViews {
     [self setFrame:CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, 300)];
-    
-    player1View = [[PlayerDescView alloc] initWithDelegate:delegate];
-    player2View = [[PlayerDescView alloc] initWithDelegate:delegate];
+    player1View = [[PlayerDescView alloc] init];
+    player2View = [[PlayerDescView alloc] init];
     CGFloat playerViewMargin = 10;
     CGFloat playerViewWidth = ([UIScreen mainScreen].bounds.size.width/2)-(2*playerViewMargin);
     CGFloat playerViewHeight = self.frame.size.height - 20;
     [player1View setFrame:CGRectMake(playerViewMargin, 0, playerViewWidth, playerViewHeight)];
     [player2View setFrame:CGRectMake(playerViewWidth+(3*playerViewMargin), 0, playerViewWidth, playerViewHeight)];
-    [player1View setBackgroundColor:[UIColor colorWithRed:0.784f green:0.169f blue:0.125f alpha:0.20f]];
-    [player2View setBackgroundColor:[UIColor colorWithRed:0.216f green:0.408f blue:0.984f alpha:0.20f]];
     
     [self addSubview:player1View];
     [self addSubview:player2View];

@@ -24,6 +24,9 @@
     BASearchDisplayController *searchController;
 }
 
+#define ODD_COLOR [UIColor colorWithWhite:14/255.0f alpha:.6f]
+#define EVEN_COLOR [UIColor colorWithWhite:25/255.0f alpha:.6f]
+
 @synthesize delegate = delegate;
 
 #pragma mark -Initialize methods
@@ -61,9 +64,9 @@
     Player *player = [players objectAtIndex:[indexPath row]];
     [cell setupWithPlayer:player];
     if ([indexPath row] % 2 == 0) {
-        [cell setBackgroundColor:[cell oddColor]];
+        [cell setBackgroundColor:ODD_COLOR];
     } else {
-        [cell setBackgroundColor:[cell evenColor]];
+        [cell setBackgroundColor:EVEN_COLOR];
     }
     [cell setSelectedBackgroundView:cellView];
     [[cell textLabel] setTextColor:[UIColor whiteColor]];
@@ -102,7 +105,7 @@
 - (void)setupTableView {
     [[self tableView] setRowHeight:80];
     [[self tableView] registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:@"playerCell"];
-    [[self tableView] setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+    [[self tableView] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [[self tableView] setSeparatorInset:UIEdgeInsetsZero];
     [[self tableView] setSeparatorColor:[UIColor colorWithRed:108/255.0f green:108/255.0f blue:108/255.0f alpha:1.00f]];
     cellView = [[UIView alloc] init];
@@ -112,9 +115,7 @@
 
 - (void)setupMoreBtn {
     morePlayerBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, screenSize.width-20, 40)];
-    [morePlayerBtn setBackgroundColor:[UIColor colorWithWhite:45/255.0f alpha:1]];
-    [morePlayerBtn setTitleColor:[UIColor colorWithRed:0.141f green:0.592f blue:0.847f alpha:1.00f] forState:UIControlStateNormal];
-    morePlayerBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    [morePlayerBtn setBackgroundColor:BAFacebookBlue];
     [morePlayerBtn setTitle:@"More Player" forState:UIControlStateNormal];
     [morePlayerBtn addTarget:self action:@selector(morePlayerRequest:) forControlEvents:UIControlEventTouchUpInside];
     [[self tableView] setTableFooterView:morePlayerBtn];

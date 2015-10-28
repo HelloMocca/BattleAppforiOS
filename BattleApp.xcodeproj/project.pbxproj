@@ -29,6 +29,10 @@
 		C4A96B3C1BD7939C00412F9E /* PlayerDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */; };
 		C4A96B451BD8A74F00412F9E /* BAPlayerSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B441BD8A74F00412F9E /* BAPlayerSearchViewController.m */; };
 		C4A96B481BD8B35800412F9E /* MatchPredictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B471BD8B35800412F9E /* MatchPredictViewController.m */; };
+		C4A96B4F1BD9CB7C00412F9E /* RCSingleBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B4E1BD9CB7C00412F9E /* RCSingleBar.m */; };
+		C4A96B521BD9CE5100412F9E /* RCDoughnut.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B511BD9CE5100412F9E /* RCDoughnut.m */; };
+		C4A96B581BDA20A000412F9E /* RCStackBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B571BDA20A000412F9E /* RCStackBar.m */; };
+		C4A96BA01BE0621A00412F9E /* RCBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B9F1BE0621A00412F9E /* RCBar.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
@@ -93,6 +97,15 @@
 		C4A96B441BD8A74F00412F9E /* BAPlayerSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPlayerSearchViewController.m; sourceTree = "<group>"; };
 		C4A96B461BD8B35800412F9E /* MatchPredictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictViewController.h; sourceTree = "<group>"; };
 		C4A96B471BD8B35800412F9E /* MatchPredictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictViewController.m; sourceTree = "<group>"; };
+		C4A96B491BD9CA4200412F9E /* Racoon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Racoon.h; sourceTree = "<group>"; };
+		C4A96B4D1BD9CB7C00412F9E /* RCSingleBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSingleBar.h; sourceTree = "<group>"; };
+		C4A96B4E1BD9CB7C00412F9E /* RCSingleBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSingleBar.m; sourceTree = "<group>"; };
+		C4A96B501BD9CE5100412F9E /* RCDoughnut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDoughnut.h; sourceTree = "<group>"; };
+		C4A96B511BD9CE5100412F9E /* RCDoughnut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDoughnut.m; sourceTree = "<group>"; };
+		C4A96B561BDA20A000412F9E /* RCStackBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCStackBar.h; sourceTree = "<group>"; };
+		C4A96B571BDA20A000412F9E /* RCStackBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCStackBar.m; sourceTree = "<group>"; };
+		C4A96B9E1BE0621A00412F9E /* RCBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBar.h; sourceTree = "<group>"; };
+		C4A96B9F1BE0621A00412F9E /* RCBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBar.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -137,11 +150,20 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		C4A96B361BD6342C00412F9E /* Maltie */ = {
+		C4A96B361BD6342C00412F9E /* RC */ = {
 			isa = PBXGroup;
 			children = (
+				C4A96B491BD9CA4200412F9E /* Racoon.h */,
+				C4A96B4D1BD9CB7C00412F9E /* RCSingleBar.h */,
+				C4A96B4E1BD9CB7C00412F9E /* RCSingleBar.m */,
+				C4A96B501BD9CE5100412F9E /* RCDoughnut.h */,
+				C4A96B511BD9CE5100412F9E /* RCDoughnut.m */,
+				C4A96B561BDA20A000412F9E /* RCStackBar.h */,
+				C4A96B571BDA20A000412F9E /* RCStackBar.m */,
+				C4A96B9E1BE0621A00412F9E /* RCBar.h */,
+				C4A96B9F1BE0621A00412F9E /* RCBar.m */,
 			);
-			name = Maltie;
+			name = RC;
 			sourceTree = "<group>";
 		};
 		C4F1AED91BC39ED8001E22D7 = {
@@ -165,7 +187,7 @@
 		C4F1AEE41BC39ED8001E22D7 /* BattleApp */ = {
 			isa = PBXGroup;
 			children = (
-				C4A96B361BD6342C00412F9E /* Maltie */,
+				C4A96B361BD6342C00412F9E /* RC */,
 				C467FAB61BCCF2D700AAF522 /* Model */,
 				C4F1AEE91BC39ED8001E22D7 /* AppDelegate.h */,
 				C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */,
@@ -342,6 +364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A96BA01BE0621A00412F9E /* RCBar.m in Sources */,
+				C4A96B521BD9CE5100412F9E /* RCDoughnut.m in Sources */,
 				C4A96A0E1BD0968400412F9E /* SubArticleView.m in Sources */,
 				C4A96A0B1BD08BDC00412F9E /* MainArticleView.m in Sources */,
 				C467FAB91BCDF42100AAF522 /* LeagueTableViewController.m in Sources */,
@@ -355,10 +379,12 @@
 				C4A96A081BCFA15300412F9E /* Article.m in Sources */,
 				C467FAA81BCB8F2F00AAF522 /* BANavigationController.m in Sources */,
 				C4A96A141BD0BCC200412F9E /* ArticleDetailViewController.m in Sources */,
+				C4A96B581BDA20A000412F9E /* RCStackBar.m in Sources */,
 				C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */,
 				C4A96A111BD0B63300412F9E /* BAArticleView.m in Sources */,
 				C467FAA11BCB8C6D00AAF522 /* BAViewController.m in Sources */,
 				C4A969FC1BCE1FAF00412F9E /* League.m in Sources */,
+				C4A96B4F1BD9CB7C00412F9E /* RCSingleBar.m in Sources */,
 				C4A96B391BD792F300412F9E /* MatchPlayerStandView.m in Sources */,
 				C467FAAE1BCB92A900AAF522 /* MatchViewController.m in Sources */,
 				C4A969FF1BCF37FD00412F9E /* BASearchDisplayController.m in Sources */,

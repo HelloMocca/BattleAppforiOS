@@ -14,12 +14,8 @@
     UIImageView *thumbnailView;
     UILabel     *titleView;
     UILabel     *teamView;
-    UIColor     *oddColor;
-    UIColor     *evenColor;
+    UILabel     *raceView;
 }
-
-@synthesize oddColor = oddColor;
-@synthesize evenColor = evenColor;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -27,11 +23,11 @@
         thumbnailView = [[UIImageView alloc] init];
         teamView = [[UILabel alloc] init];
         titleView = [[UILabel alloc] init];
+        raceView = [[UILabel alloc] init];
+        [self.contentView addSubview:raceView];
         [self.contentView addSubview:thumbnailView];
         [self.contentView addSubview:teamView];
         [self.contentView addSubview:titleView];
-        oddColor = [UIColor colorWithWhite:14/255.0f alpha:.6f];
-        evenColor = [UIColor colorWithWhite:25/255.0f alpha:.6f];
     }
     return self;
 }
@@ -39,15 +35,19 @@
 - (void)setupWithPlayer:(Player *)player {
     CGSize size = self.contentView.frame.size;
     [thumbnailView setFrame:CGRectMake(5, 5, ((size.height-10) * (5 / 6.0f)), size.height-10)];
-    [teamView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 5, size.width-(thumbnailView.bounds.size.width+20), 13)];
+    [teamView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 35, size.width-(thumbnailView.bounds.size.width+20), 15)];
     [teamView setText:[player team]];
     [teamView setTextColor:BASilver];
-    [teamView setFont:[UIFont systemFontOfSize:12]];
-    [titleView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 15, size.width-(thumbnailView.bounds.size.width+20), 25)];
+    [teamView setFont:[UIFont systemFontOfSize:13]];
+    [titleView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 10, size.width-(thumbnailView.bounds.size.width+20), 25)];
     [titleView setTextColor:BACloud];
     [titleView setFont:[UIFont boldSystemFontOfSize:20]];
     [thumbnailView setImage:[player thumbnail]];
     [titleView setText:[player playId]];
+    [raceView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 50, size.width-(thumbnailView.bounds.size.width+20), 15)];
+    [raceView setText:[player race]];
+    [raceView setTextColor:BASilver];
+    [raceView setFont:[UIFont systemFontOfSize:13]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

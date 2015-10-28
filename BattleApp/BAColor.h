@@ -24,7 +24,9 @@
 #define BAOrange [UIColor colorWithRed:0.933f green:0.541f blue:0.067f alpha:1.00f]
 
 /*blue*/
+#define BADodgerBlue [UIColor colorWithRed:44/255.0f green:192/255.0f blue:254/255.0f alpha:1.00f]
 #define BAPeterBlue [UIColor colorWithRed:0.169f green:0.518f blue:0.827f alpha:1.00f]
 #define BABelizeHole [UIColor colorWithRed:0.133f green:0.420f blue:0.667f alpha:1.00f]
 #define BAWetAsphalt [UIColor colorWithRed:0.157f green:0.220f blue:0.294f alpha:1.00f]
 #define BAGreenSea [UIColor colorWithRed:0.129f green:0.184f blue:0.243f alpha:1.00f]
+#define BAFacebookBlue [UIColor colorWithRed:0.098f green:0.376f blue:0.675f alpha:1.00f]

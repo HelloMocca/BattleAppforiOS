@@ -4,7 +4,14 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
-__[Latest Version]0.3.1__  
+__[Latest Version]0.4.1__  
+* Player analysis diplay implement.  
+* Show graph using Racoon Graph Library.  
+* More news button added but not activate yet.  
+* Match Predict View shows some graphs to result of predict match of two players.  
+* Published 28 October, 2015.  
+  
+__0.3.1__  
 * 2 Player select function implement in Match Simulator Menu.  
 * BAPlayerSearchViewController added for reuse player search function.  
 * Now PlayerTableViewController just inherits BAPlayerSearchViewController because of BAPlayerSearchViewController provides all function to Search Player.  

@@ -12,9 +12,6 @@
 
 @interface PlayerTableViewCell : UITableViewCell
 
-@property (nonatomic, readwrite) UIColor *oddColor;
-@property (nonatomic, readwrite) UIColor *evenColor;
-
 -(void)setupWithPlayer:(Player *)player;
 
 @end

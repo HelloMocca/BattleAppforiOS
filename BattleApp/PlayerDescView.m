@@ -25,11 +25,20 @@
 @synthesize delegate = delegate;
 @synthesize player = player;
 
-- (instancetype)initWithDelegate:(id<PlayerDescViewDelegate>)aDelegate {
+
+#pragma mark -Initialize methods
+- (instancetype)init {
     self = [super init];
     if (self) {
-        delegate = aDelegate;
         [self setupViews];
+    }
+    return self;
+}
+
+- (instancetype)initWithDelegate:(id<PlayerDescViewDelegate>)aDelegate {
+    self = [self init];
+    if (self) {
+        delegate = aDelegate;
     }
     return self;
 }
@@ -41,7 +50,7 @@
     [thumbnail setFrame:CGRectMake(25, 25, thumbnailWidth, thumbnailHeight)];
     [playIdLabel setFrame:CGRectMake(0, thumbnailHeight+5+25, self.frame.size.width, 25)];
     [teamLabel setFrame:CGRectMake(0, thumbnailHeight+5+25+25, self.frame.size.width, 25)];
-    [raceLabel setFrame:CGRectMake(0, thumbnailHeight+5+25+25+25, self.frame.size.width, 25)];
+    [raceLabel setFrame:CGRectMake(0, thumbnailHeight+5+25+25+15, self.frame.size.width, 25)];
 }
 
 - (void)setupPlayer:(Player *)aPlayer {
@@ -53,7 +62,6 @@
 }
 
 - (void)setupViews {
-    [self setBackgroundColor:[UIColor whiteColor]];
     thumbnail = [[UIImageView alloc] init];
     [thumbnail setUserInteractionEnabled:YES];
     [thumbnail setImage:[UIImage imageNamed:@"noprofile"]];
@@ -84,7 +92,7 @@
 }
 
 - (void)tapThumbnail:(UITapGestureRecognizer *)recongnizer {
-    [delegate requestPlayer:self];
+    if (delegate != nil) [delegate requestPlayer:self];
 }
 
 @end

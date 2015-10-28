@@ -37,7 +37,7 @@
     [predictBtn setFrame:CGRectMake(predictBtnMargin, standView.frame.size.height+70+25, predictBtnWidth, predictBtnHeight)]
     ;
     [predictBtn setTitle:@"Do It!" forState:UIControlStateNormal];
-    [predictBtn setBackgroundColor:[UIColor colorWithRed:0.098f green:0.376f blue:0.675f alpha:1.00f]];
+    [predictBtn setBackgroundColor:BAFacebookBlue];
     [predictBtn addTarget:self action:@selector(moveToPredictController:) forControlEvents:UIControlEventTouchUpInside];
     [[self view] addSubview:predictBtn];
 }
@@ -62,7 +62,8 @@
 #pragma mark -Event handle method
 - (IBAction)moveToPredictController:(id)sender {
     if (![standView isAllPlayerSelected]) return;
-    MatchPredictViewController *predictViewController = [[MatchPredictViewController alloc] init];
+    MatchPredictViewController *predictViewController = [MatchPredictViewController alloc];
+    predictViewController = [predictViewController initWithPlayer1:[[standView player1View] player ] player2:[[standView player2View] player]];
     [[self navigationController] pushViewController:predictViewController animated:YES];
 }
 

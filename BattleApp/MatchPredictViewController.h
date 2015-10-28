@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
+#import "MatchPlayerStandView.h"
+#import "Racoon.h"
 
-@interface MatchPredictViewController : UIViewController
+@interface MatchPredictViewController : UIViewController <PlayerDescViewDelegate>
+
+- (instancetype)initWithPlayer1:(Player *)player1 player2:(Player *)player2;
 
 @end

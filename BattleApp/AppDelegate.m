@@ -84,7 +84,7 @@
     transparentBackground = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     [[tabBarController tabBar] setBackgroundImage:transparentBackground];
-    [[tabBarController tabBar] setTintColor:[UIColor colorWithRed:44/255.0f green:192/255.0f blue:254/255.0f alpha:1]];
+    [[tabBarController tabBar] setTintColor:BADodgerBlue];
 }
 
 - (void)createViewControllers {

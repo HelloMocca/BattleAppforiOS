@@ -46,7 +46,7 @@
 
 - (void)setupPlayerImageView {
     UIImageView *playerImageView = [[UIImageView alloc] initWithImage:[player thumbnail]];
-    [playerImageView setFrame:CGRectMake(10, 80, 100, 110)];
+    [playerImageView setFrame:CGRectMake(15, 80, 95, 110)];
     [[self view] addSubview:playerImageView];
 }
 
@@ -71,18 +71,43 @@
 }
 
 - (void)setupPlayerAnalysisView {
-    UIView *playerAnalysisView = [[UIView alloc] initWithFrame:CGRectMake(0, 215, screenSize.width, 150)];
+    UIView *playerAnalysisView = [[UIView alloc] initWithFrame:CGRectMake(0, 215, screenSize.width, 200)];
     [playerAnalysisView setBackgroundColor:[UIColor colorWithRed:0.110f green:0.110f blue:0.125f alpha:1.00f]];
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, playerAnalysisView.bounds.size.width-10, 15)];
     [title setText:@"Player Records"];
     [title setTextColor:[UIColor colorWithRed:0.427f green:0.427f blue:0.427f alpha:1.00f]];
     [title setFont:[UIFont boldSystemFontOfSize:15.0f]];
     [playerAnalysisView addSubview:title];
+    
+    CGFloat chartMargin = 15;
+    RCSingleBar *totalScoreBar = [[RCSingleBar alloc] init];
+    [totalScoreBar setFrame:CGRectMake(chartMargin, 35, screenSize.width-(2*chartMargin), 20)];
+    [totalScoreBar setData:0.65f];
+    [playerAnalysisView addSubview:totalScoreBar];
+    
+    RCDoughnut *terranDonut = [[RCDoughnut alloc] init];
+    [terranDonut setFrame:CGRectMake(15, 70, (screenSize.width/3)-30, (screenSize.width/3)-30)];
+    [terranDonut setRatio:0.65f];
+    [terranDonut setTitle:@"vsTerran"];
+    [playerAnalysisView addSubview:terranDonut];
+    
+    RCDoughnut *zergDonut = [[RCDoughnut alloc] init];
+    [zergDonut setFrame:CGRectMake((15*2)+(screenSize.width/3)-15, 70, (screenSize.width/3)-30, (screenSize.width/3)-30)];
+    [zergDonut setRatio:0.65f];
+    [zergDonut setTitle:@"vsZerg"];
+    [playerAnalysisView addSubview:zergDonut];
+    
+    RCDoughnut *protossDonut = [[RCDoughnut alloc] init];
+    [protossDonut setFrame:CGRectMake((15*3)+(((screenSize.width/3)-15) * 2), 70, (screenSize.width/3)-30, (screenSize.width/3)-30)];
+    [protossDonut setRatio:0.65f];
+    [protossDonut setTitle:@"vsProtoss"];
+    [playerAnalysisView addSubview:protossDonut];
+    
     [[self view] addSubview:playerAnalysisView];
 }
 
 - (void)setupPlayerPastEventView {
-    UIView *playerPastEventView = [[UIView alloc] initWithFrame:CGRectMake(0, 380, screenSize.width, 500)];
+    UIView *playerPastEventView = [[UIView alloc] initWithFrame:CGRectMake(0, 430, screenSize.width, 500)];
     [playerPastEventView setBackgroundColor:[UIColor colorWithRed:0.110f green:0.110f blue:0.125f alpha:1.00f]];
     UILabel *title  = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, playerPastEventView.bounds.size.width-10, 15)];
     [title setText:@"Past Matches"];
