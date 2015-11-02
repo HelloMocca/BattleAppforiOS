@@ -21,7 +21,7 @@
     [self.titleView setLineBreakMode:NSLineBreakByWordWrapping];
     [self.titleView setNumberOfLines:2];
     [self.titleView setFont:[UIFont boldSystemFontOfSize:16]];
-    [self.titleView setTextColor:BAWhite];
+    [self.titleView setTextColor:[UIColor baWhiteColor]];
     [self addSubview:self.titleView];
     
     self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(110, 55, [self bounds].size.width - 130, 15)];
@@ -29,12 +29,12 @@
     
     self.authorView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [self.bottomView bounds].size.width/2, 15)];
     [self.authorView setText:[self.article author]];
-    [self.authorView setTextColor:BADarkGray];
+    [self.authorView setTextColor:[UIColor baDarkGrayColor]];
     [self.authorView setFont:[UIFont systemFontOfSize:13]];
     self.dateView = [[UILabel alloc] initWithFrame:CGRectMake([self.bottomView bounds].size.width/2, 0, [self.bottomView bounds].size.width/2, 15)];
     [self.dateView setText:[self.article date]];
     [self.dateView setFont:[UIFont systemFontOfSize:13]];
-    [self.dateView setTextColor:BADarkGray];
+    [self.dateView setTextColor:[UIColor baDarkGrayColor]];
     [self.dateView setTextAlignment:NSTextAlignmentRight];
     
     [self.bottomView addSubview:self.authorView];

@@ -108,7 +108,7 @@
 - (void)setupMoreArticleBtn {
     UIButton *moreArticleBtn = [[UIButton alloc] init];
     [moreArticleBtn setFrame:CGRectMake(5, 590, screenSize.width-10, 40)];
-    [moreArticleBtn setBackgroundColor:BAFacebookBlue];
+    [moreArticleBtn setBackgroundColor:[UIColor facebookBlueColor]];
     [moreArticleBtn setTitle:@"More News" forState:UIControlStateNormal];
     [mainScrollView addSubview:moreArticleBtn];
 }

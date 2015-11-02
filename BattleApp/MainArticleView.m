@@ -30,13 +30,13 @@
     
     self.authorView = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, [self bounds].size.width/2-15, 20)];
     [self.authorView setText:[self.article author]];
-    [self.authorView setTextColor:BADarkGray];
+    [self.authorView setTextColor:[UIColor baDarkGrayColor]];
     [self.authorView setFont:[UIFont systemFontOfSize:13]];
     [self.bottomView addSubview:self.authorView];
     
     self.dateView = [[UILabel alloc] initWithFrame:CGRectMake([self bounds].size.width/2, 0, [self bounds].size.width/2-15, 20)];
     [self.dateView setText:[self.article date]];
-    [self.dateView setTextColor:BADarkGray];
+    [self.dateView setTextColor:[UIColor baDarkGrayColor]];
     [self.dateView setTextAlignment:NSTextAlignmentRight];
     [self.dateView setFont:[UIFont systemFontOfSize:13]];
     [self.bottomView addSubview:self.dateView];

@@ -37,7 +37,7 @@
     [predictBtn setFrame:CGRectMake(predictBtnMargin, standView.frame.size.height+70+25, predictBtnWidth, predictBtnHeight)]
     ;
     [predictBtn setTitle:@"Do It!" forState:UIControlStateNormal];
-    [predictBtn setBackgroundColor:BAFacebookBlue];
+    [predictBtn setBackgroundColor:[UIColor facebookBlueColor]];
     [predictBtn addTarget:self action:@selector(moveToPredictController:) forControlEvents:UIControlEventTouchUpInside];
     [[self view] addSubview:predictBtn];
 }

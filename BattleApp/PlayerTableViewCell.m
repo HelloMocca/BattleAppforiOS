@@ -37,16 +37,16 @@
     [thumbnailView setFrame:CGRectMake(5, 5, ((size.height-10) * (5 / 6.0f)), size.height-10)];
     [teamView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 35, size.width-(thumbnailView.bounds.size.width+20), 15)];
     [teamView setText:[player team]];
-    [teamView setTextColor:BASilver];
+    [teamView setTextColor:[UIColor sliverColor]];
     [teamView setFont:[UIFont systemFontOfSize:13]];
     [titleView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 10, size.width-(thumbnailView.bounds.size.width+20), 25)];
-    [titleView setTextColor:BACloud];
+    [titleView setTextColor:[UIColor cloudColor]];
     [titleView setFont:[UIFont boldSystemFontOfSize:20]];
     [thumbnailView setImage:[player thumbnail]];
     [titleView setText:[player playId]];
     [raceView setFrame:CGRectMake(thumbnailView.bounds.size.width+10, 50, size.width-(thumbnailView.bounds.size.width+20), 15)];
     [raceView setText:[player race]];
-    [raceView setTextColor:BASilver];
+    [raceView setTextColor:[UIColor sliverColor]];
     [raceView setFont:[UIFont systemFontOfSize:13]];
 }
 

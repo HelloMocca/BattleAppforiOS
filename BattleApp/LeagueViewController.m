@@ -57,7 +57,7 @@
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentTextContent];
     segmentedControl.frame = CGRectMake(0, 5, screenSize.width-15, 35);
     [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
-    segmentedControl.tintColor = BACloud;
+    segmentedControl.tintColor = [UIColor cloudColor];
     segmentedControl.enabled = true;
     segmentedControl.selectedSegmentIndex = 0;
     [[[self navigationController] navigationBar] addSubview:segmentedControl];

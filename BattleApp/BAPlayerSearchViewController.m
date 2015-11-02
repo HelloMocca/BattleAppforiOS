@@ -115,7 +115,7 @@
 
 - (void)setupMoreBtn {
     morePlayerBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, screenSize.width-20, 40)];
-    [morePlayerBtn setBackgroundColor:BAFacebookBlue];
+    [morePlayerBtn setBackgroundColor:[UIColor facebookBlueColor]];
     [morePlayerBtn setTitle:@"More Player" forState:UIControlStateNormal];
     [morePlayerBtn addTarget:self action:@selector(morePlayerRequest:) forControlEvents:UIControlEventTouchUpInside];
     [[self tableView] setTableFooterView:morePlayerBtn];

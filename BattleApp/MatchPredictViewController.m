@@ -64,7 +64,7 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, stackBarMargin + i * (stackBarHeight + stackBarMargin*2), predictView.frame.size.width, 15)];
         [label setText:calcResult[i][0]];
         [label setTextAlignment:NSTextAlignmentCenter];
-        [label setTextColor:BACloud];
+        [label setTextColor:[UIColor cloudColor]];
         RCStackBar *stackBar = [[RCStackBar alloc] init];
         [stackBar setFrame:CGRectMake(0, i * (stackBarHeight + stackBarMargin*2), predictView.frame.size.width, stackBarHeight)];
         origin = [calcResult[i][3] floatValue];

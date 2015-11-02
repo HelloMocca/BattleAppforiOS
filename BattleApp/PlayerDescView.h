@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
-#import "BAColor.h"
+#import "UIColorExtension.h"
 
 @protocol PlayerDescViewDelegate <NSObject>
 

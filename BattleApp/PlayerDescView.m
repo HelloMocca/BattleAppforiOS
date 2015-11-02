@@ -69,21 +69,21 @@
     [self addSubview:thumbnail];
     
     playIdLabel = [[UILabel alloc] init];
-    [playIdLabel setTextColor:BAYellow];
+    [playIdLabel setTextColor:[UIColor baYellowColor]];
     [playIdLabel setFont:[UIFont boldSystemFontOfSize:20]];
     [playIdLabel setTextAlignment:NSTextAlignmentCenter];
     [playIdLabel setText:@"PlayId"];
     [self addSubview:playIdLabel];
     
     teamLabel = [[UILabel alloc] init];
-    [teamLabel setTextColor:BAWhite];
+    [teamLabel setTextColor:[UIColor baWhiteColor]];
     [teamLabel setTextAlignment:NSTextAlignmentCenter];
     [teamLabel setFont:[UIFont systemFontOfSize:13]];
     [teamLabel setText:@"PlayerTeam"];
     [self addSubview:teamLabel];
     
     raceLabel = [[UILabel alloc] init];
-    [raceLabel setTextColor:BAWhite];
+    [raceLabel setTextColor:[UIColor baWhiteColor]];
     [raceLabel setTextAlignment:NSTextAlignmentCenter];
     [raceLabel setFont:[UIFont systemFontOfSize:13]];
     [raceLabel setText:@"Terran"];

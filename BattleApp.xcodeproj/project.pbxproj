@@ -34,6 +34,7 @@
 		C4A96B581BDA20A000412F9E /* RCStackBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B571BDA20A000412F9E /* RCStackBar.m */; };
 		C4A96BA01BE0621A00412F9E /* RCBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B9F1BE0621A00412F9E /* RCBar.m */; };
 		C4A96BA61BE6F5AF00412F9E /* MatchCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */; };
+		C4A96BAC1BE745DB00412F9E /* UIColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BAB1BE745DB00412F9E /* UIColorExtension.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
@@ -93,7 +94,6 @@
 		C4A96B381BD792F300412F9E /* MatchPlayerStandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPlayerStandView.m; sourceTree = "<group>"; };
 		C4A96B3A1BD7939C00412F9E /* PlayerDescView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDescView.h; sourceTree = "<group>"; };
 		C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDescView.m; sourceTree = "<group>"; };
-		C4A96B3D1BD8784200412F9E /* BAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAColor.h; sourceTree = "<group>"; };
 		C4A96B431BD8A74F00412F9E /* BAPlayerSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPlayerSearchViewController.h; sourceTree = "<group>"; };
 		C4A96B441BD8A74F00412F9E /* BAPlayerSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPlayerSearchViewController.m; sourceTree = "<group>"; };
 		C4A96B461BD8B35800412F9E /* MatchPredictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictViewController.h; sourceTree = "<group>"; };
@@ -109,6 +109,8 @@
 		C4A96B9F1BE0621A00412F9E /* RCBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBar.m; sourceTree = "<group>"; };
 		C4A96BA41BE6F5AF00412F9E /* MatchCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCalculator.h; sourceTree = "<group>"; };
 		C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCalculator.m; sourceTree = "<group>"; };
+		C4A96BAA1BE745DB00412F9E /* UIColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExtension.h; sourceTree = "<group>"; };
+		C4A96BAB1BE745DB00412F9E /* UIColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtension.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -198,7 +200,6 @@
 				C4F1AEF51BC39ED8001E22D7 /* Images.xcassets */,
 				C4F1AEF71BC39ED8001E22D7 /* LaunchScreen.xib */,
 				C4F1AEE51BC39ED8001E22D7 /* Supporting Files */,
-				C4A96B3D1BD8784200412F9E /* BAColor.h */,
 				C467FA9F1BCB8C6D00AAF522 /* BAViewController.h */,
 				C467FAA01BCB8C6D00AAF522 /* BAViewController.m */,
 				C467FAA61BCB8F2F00AAF522 /* BANavigationController.h */,
@@ -239,6 +240,8 @@
 				C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */,
 				C4A96BA41BE6F5AF00412F9E /* MatchCalculator.h */,
 				C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */,
+				C4A96BAA1BE745DB00412F9E /* UIColorExtension.h */,
+				C4A96BAB1BE745DB00412F9E /* UIColorExtension.m */,
 			);
 			path = BattleApp;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */,
 				C4A96A111BD0B63300412F9E /* BAArticleView.m in Sources */,
 				C467FAA11BCB8C6D00AAF522 /* BAViewController.m in Sources */,
+				C4A96BAC1BE745DB00412F9E /* UIColorExtension.m in Sources */,
 				C4A96BA61BE6F5AF00412F9E /* MatchCalculator.m in Sources */,
 				C4A969FC1BCE1FAF00412F9E /* League.m in Sources */,
 				C4A96B4F1BD9CB7C00412F9E /* RCSingleBar.m in Sources */,
