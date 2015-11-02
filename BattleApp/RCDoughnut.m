@@ -93,6 +93,7 @@
 
 - (void)setRatio:(float)ratioValue {
     ratio = ratioValue;
+    if (isnan(ratio)) ratio = 0;
     [numericLabel setText:[NSString stringWithFormat:@"%.2f ", ratio*100]];
 }
 

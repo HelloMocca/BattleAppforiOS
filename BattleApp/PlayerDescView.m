@@ -53,6 +53,7 @@
     [raceLabel setFrame:CGRectMake(0, thumbnailHeight+5+25+25+15, self.frame.size.width, 25)];
 }
 
+#pragma mark -Setup Views
 - (void)setupPlayer:(Player *)aPlayer {
     player = aPlayer;
     [thumbnail setImage:[player thumbnail]];
@@ -91,6 +92,7 @@
     [thumbnail addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapThumbnail:)]];
 }
 
+#pragma mark -Event hanlder methods
 - (void)tapThumbnail:(UITapGestureRecognizer *)recongnizer {
     if (delegate != nil) [delegate requestPlayer:self];
 }

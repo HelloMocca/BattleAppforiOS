@@ -33,6 +33,7 @@
 		C4A96B521BD9CE5100412F9E /* RCDoughnut.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B511BD9CE5100412F9E /* RCDoughnut.m */; };
 		C4A96B581BDA20A000412F9E /* RCStackBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B571BDA20A000412F9E /* RCStackBar.m */; };
 		C4A96BA01BE0621A00412F9E /* RCBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B9F1BE0621A00412F9E /* RCBar.m */; };
+		C4A96BA61BE6F5AF00412F9E /* MatchCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
@@ -106,6 +107,8 @@
 		C4A96B571BDA20A000412F9E /* RCStackBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCStackBar.m; sourceTree = "<group>"; };
 		C4A96B9E1BE0621A00412F9E /* RCBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBar.h; sourceTree = "<group>"; };
 		C4A96B9F1BE0621A00412F9E /* RCBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBar.m; sourceTree = "<group>"; };
+		C4A96BA41BE6F5AF00412F9E /* MatchCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCalculator.h; sourceTree = "<group>"; };
+		C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCalculator.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				C4A96B381BD792F300412F9E /* MatchPlayerStandView.m */,
 				C4A96B3A1BD7939C00412F9E /* PlayerDescView.h */,
 				C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */,
+				C4A96BA41BE6F5AF00412F9E /* MatchCalculator.h */,
+				C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */,
 			);
 			path = BattleApp;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */,
 				C4A96A111BD0B63300412F9E /* BAArticleView.m in Sources */,
 				C467FAA11BCB8C6D00AAF522 /* BAViewController.m in Sources */,
+				C4A96BA61BE6F5AF00412F9E /* MatchCalculator.m in Sources */,
 				C4A969FC1BCE1FAF00412F9E /* League.m in Sources */,
 				C4A96B4F1BD9CB7C00412F9E /* RCSingleBar.m in Sources */,
 				C4A96B391BD792F300412F9E /* MatchPlayerStandView.m in Sources */,

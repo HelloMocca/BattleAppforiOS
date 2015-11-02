@@ -11,9 +11,10 @@
 @implementation PlayerInfoViewController
 
 {
-    Player *player;
-    UIView *playerLabelView;
-    CGSize screenSize;
+    CGSize   screenSize;
+    Player   *player;
+    UIView   *playerLabelView;
+    UIView   *playerAnalysisView;
 }
 
 #pragma mark -Initialize methods
@@ -71,7 +72,7 @@
 }
 
 - (void)setupPlayerAnalysisView {
-    UIView *playerAnalysisView = [[UIView alloc] initWithFrame:CGRectMake(0, 215, screenSize.width, 200)];
+    playerAnalysisView = [[UIView alloc] initWithFrame:CGRectMake(0, 215, screenSize.width, 200)];
     [playerAnalysisView setBackgroundColor:[UIColor colorWithRed:0.110f green:0.110f blue:0.125f alpha:1.00f]];
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, playerAnalysisView.bounds.size.width-10, 15)];
     [title setText:@"Player Records"];
@@ -79,31 +80,38 @@
     [title setFont:[UIFont boldSystemFontOfSize:15.0f]];
     [playerAnalysisView addSubview:title];
     
-    CGFloat chartMargin = 15;
-    RCSingleBar *totalScoreBar = [[RCSingleBar alloc] init];
-    [totalScoreBar setFrame:CGRectMake(chartMargin, 35, screenSize.width-(2*chartMargin), 20)];
-    [totalScoreBar setData:0.65f];
-    [playerAnalysisView addSubview:totalScoreBar];
+    [self requestPlayerData];
+    [self setupTotalRecordChart];
+    [self setupDoughnutChart];
     
+    [[self view] addSubview:playerAnalysisView];
+}
+
+- (void)setupTotalRecordChart {
+    CGFloat chartMargin = 15;
+    RCSingleBar *totalScoreBar = [[RCSingleBar alloc] initWithFrame:CGRectMake(chartMargin, 35, screenSize.width-(2*chartMargin), 20)];
+    [totalScoreBar setData:(player.totalRecord.win * 1.00f) / (player.totalRecord.win + player.totalRecord.lose * 1.00f)];
+    [playerAnalysisView addSubview:totalScoreBar];
+}
+
+- (void)setupDoughnutChart {
     RCDoughnut *terranDonut = [[RCDoughnut alloc] init];
     [terranDonut setFrame:CGRectMake(15, 70, (screenSize.width/3)-30, (screenSize.width/3)-30)];
-    [terranDonut setRatio:0.65f];
+    [terranDonut setRatio:(player.vsTerranRecord.win * 1.00f) / (player.vsTerranRecord.win + player.vsTerranRecord.lose * 1.00f)];
     [terranDonut setTitle:@"vsTerran"];
     [playerAnalysisView addSubview:terranDonut];
     
     RCDoughnut *zergDonut = [[RCDoughnut alloc] init];
     [zergDonut setFrame:CGRectMake((15*2)+(screenSize.width/3)-15, 70, (screenSize.width/3)-30, (screenSize.width/3)-30)];
-    [zergDonut setRatio:0.65f];
+    [zergDonut setRatio:(player.vsZergRecord.win * 1.00f) / (player.vsZergRecord.win + player.vsZergRecord.lose * 1.00f)];
     [zergDonut setTitle:@"vsZerg"];
     [playerAnalysisView addSubview:zergDonut];
     
     RCDoughnut *protossDonut = [[RCDoughnut alloc] init];
     [protossDonut setFrame:CGRectMake((15*3)+(((screenSize.width/3)-15) * 2), 70, (screenSize.width/3)-30, (screenSize.width/3)-30)];
-    [protossDonut setRatio:0.65f];
+    [protossDonut setRatio:(player.vsProtossRecord.win * 1.00f) / (player.vsProtossRecord.win + player.vsProtossRecord.lose * 1.00f)];
     [protossDonut setTitle:@"vsProtoss"];
     [playerAnalysisView addSubview:protossDonut];
-    
-    [[self view] addSubview:playerAnalysisView];
 }
 
 - (void)setupPlayerPastEventView {
@@ -115,6 +123,11 @@
     [title setFont:[UIFont boldSystemFontOfSize:15.0f]];
     [playerPastEventView addSubview:title];
     [[self view] addSubview:playerPastEventView];
+}
+
+#pragma mark -Data request methods
+- (void)requestPlayerData {
+    [player requestRecordsData];
 }
 
 @end

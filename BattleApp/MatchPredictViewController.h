@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Player.h"
 #import "MatchPlayerStandView.h"
+#import "MatchCalculator.h"
 #import "Racoon.h"
 
 @interface MatchPredictViewController : UIViewController <PlayerDescViewDelegate>

@@ -11,9 +11,10 @@
 @implementation MatchPredictViewController
 
 {
-    CGSize ScreenSize;
-    Player *player1;
-    Player *player2;
+    CGSize       ScreenSize;
+    Player       *player1;
+    Player       *player2;
+    NSArray      *calcResult;
 }
 
 #pragma mark -Initialize methods
@@ -53,58 +54,25 @@
 }
 
 - (void)setupPredictView {
+    [self matchCalculate];
+    CGFloat origin;
+    CGFloat target;
+    int stackBarHeight = 25;
+    int stackBarMargin = 5;
     UIView *predictView = [[UIView alloc] initWithFrame:CGRectMake(20, 350, ScreenSize.width-40, 200)];
-    
-    UILabel *firstUILabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, predictView.frame.size.width, 15)];
-    [firstUILabel setText:@"Total Records"];
-    [firstUILabel setTextAlignment:NSTextAlignmentCenter];
-    [firstUILabel setTextColor:BACloud];
-    RCStackBar *firstStackBar = [[RCStackBar alloc] init];
-    [firstStackBar setFrame:CGRectMake(0, 0, predictView.frame.size.width, 25)];
-    [firstStackBar setData:[NSArray arrayWithObjects:@(0.65f),@(0.35f),nil]];
-    [predictView addSubview:firstStackBar];
-    [predictView addSubview:firstUILabel];
-    
-    UILabel *secondUILabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, predictView.frame.size.width, 15)];
-    [secondUILabel setText:@"vs Records"];
-    [secondUILabel setTextAlignment:NSTextAlignmentCenter];
-    [secondUILabel setTextColor:BACloud];
-    RCStackBar *secondStackBar = [[RCStackBar alloc] init];
-    [secondStackBar setFrame:CGRectMake(0, 35, predictView.frame.size.width, 25)];
-    [secondStackBar setData:[NSArray arrayWithObjects:@(0.45f), @(0.55f), nil]];
-    [predictView addSubview:secondStackBar];
-    [predictView addSubview:secondUILabel];
-    
-    UILabel *thirdUILabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 75, predictView.frame.size.width, 15)];
-    [thirdUILabel setText:@"Recent 5 Games"];
-    [thirdUILabel setTextAlignment:NSTextAlignmentCenter];
-    [thirdUILabel setTextColor:BACloud];
-    RCStackBar *thirdStackBar = [[RCStackBar alloc] init];
-    [thirdStackBar setFrame:CGRectMake(0, 70, predictView.frame.size.width, 25)];
-    [thirdStackBar setData:[NSArray arrayWithObjects:@(0.22f), @(0.78f), nil]];
-    [predictView addSubview:thirdStackBar];
-    [predictView addSubview:thirdUILabel];
-    
-    UILabel *fourthUILabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 110, predictView.frame.size.width, 15)];
-    [fourthUILabel setText:@"Opposite Race"];
-    [fourthUILabel setTextAlignment:NSTextAlignmentCenter];
-    [fourthUILabel setTextColor:BACloud];
-    RCStackBar *fourthStackBar = [[RCStackBar alloc] init];
-    [fourthStackBar setFrame:CGRectMake(0, 105, predictView.frame.size.width, 25)];
-    [fourthStackBar setData:[NSArray arrayWithObjects:@(0.67f), @(0.33f), nil]];
-    [predictView addSubview:fourthStackBar];
-    [predictView addSubview:fourthUILabel];
-    
-    UILabel *totalUILabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 145, predictView.frame.size.width, 15)];
-    [totalUILabel setText:@"Match Verdict"];
-    [totalUILabel setTextAlignment:NSTextAlignmentCenter];
-    [totalUILabel setTextColor:BACloud];
-    RCStackBar *totalStackBar = [[RCStackBar alloc] init];
-    [totalStackBar setFrame:CGRectMake(0, 140, predictView.frame.size.width, 30)];
-    [totalStackBar setData:[NSArray arrayWithObjects:@(0.38f), @(0.62f), nil]];
-    [predictView addSubview:totalStackBar];
-    [predictView addSubview:totalUILabel];
-    
+    for (int i = 0; i < [calcResult count]; i++) {
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, stackBarMargin + i * (stackBarHeight + stackBarMargin*2), predictView.frame.size.width, 15)];
+        [label setText:calcResult[i][0]];
+        [label setTextAlignment:NSTextAlignmentCenter];
+        [label setTextColor:BACloud];
+        RCStackBar *stackBar = [[RCStackBar alloc] init];
+        [stackBar setFrame:CGRectMake(0, i * (stackBarHeight + stackBarMargin*2), predictView.frame.size.width, stackBarHeight)];
+        origin = [calcResult[i][3] floatValue];
+        target = 1.0f - origin;
+        [stackBar setData:[NSArray arrayWithObjects:@(origin),@(target),nil]];
+        [predictView addSubview:stackBar];
+        [predictView addSubview:label];
+    }
     [[self view] addSubview:predictView];
 }
 
@@ -117,9 +85,13 @@
     return NO;
 }
 
-#pragma mark -PlayerDescViewDelegate implements
 - (void)requestPlayer:(id)viewInstance {
     
+}
+
+- (void)matchCalculate {
+    MatchCalculator *calculator = [[MatchCalculator alloc] initWithPlayer1:player1 andPlayer2:player2];
+    calcResult = [NSArray arrayWithArray:[calculator matchCalculate]];
 }
 
 @end

@@ -4,6 +4,12 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
+__[Latest Version]0.5.1__
+* Match Predict View applies score data from server.  
+* MatchCalculator request score data from server and calculate win rates of match.  
+* Player object can use requestRecordData method to request own some detail game records(but Synchronous Task).
+* Published 2 November, 2015.
+
 __[Latest Version]0.4.1__  
 * Player analysis diplay implement.  
 * Show graph using Racoon Graph Library.  
