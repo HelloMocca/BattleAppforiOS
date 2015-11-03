@@ -12,7 +12,7 @@
 
 + (UIColor *) baWhiteColor;
 + (UIColor *) cloudColor;
-+ (UIColor *) sliverColor;
++ (UIColor *) silverColor;
 
 + (UIColor *) baDarkGrayColor;
 + (UIColor *) concreteColor;

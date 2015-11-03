@@ -11,6 +11,7 @@
 @interface RCDoughnut : UIView
 
 @property (nonatomic, readwrite) UILabel *titleLabel;
+@property (nonatomic, getter=isNumericLabelVisible) BOOL numericLabelVisible;
 
 - (void)setRatio:(float)ratioValue;
 

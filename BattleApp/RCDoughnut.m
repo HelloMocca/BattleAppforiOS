@@ -19,9 +19,12 @@
     CGFloat doughnutWidth;
     UILabel *titleLabel;
     UILabel *numericLabel;
+    
+    BOOL numericLabelVisible;
 }
 
 @synthesize titleLabel = titleLabel;
+@synthesize numericLabelVisible = numericLabelVisible;
 
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -85,6 +88,7 @@
 }
 
 - (void)setupNumericLabel {
+    if (!numericLabelVisible) return;
     [numericLabel setFrame:CGRectMake(0, (self.frame.size.height/2)+5, self.frame.size.width, 20)];
     [numericLabel setTextColor:[UIColor colorWithRed:0.769f green:0.769f blue:0.780f alpha:1.00f]];
     [numericLabel setFont:[UIFont systemFontOfSize:15]];
@@ -94,7 +98,7 @@
 - (void)setRatio:(float)ratioValue {
     ratio = ratioValue;
     if (isnan(ratio)) ratio = 0;
-    [numericLabel setText:[NSString stringWithFormat:@"%.2f ", ratio*100]];
+    [numericLabel setText:[NSString stringWithFormat:@"%.f%%", ratio*100]];
 }
 
 - (void)setTitle:(NSString *)title {

@@ -28,6 +28,7 @@ typedef struct BARecord BARecord;
 @property (nonatomic, readwrite) BARecord vsTerranRecord;
 @property (nonatomic, readwrite) BARecord vsZergRecord;
 @property (nonatomic, readwrite) BARecord vsProtossRecord;
+@property (nonatomic, readonly)  NSDictionary *games;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
 

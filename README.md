@@ -4,7 +4,12 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History  
-__[Latest Version]0.6.1__
+__[Latest Version]0.6.2__
+* Revise Player Information View.  
+* Player Object has Game List type of NSDictionary.  
+* Published 3 November, 2015.
+
+__0.6.1__
 * More Article Button provides more news articles maximun 20.  
 * Published 3 November, 2015.
 

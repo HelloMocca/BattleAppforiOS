@@ -16,7 +16,7 @@
 + (UIColor *) cloudColor {
     return [UIColor colorWithRed:0.910f green:0.925f blue:0.933f alpha:1.00f];
 }
-+ (UIColor *) sliverColor {
++ (UIColor *) silverColor {
     return [UIColor colorWithRed:0.690f green:0.714f blue:0.733f alpha:1.00f];
 }
 

@@ -136,7 +136,6 @@
     [moreArticleBtn setFrame:CGRectMake(5, 260+(totalArticleCount*82)+2, screenSize.width-10, 40)];
 }
 
-
 #pragma mark -Event handle methods
 - (void)articleTap:(UITapGestureRecognizer *)recognizer {
     BAArticleView *tappedav = (BAArticleView *)recognizer.view;
