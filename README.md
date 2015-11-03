@@ -4,7 +4,16 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History  
-__[Latest Version]0.6.2__
+__[Latest Version]0.7.1__
+* Game Class Added.  
+* Each Game object represents one of the match of leagues.  
+* BAGameTableViewController added.
+  * BAGameTableViewController shows list of games.  
+  * BAGameTableViewController used in Player Information Service and League information Service.  
+* Player Object has Game list type of NSArray.(before NSDictionary)  
+* Published 3 November, 2015.
+
+__0.6.2__
 * Revise Player Information View.  
 * Player Object has Game List type of NSDictionary.  
 * Published 3 November, 2015.

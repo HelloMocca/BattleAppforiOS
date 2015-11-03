@@ -35,6 +35,8 @@
 		C4A96BA01BE0621A00412F9E /* RCBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96B9F1BE0621A00412F9E /* RCBar.m */; };
 		C4A96BA61BE6F5AF00412F9E /* MatchCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */; };
 		C4A96BAC1BE745DB00412F9E /* UIColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BAB1BE745DB00412F9E /* UIColorExtension.m */; };
+		C4A96BAF1BE8835D00412F9E /* BAGameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BAE1BE8835D00412F9E /* BAGameTableViewController.m */; };
+		C4A96BB21BE885A700412F9E /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BB11BE885A700412F9E /* Game.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
@@ -111,6 +113,10 @@
 		C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCalculator.m; sourceTree = "<group>"; };
 		C4A96BAA1BE745DB00412F9E /* UIColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExtension.h; sourceTree = "<group>"; };
 		C4A96BAB1BE745DB00412F9E /* UIColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtension.m; sourceTree = "<group>"; };
+		C4A96BAD1BE8835D00412F9E /* BAGameTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAGameTableViewController.h; sourceTree = "<group>"; };
+		C4A96BAE1BE8835D00412F9E /* BAGameTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAGameTableViewController.m; sourceTree = "<group>"; };
+		C4A96BB01BE885A700412F9E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		C4A96BB11BE885A700412F9E /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,6 +157,8 @@
 				C4A969FB1BCE1FAF00412F9E /* League.m */,
 				C4A96A061BCFA15300412F9E /* Article.h */,
 				C4A96A071BCFA15300412F9E /* Article.m */,
+				C4A96BB01BE885A700412F9E /* Game.h */,
+				C4A96BB11BE885A700412F9E /* Game.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -210,6 +218,8 @@
 				C4A969FE1BCF37FD00412F9E /* BASearchDisplayController.m */,
 				C4A96B431BD8A74F00412F9E /* BAPlayerSearchViewController.h */,
 				C4A96B441BD8A74F00412F9E /* BAPlayerSearchViewController.m */,
+				C4A96BAD1BE8835D00412F9E /* BAGameTableViewController.h */,
+				C4A96BAE1BE8835D00412F9E /* BAGameTableViewController.m */,
 				C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */,
 				C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */,
 				C4A96A091BD08BDC00412F9E /* MainArticleView.h */,
@@ -377,6 +387,7 @@
 				C4A96A0E1BD0968400412F9E /* SubArticleView.m in Sources */,
 				C4A96A0B1BD08BDC00412F9E /* MainArticleView.m in Sources */,
 				C467FAB91BCDF42100AAF522 /* LeagueTableViewController.m in Sources */,
+				C4A96BAF1BE8835D00412F9E /* BAGameTableViewController.m in Sources */,
 				C467FAB51BCCF2B100AAF522 /* PlayerTableViewController.m in Sources */,
 				C4A96A1A1BD0DE3400412F9E /* PlayerTableViewCell.m in Sources */,
 				C4A96A021BCF467C00412F9E /* PlayerInfoViewController.m in Sources */,
@@ -398,6 +409,7 @@
 				C4A96B391BD792F300412F9E /* MatchPlayerStandView.m in Sources */,
 				C467FAAE1BCB92A900AAF522 /* MatchViewController.m in Sources */,
 				C4A969FF1BCF37FD00412F9E /* BASearchDisplayController.m in Sources */,
+				C4A96BB21BE885A700412F9E /* Game.m in Sources */,
 				C4A96B3C1BD7939C00412F9E /* PlayerDescView.m in Sources */,
 				C467FAAB1BCB929400AAF522 /* LeagueViewController.m in Sources */,
 				C467FAB21BCCDD9300AAF522 /* Player.m in Sources */,

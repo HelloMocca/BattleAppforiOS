@@ -43,7 +43,6 @@
     [super viewDidLoad];
     [self setupViews];
     [self connectSearchAPIwithQuery:@""];
-    
 }
 
 - (void)didReceiveMemoryWarning {

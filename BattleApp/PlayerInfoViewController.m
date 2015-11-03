@@ -75,6 +75,7 @@
     [self requestPlayerData];
     [self setupTotalRecordView];
     [self setupOppositeRaceRecordView];
+    [self setupShowPlayerGamesBtn];
 }
 
 - (void)setupTotalRecordView {
@@ -156,9 +157,23 @@
     [oppositeRaceRecordView addSubview:protossDonut];
 }
 
+- (void)setupShowPlayerGamesBtn {
+    UIButton *showPlayerGamesBtn = [[UIButton alloc] init];
+    [showPlayerGamesBtn setFrame:CGRectMake(5, oppositeRaceRecordView.frame.origin.y+oppositeRaceRecordView.frame.size.height+10, screenSize.width-10, 35)];
+    [showPlayerGamesBtn setTitle:@"Show Player Games" forState:UIControlStateNormal];
+    [showPlayerGamesBtn addTarget:self action:@selector(showPlayerGames:) forControlEvents:UIControlEventTouchUpInside];
+    [[self view] addSubview:showPlayerGamesBtn];
+}
+
 #pragma mark -Data request methods
 - (void)requestPlayerData {
     [player requestRecordsData];
+}
+
+#pragma mark -Event handle methods
+- (IBAction)showPlayerGames:(id)sender {
+    BAGameTableViewController *gameTableView = [[BAGameTableViewController alloc] initWithGames:player.games];
+    [[self navigationController] pushViewController:gameTableView animated:YES];
 }
 
 @end

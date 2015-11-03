@@ -22,7 +22,7 @@
     BARecord vsTerranRecord;
     BARecord vsZergRecord;
     BARecord vsProtossRecord;
-    NSDictionary *games;
+    NSArray *games;
 }
 
 @synthesize playerId = playerId;
@@ -71,7 +71,7 @@
     tempStr = [jsonObject valueForKey:@"vsP"];
     vsProtossRecord.win = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:0] integerValue];
     vsProtossRecord.lose = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:1] integerValue];
-    games = [jsonObject valueForKey:@"games"];
+    games = [jsonObject objectForKey:@"games"];
 }
 
 - (BARecord)getOppositeRaceRecordByRaceName:(NSString *)racename {

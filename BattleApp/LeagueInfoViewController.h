@@ -7,7 +7,9 @@
 //
 
 #import "BAViewController.h"
+#import "BAGameTableViewController.h"
 #import "League.h"
+#import "Game.h"
 #import "UIColorExtension.h"
 
 @interface LeagueInfoViewController : BAViewController

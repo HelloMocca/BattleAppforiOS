@@ -7,6 +7,7 @@
 //
 
 #import "BAViewController.h"
+#import "BAGameTableViewController.h"
 #import "Player.h"
 #import "UIColorExtension.h"
 #import "Racoon.h"
