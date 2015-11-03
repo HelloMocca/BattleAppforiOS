@@ -10,7 +10,10 @@
 
 @interface League : NSObject
 
-@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) NSUInteger leagueId;
+@property (nonatomic, readonly) NSString   *title;
+@property (nonatomic, readonly) NSString   *sponsor;
+@property (nonatomic, readonly) NSString   *openDate;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

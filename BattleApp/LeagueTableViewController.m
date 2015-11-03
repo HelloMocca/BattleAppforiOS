@@ -57,7 +57,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     League *league = [leagues objectAtIndex:[indexPath row]];
-    NSLog(@"%@", [league title]);
     LeagueInfoViewController *newViewController = [[LeagueInfoViewController alloc] initWithLeague:league];
     [[self navigationController] pushViewController:newViewController animated:YES];
 }

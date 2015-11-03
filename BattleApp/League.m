@@ -13,15 +13,24 @@
 @implementation League
 
 {
-    NSString *title;
+    NSUInteger leagueId;
+    NSString   *title;
+    NSString   *sponsor;
+    NSString   *openDate;
 }
 
+@synthesize leagueId = leagueId;
 @synthesize title = title;
+@synthesize sponsor = sponsor;
+@synthesize openDate = openDate;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
+        leagueId = [[dictionary valueForKey:@"id"] integerValue];
         title = [dictionary valueForKey:@"name"];
+        sponsor = [dictionary valueForKey:@"sponsor"];
+        openDate = [[dictionary valueForKey:@"openDate"] componentsSeparatedByString:@" "][0];
     }
     return self;
 }

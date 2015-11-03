@@ -3,8 +3,12 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 
 # Screen Shot
 
-# Version History
-__[Latest Version]0.5.2__
+# Version History  
+__[Latest Version]0.6.1__
+* More Article Button provides more news articles maximun 20.  
+* Published 3 November, 2015.
+
+__0.5.2__
 * BAColor deprecated.
 * UIColorExtension category contains color samples as extension of UIColor.
 * Published 2 November, 2015.

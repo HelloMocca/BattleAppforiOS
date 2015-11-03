@@ -15,7 +15,12 @@
     CGSize                      screenSize;
     UIScrollView                *mainScrollView;
     UITapGestureRecognizer      *tapRecognizer;
+    UIButton                    *moreArticleBtn;
     ArticleDetailViewController *articleDetailViewController;
+    UIView                      *subArticleContainerView;
+    
+    int currOffset;
+    int totalArticleCount;
 }
 
 #pragma mark -Initialize methods
@@ -23,6 +28,8 @@
     self = [super init];
     if (self) {
         screenSize = [[UIScreen mainScreen] bounds].size;
+        totalArticleCount = 0;
+        currOffset = 0;
     }
     return self;
 }
@@ -94,23 +101,39 @@
 }
 
 - (void)setupSubArticle {
-    UIView *subArticleContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 260, screenSize.width, 330)];
-    NSUInteger maxArticle = [articles count];
-    if (maxArticle > 5) maxArticle = 5;
-    for (int i = 1; i < maxArticle; i++) {
-        SubArticleView *subArticleView = [[SubArticleView alloc] initWithFrame:CGRectMake(0, ((i-1)*82), screenSize.width, 80) andArticle:[articles objectAtIndex:i]];
-        [subArticleContainerView addSubview:subArticleView];
-        [subArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
-    }
+    subArticleContainerView = [[UIView alloc] init];
+    [self attachSubArticleBegan:1 toEnd:5];
     [mainScrollView addSubview:subArticleContainerView];
 }
 
 - (void)setupMoreArticleBtn {
-    UIButton *moreArticleBtn = [[UIButton alloc] init];
+    moreArticleBtn = [[UIButton alloc] init];
     [moreArticleBtn setFrame:CGRectMake(5, 590, screenSize.width-10, 40)];
     [moreArticleBtn setBackgroundColor:[UIColor facebookBlueColor]];
-    [moreArticleBtn setTitle:@"More News" forState:UIControlStateNormal];
+    [moreArticleBtn setTitle:@"View More Articles" forState:UIControlStateNormal];
+    [moreArticleBtn addTarget:self action:@selector(moreArticleRequest:) forControlEvents:UIControlEventTouchUpInside];
     [mainScrollView addSubview:moreArticleBtn];
+}
+
+- (void)attachSubArticleBegan:(int)beganOffset toEnd:(int)endOffset {
+    if (beganOffset == endOffset) return;
+    int maxArticle = (int)[articles count];
+    if (maxArticle < endOffset) endOffset = maxArticle;
+    for (int i = beganOffset, r = 0; i < endOffset; i++) {
+        SubArticleView *subArticleView = [[SubArticleView alloc] initWithFrame:CGRectMake(0, (totalArticleCount*82)+(r*82), screenSize.width, 80) andArticle:[articles objectAtIndex:i]];
+        [subArticleContainerView addSubview:subArticleView];
+        [subArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
+        r++;
+    }
+    totalArticleCount += endOffset - beganOffset;
+    [subArticleContainerView setFrame:CGRectMake(0, 260, screenSize.width, totalArticleCount*82)];
+    [mainScrollView setContentSize:CGSizeMake(screenSize.width, subArticleContainerView.frame.origin.y + subArticleContainerView.frame.size.height + 40)];
+    currOffset = endOffset;
+}
+
+- (void)refreshMoreArticleBtnPosition {
+    if (moreArticleBtn == nil) return;
+    [moreArticleBtn setFrame:CGRectMake(5, 260+(totalArticleCount*82)+2, screenSize.width-10, 40)];
 }
 
 
@@ -119,6 +142,12 @@
     BAArticleView *tappedav = (BAArticleView *)recognizer.view;
     articleDetailViewController = [[ArticleDetailViewController alloc] initWithArticle:tappedav.article];
     [[self navigationController] pushViewController:articleDetailViewController animated:YES];
+}
+
+#pragma mark -Event Handle methods
+- (IBAction)moreArticleRequest:(id)sender {
+    [self attachSubArticleBegan:currOffset toEnd:currOffset+5];
+    [self refreshMoreArticleBtnPosition];
 }
 
 @end
