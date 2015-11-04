@@ -43,7 +43,7 @@
 }
 
 - (void)setupTableView {
-    leagueTableViewController = [[LeagueTableViewController alloc] initWithLeagues:leagues];
+    leagueTableViewController = [[LeagueTableViewController alloc] init];
     [[leagueTableViewController tableView] setFrame:CGRectMake(0, 5, screenSize.width, screenSize.height)];
     [self addChildViewController:leagueTableViewController];
     [[self view] addSubview:[leagueTableViewController view]];
@@ -68,23 +68,27 @@
 
 #pragma mark -Data request methods
 - (void)requestLeaguesData {
-    leagues = [[NSMutableArray alloc] init];
-    
     NSString *url = @"http://125.209.198.90/battleapp/leagues.php";
-    NSDictionary *jsonObject = [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url]];
+    [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
+        [self performSelectorOnMainThread:@selector(parseLeagueData:) withObject:jsonObject waitUntilDone:NO];
+    } asynchronous:YES];
+}
+
+- (void)parseLeagueData:(NSDictionary *)jsonObject {
+    leagues = [[NSMutableArray alloc] init];
     NSArray *result = [jsonObject objectForKey:@"leagues"];
-    
     for (NSDictionary *currLeague in result) {
         [leagues addObject:[[League alloc] initWithDictionary:currLeague]];
     }
     result = nil;
+    [leagueTableViewController setLeagues:leagues];
+    [[leagueTableViewController tableView] reloadData];
 }
 
 #pragma mark -Event handler methods
 - (IBAction)segmentChanged:(id)sender {
     segmentStatus =  ((UISegmentedControl *)sender).selectedSegmentIndex;
     [self requestLeaguesData];
-    [[leagueTableViewController tableView] reloadData];
 }
 
 @end

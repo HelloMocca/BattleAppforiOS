@@ -26,6 +26,14 @@
 @synthesize dateView = dateView;
 @synthesize article = article;
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setupViews];
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame andArticle:(Article *)aArticle {
     self = [super initWithFrame:frame];
     if (self) {

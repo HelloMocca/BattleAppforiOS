@@ -10,8 +10,27 @@
 
 @implementation MainArticleView
 
+{
+    UIActivityIndicatorView *spinner;
+}
+
 - (void)setupViews {
     [super setupViews];
+    spinner = [[UIActivityIndicatorView alloc] init];
+    spinner.color = [UIColor cloudColor];
+    [spinner startAnimating];
+    [self addSubview:spinner];
+}
+
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    if ([spinner isAnimating]) {
+        [spinner setFrame:self.frame];
+    }
+}
+
+- (void)attachArticle:(Article *)aArticle {
+    self.article = aArticle;
     self.imageView = [[UIImageView alloc] initWithImage:[self.article thumbnail]];
     [self.imageView setFrame:CGRectMake(15, 15, [self bounds].size.width-30, 200)];
     [self addSubview:self.imageView];
@@ -40,6 +59,7 @@
     [self.dateView setTextAlignment:NSTextAlignmentRight];
     [self.dateView setFont:[UIFont systemFontOfSize:13]];
     [self.bottomView addSubview:self.dateView];
+    [spinner removeFromSuperview];
 }
 
 

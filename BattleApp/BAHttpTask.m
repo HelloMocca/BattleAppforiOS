@@ -10,10 +10,35 @@
 
 @implementation BAHttpTask
 
-+ (id)requestJSONObjectFromURL:(NSURL *)url {
++ (void)requestJSONObjectFromURL:(NSURL *)url compeleteHandler:(void (^)(NSURLResponse* response, NSDictionary* jsonObject, NSError* connectionError)) handler asynchronous:(BOOL)async{
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    if (async) {
+        NSOperationQueue *queue = [self getOperationQueue];
+        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse* response, NSData* data, NSError* connectionError){
+            [BAHttpTask didRequestCompleteWithData:data withHandler:handler];
+        }];
+    } else {
+        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        [BAHttpTask didRequestCompleteWithData:data withHandler:handler];
+    }
+}
+
++ (void)didRequestCompleteWithData:(NSData *)data withHandler:(void (^)(NSURLResponse* response, NSDictionary* jsonObject, NSError* connectionError))handler {
+    NSDictionary *jsonObject;
+    if (data != nil) {
+        jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NO error:nil];
+    }
+    handler(nil, jsonObject, nil);
+}
+
++ (NSOperationQueue *)getOperationQueue {
+    static NSOperationQueue *operationQueue = nil;
+    @synchronized(self) {
+        if (operationQueue == nil) {
+            operationQueue = [[NSOperationQueue alloc] init];
+        }
+    }
+    return operationQueue;
 }
 
 @end

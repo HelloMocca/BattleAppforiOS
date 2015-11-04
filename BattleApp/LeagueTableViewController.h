@@ -14,4 +14,6 @@
 
 - (instancetype) initWithLeagues:(NSMutableArray *)aLeagues;
 
+- (void)setLeagues:(NSArray *)leagueArray;
+
 @end

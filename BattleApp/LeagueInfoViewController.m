@@ -29,7 +29,7 @@
     [super viewDidLoad];
     screenSize = [[UIScreen mainScreen] bounds].size;
     [self setupLeagueLabelView];
-    [self setupLeagueGameView];
+    [self requestLeagueGameData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,8 +54,7 @@
     [[self view] addSubview:leagueLabelView];
 }
 
-- (void)setupLeagueGameView {
-    NSDictionary *jsonObject = [self requestLeagueGameData];
+- (void)setupLeagueGameView:(NSDictionary *)jsonObject {
     games = [jsonObject objectForKey:@"games"];
     BAGameTableViewController *gameTableVC = [[BAGameTableViewController alloc] initWithGames:games];
     [[gameTableVC tableView] setFrame:CGRectMake(0, leagueLabelView.frame.origin.y+leagueLabelView.frame.size.height+10, screenSize.width, screenSize.height - leagueLabelView.frame.size.height - 10)];
@@ -63,11 +62,12 @@
     [[self view] addSubview:[gameTableVC tableView]];
 }
 
-- (NSDictionary *)requestLeagueGameData {
+- (void)requestLeagueGameData {
     //Dummy Data!
     NSString *url = @"http://125.209.198.90/battleapp/games.php?lid=4";
-    NSDictionary *jsonObject = [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url]];
-    return jsonObject;
+    [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
+        [self performSelectorOnMainThread:@selector(setupLeagueGameView:) withObject:jsonObject waitUntilDone:NO];
+    } asynchronous:YES];
 }
 
 @end

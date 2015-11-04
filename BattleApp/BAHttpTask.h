@@ -10,6 +10,6 @@
 
 @interface BAHttpTask : NSObject
 
-+ (id)requestJSONObjectFromURL:(NSURL *)url;
++ (void)requestJSONObjectFromURL:(NSURL *)url compeleteHandler:(void (^)(NSURLResponse* response, NSDictionary* jsonObject, NSError* connectionError)) handler asynchronous:(BOOL)async;
 
 @end

@@ -22,6 +22,8 @@
     UIButton                  *morePlayerBtn;
     
     BASearchDisplayController *searchController;
+    UIActivityIndicatorView   *spinner;
+    
 }
 
 #define ODD_COLOR [UIColor colorWithWhite:14/255.0f alpha:.6f]
@@ -42,7 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
-    [self connectSearchAPIwithQuery:@""];
+    [self requestPlayerList:@""];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +82,7 @@
 #pragma mark -UISearchDisplayDelegate implements
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    [self connectSearchAPIwithQuery:searchString];
+    [self requestPlayerList:searchString];
     return YES;
 }
 
@@ -89,8 +91,14 @@
     screenSize = [[UIScreen mainScreen] bounds].size;
     [[[self navigationController] navigationBar] setBarTintColor:[UIColor blackColor]];
     [[self view] setBackgroundColor:[UIColor clearColor]];
+    [self setupSpinnerView];
     [self setupSearchBar];
     [self setupTableView];
+}
+
+- (void)setupSpinnerView {
+    spinner = [[UIActivityIndicatorView alloc] init];
+    [self.view addSubview:spinner];
 }
 
 - (void)setupSearchBar {
@@ -105,8 +113,6 @@
     [[self tableView] setRowHeight:80];
     [[self tableView] registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:@"playerCell"];
     [[self tableView] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [[self tableView] setSeparatorInset:UIEdgeInsetsZero];
-    [[self tableView] setSeparatorColor:[UIColor colorWithRed:108/255.0f green:108/255.0f blue:108/255.0f alpha:1.00f]];
     cellView = [[UIView alloc] init];
     [cellView setBackgroundColor:[UIColor blackColor]];
     [self setupMoreBtn];
@@ -120,13 +126,29 @@
     [[self tableView] setTableFooterView:morePlayerBtn];
 }
 
-#pragma mark -Data request methods
-- (void)connectSearchAPIwithQuery:(NSString *)query {
-    if ([query isEqual:nil]) {
-        query = @"";
+- (void)didRequestStart {
+    [morePlayerBtn setHidden:YES];
+    if (![spinner isAnimating]) {
+        [spinner setFrame:self.view.frame];
+        spinner.color = [UIColor cloudColor];
+        [spinner startAnimating];
     }
-    NSDictionary *jsonObject = [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:[url stringByAppendingString:query]]];
-    [self parsingJsonObject:jsonObject];
+}
+
+- (void)didRequestEnd {
+    offset = 0;
+    [self morePlayerRequest:nil];
+    [spinner stopAnimating];
+}
+
+#pragma mark -Data request methods
+- (void)requestPlayerList:(NSString *)query {
+    [self didRequestStart];
+    query = ([query isEqual:nil]) ? @"" : query;
+    id handler = ^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError){
+       [self performSelectorOnMainThread:@selector(parsingJsonObject:) withObject:jsonObject waitUntilDone:NO];
+    };
+    [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:[url stringByAppendingString:query]] compeleteHandler:handler asynchronous:YES];
 }
 
 #pragma mark -Data parsing methods
@@ -140,10 +162,7 @@
     for (NSDictionary *currPlayer in result) {
         [players addObject:[[Player alloc] initWithDictionary:currPlayer]];
     }
-    offset = 0;
-    [morePlayerBtn setHidden:NO];
-    [self morePlayerRequest:nil];
-    result = nil;
+    [self didRequestEnd];
 }
 
 #pragma mark -Event handle methods
@@ -152,6 +171,8 @@
     if (offset > [players count]) {
         offset = [players count];
         [morePlayerBtn setHidden:YES];
+    } else {
+        [morePlayerBtn setHidden:NO];
     }
     [[self tableView] reloadData];
 }

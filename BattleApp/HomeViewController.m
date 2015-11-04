@@ -18,6 +18,7 @@
     UIButton                    *moreArticleBtn;
     UIView                      *subArticleContainerView;
     ArticleDetailViewController *articleDetailViewController;
+    MainArticleView             *mainArticleView;
     
     int currOffset;
     int totalArticleCount;
@@ -58,7 +59,12 @@
 #pragma mark -Request data method
 - (void)requestNewsData {
     NSString *url = @"http://125.209.198.90/battleapp/wcsnews.php";
-    NSDictionary *jsonObject = [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url]];
+    [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
+        [self performSelectorOnMainThread:@selector(attachNewsArticles:) withObject:jsonObject waitUntilDone:NO];
+    }  asynchronous:NO];
+}
+
+- (void)attachNewsArticles:(NSDictionary *)jsonObject {
     if ([jsonObject count] == 0) {
         NSLog(@"news article data is nil");
         return;
@@ -70,8 +76,10 @@
         [articles addObject:[[Article alloc] initWithDictionary:currArticle]];
     }
     result = nil;
+    [self setupMainArticle];
+    [self setupSubArticle];
+    [self setupMoreArticleBtn];
 }
-
 
 #pragma mark -Setup View methods
 - (void)setupScrollView {
@@ -86,16 +94,19 @@
 
 - (void)setupNews {
     [self requestNewsData];
-    [self setupMainArticle];
-    [self setupSubArticle];
-    [self setupMoreArticleBtn];
+    [self setupMainArticleView];
+}
+
+- (void)setupMainArticleView {
+    mainArticleView = [[MainArticleView alloc] init];
+    [mainArticleView setFrame:CGRectMake(0, 0, screenSize.width, 250)];
+    [mainScrollView addSubview:mainArticleView];
 }
 
 - (void)setupMainArticle {
-    if ([articles count] == 0) return; //article null check
+    if ([articles count] == 0) return;
     Article *mainArticle = [articles objectAtIndex:0];
-    UIView *mainArticleView = [[MainArticleView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 250) andArticle:mainArticle];
-    [mainScrollView addSubview:mainArticleView];
+    [mainArticleView attachArticle:mainArticle];
     [mainArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
 }
 

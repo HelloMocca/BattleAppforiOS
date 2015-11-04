@@ -54,7 +54,9 @@
 - (void)requestRecordsData {
     //Synchronous request...
     NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/playerRecords.php?pid=%ld",(long)playerId];
-    NSDictionary *jsonObject = [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NO error:nil];
     totalRecord.win = [[jsonObject valueForKey:@"win"] integerValue];
     totalRecord.lose = [[jsonObject valueForKey:@"lose"] integerValue];
     NSString *tempStr = [jsonObject valueForKey:@"recent5Games"];

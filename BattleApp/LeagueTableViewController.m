@@ -34,7 +34,10 @@
     [super didReceiveMemoryWarning];
 }
 
-
+#pragma mark -Accessor methods
+- (void)setLeagues:(NSArray *)leagueArray {
+    leagues = [NSArray arrayWithArray:leagueArray];
+}
 
 #pragma mark -UITableViewController implements
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
