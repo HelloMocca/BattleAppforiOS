@@ -66,9 +66,8 @@
 - (NSDictionary *)requestLeagueGameData {
     //Dummy Data!
     NSString *url = @"http://125.209.198.90/battleapp/games.php?lid=4";
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSDictionary *jsonObject = [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url]];
+    return jsonObject;
 }
 
 @end

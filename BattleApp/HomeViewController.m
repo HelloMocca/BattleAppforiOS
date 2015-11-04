@@ -16,8 +16,8 @@
     UIScrollView                *mainScrollView;
     UITapGestureRecognizer      *tapRecognizer;
     UIButton                    *moreArticleBtn;
-    ArticleDetailViewController *articleDetailViewController;
     UIView                      *subArticleContainerView;
+    ArticleDetailViewController *articleDetailViewController;
     
     int currOffset;
     int totalArticleCount;
@@ -57,17 +57,16 @@
 
 #pragma mark -Request data method
 - (void)requestNewsData {
-    articles = [[NSMutableArray alloc] init];
     NSString *url = @"http://125.209.198.90/battleapp/wcsnews.php";
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSDictionary *jsonObject = [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url]];
     if ([jsonObject count] == 0) {
         NSLog(@"news article data is nil");
         return;
     }
     NSArray *result = [jsonObject objectForKey:@"articles"];
-    for (NSDictionary *currArticle in result) {
+    articles = [[NSMutableArray alloc] init];
+    NSDictionary *currArticle;
+    for (currArticle in result) {
         [articles addObject:[[Article alloc] initWithDictionary:currArticle]];
     }
     result = nil;
@@ -143,7 +142,6 @@
     [[self navigationController] pushViewController:articleDetailViewController animated:YES];
 }
 
-#pragma mark -Event Handle methods
 - (IBAction)moreArticleRequest:(id)sender {
     [self attachSubArticleBegan:currOffset toEnd:currOffset+5];
     [self refreshMoreArticleBtnPosition];

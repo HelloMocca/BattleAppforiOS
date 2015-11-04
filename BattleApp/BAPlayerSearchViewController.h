@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
+#import "BAHttpTask.h"
 #import "BASearchDisplayController.h"
 #import "PlayerTableViewCell.h"
 #import "PlayerInfoViewController.h"

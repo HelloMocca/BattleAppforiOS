@@ -37,6 +37,7 @@
 		C4A96BAC1BE745DB00412F9E /* UIColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BAB1BE745DB00412F9E /* UIColorExtension.m */; };
 		C4A96BAF1BE8835D00412F9E /* BAGameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BAE1BE8835D00412F9E /* BAGameTableViewController.m */; };
 		C4A96BB21BE885A700412F9E /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BB11BE885A700412F9E /* Game.m */; };
+		C4A96BB51BE8BD0F00412F9E /* BAHttpTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BB41BE8BD0F00412F9E /* BAHttpTask.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
@@ -117,6 +118,8 @@
 		C4A96BAE1BE8835D00412F9E /* BAGameTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAGameTableViewController.m; sourceTree = "<group>"; };
 		C4A96BB01BE885A700412F9E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		C4A96BB11BE885A700412F9E /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		C4A96BB31BE8BD0F00412F9E /* BAHttpTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHttpTask.h; sourceTree = "<group>"; };
+		C4A96BB41BE8BD0F00412F9E /* BAHttpTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHttpTask.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */,
 				C4A96BAA1BE745DB00412F9E /* UIColorExtension.h */,
 				C4A96BAB1BE745DB00412F9E /* UIColorExtension.m */,
+				C4A96BB31BE8BD0F00412F9E /* BAHttpTask.h */,
+				C4A96BB41BE8BD0F00412F9E /* BAHttpTask.m */,
 			);
 			path = BattleApp;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */,
 				C4A96A081BCFA15300412F9E /* Article.m in Sources */,
 				C467FAA81BCB8F2F00AAF522 /* BANavigationController.m in Sources */,
+				C4A96BB51BE8BD0F00412F9E /* BAHttpTask.m in Sources */,
 				C4A96A141BD0BCC200412F9E /* ArticleDetailViewController.m in Sources */,
 				C4A96B581BDA20A000412F9E /* RCStackBar.m in Sources */,
 				C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */,

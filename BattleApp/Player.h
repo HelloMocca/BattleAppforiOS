@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BAHttpTask.h"
 
 struct BARecord {
     NSUInteger win;

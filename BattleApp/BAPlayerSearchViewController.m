@@ -125,9 +125,8 @@
     if ([query isEqual:nil]) {
         query = @"";
     }
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[url stringByAppendingString:query]]];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    [self parsingJsonObject:[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil]];
+    NSDictionary *jsonObject = [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:[url stringByAppendingString:query]]];
+    [self parsingJsonObject:jsonObject];
 }
 
 #pragma mark -Data parsing methods

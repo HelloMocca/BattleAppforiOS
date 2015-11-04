@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BAViewController.h"
+#import "BAHttpTask.h"
 #import "Article.h"
 #import "MainArticleView.h"
 #import "SubArticleView.h"

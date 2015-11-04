@@ -7,6 +7,7 @@
 //
 
 #import "BAViewController.h"
+#import "BAHttpTask.h"
 #import "BAGameTableViewController.h"
 #import "League.h"
 #import "Game.h"

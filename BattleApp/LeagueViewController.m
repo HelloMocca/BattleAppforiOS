@@ -71,13 +71,7 @@
     leagues = [[NSMutableArray alloc] init];
     
     NSString *url = @"http://125.209.198.90/battleapp/leagues.php";
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    if ([data isEqual:nil]) {
-        NSLog(@"leagues data is nil");
-        return;
-    }
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSDictionary *jsonObject = [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url]];
     NSArray *result = [jsonObject objectForKey:@"leagues"];
     
     for (NSDictionary *currLeague in result) {
