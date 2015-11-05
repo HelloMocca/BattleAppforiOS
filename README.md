@@ -4,7 +4,13 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
-__[Latest Version]0.8.1__
+__[Latest Version]0.8.2__
+* BAOperationQueue created.
+* Application has one BAOperationQueue (Single instance).  
+* BAHttpTask is not manages OperationQueue instance no more.  
+* Published 5 November, 2015.
+
+__0.8.1__
 * BAGameTableViewController's tableview event added.  
 * VOD WebView showup when select sell of BAGameTableViewController's tableview.  
 * BAArticleDetailViewController Deprecated.(use BAWebViewController instead.)  

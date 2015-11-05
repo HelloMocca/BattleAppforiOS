@@ -13,7 +13,7 @@
 + (void)requestJSONObjectFromURL:(NSURL *)url compeleteHandler:(void (^)(NSURLResponse* response, NSDictionary* jsonObject, NSError* connectionError)) handler asynchronous:(BOOL)async{
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     if (async) {
-        NSOperationQueue *queue = [self getOperationQueue];
+        NSOperationQueue *queue = [BAOperationQueue getOperationQueue];
         [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse* response, NSData* data, NSError* connectionError){
             [BAHttpTask didRequestCompleteWithData:data withHandler:handler];
         }];
@@ -29,16 +29,6 @@
         jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NO error:nil];
     }
     handler(nil, jsonObject, nil);
-}
-
-+ (NSOperationQueue *)getOperationQueue {
-    static NSOperationQueue *operationQueue = nil;
-    @synchronized(self) {
-        if (operationQueue == nil) {
-            operationQueue = [[NSOperationQueue alloc] init];
-        }
-    }
-    return operationQueue;
 }
 
 @end
