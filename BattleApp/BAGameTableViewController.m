@@ -12,6 +12,7 @@
 
 {
     NSArray *games;
+    BAWebViewController *vodViewController;
 }
 
 - (instancetype)initWithGames:(NSArray *)array {
@@ -34,6 +35,10 @@
     [[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"gameCell"];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    vodViewController = nil;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -54,6 +59,12 @@
     [[cell textLabel] setText:matchName];
     [[cell detailTextLabel] setText:[game title]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Game *currGame = [games objectAtIndex:[indexPath row]];
+    vodViewController = [[BAWebViewController alloc] initWithLink:@"https://youtu.be/MeH_z7Qe0CE"];
+    [[self navigationController] pushViewController:vodViewController animated:NO];
 }
 
 @end

@@ -4,12 +4,19 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
-__[Latest Version]0.7.3__
+__[Latest Version]0.8.1__
+* BAGameTableViewController's tableview event added.  
+* VOD WebView showup when select sell of BAGameTableViewController's tableview.  
+* BAArticleDetailViewController Deprecated.(use BAWebViewController instead.)  
+* BAWebViewController created.  
+* Published 5 November, 2015.  
+
+__0.7.3__
 * BAHttpTask provides Asynchronous request also Synchronous request.  
    * HomeController's news request -> Sync.  
    * PlayerTableController's playerlist request -> Async.  
    * Player's record request -> Sync.  
-   * LeagueController's leaguelist request -> Async.  
+   * LeagueController's leaguelist request -> Async.
 * Published 4 November, 2015.
   
 __[Latest Version]0.7.2__

@@ -68,7 +68,10 @@
 
 #pragma mark -Data request methods
 - (void)requestLeaguesData {
-    NSString *url = @"http://125.209.198.90/battleapp/leagues.php";
+    NSString *url;
+    if (segmentStatus == PREMIER_STATE) url = @"http://125.209.198.90/battleapp/leagues.php";
+    else if (segmentStatus == MAJOR_STATE) url =  @"http://125.209.198.90/battleapp/major.json";
+    else url =  @"http://125.209.198.90/battleapp/minor.json";
     [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
         [self performSelectorOnMainThread:@selector(parseLeagueData:) withObject:jsonObject waitUntilDone:NO];
     } asynchronous:YES];

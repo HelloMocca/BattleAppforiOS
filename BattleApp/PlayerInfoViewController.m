@@ -55,7 +55,7 @@
     playerLabelView = [[UIView alloc] initWithFrame:CGRectMake(130, 100, screenSize.width-130, 80)];
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, playerLabelView.bounds.size.width, 50)];
     [nameLabel setText:player.playId];
-    [nameLabel setTextColor:[UIColor sunflowerColor]];
+    [nameLabel setTextColor:[UIColor dodgerBlueColor]];
     [nameLabel setFont:[UIFont boldSystemFontOfSize:25.0f]];
     UILabel *teamLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, playerLabelView.bounds.size.width, 50)];
     [teamLabel setText:player.team];
@@ -160,6 +160,7 @@
 - (void)setupShowPlayerGamesBtn {
     UIButton *showPlayerGamesBtn = [[UIButton alloc] init];
     [showPlayerGamesBtn setFrame:CGRectMake(5, oppositeRaceRecordView.frame.origin.y+oppositeRaceRecordView.frame.size.height+10, screenSize.width-10, 35)];
+    [showPlayerGamesBtn setBackgroundColor:[UIColor facebookBlueColor]];
     [showPlayerGamesBtn setTitle:@"Show Player Games" forState:UIControlStateNormal];
     [showPlayerGamesBtn addTarget:self action:@selector(showPlayerGames:) forControlEvents:UIControlEventTouchUpInside];
     [[self view] addSubview:showPlayerGamesBtn];

@@ -17,7 +17,7 @@
     UITapGestureRecognizer      *tapRecognizer;
     UIButton                    *moreArticleBtn;
     UIView                      *subArticleContainerView;
-    ArticleDetailViewController *articleDetailViewController;
+    BAWebViewController         *articleDetailViewController;
     MainArticleView             *mainArticleView;
     
     int currOffset;
@@ -44,6 +44,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self applyTransparentBackgroundToTheNavigationBar:0];
+    articleDetailViewController = nil;
 }
 
 - (void)setupViews {
@@ -149,7 +150,7 @@
 #pragma mark -Event handle methods
 - (void)articleTap:(UITapGestureRecognizer *)recognizer {
     BAArticleView *tappedav = (BAArticleView *)recognizer.view;
-    articleDetailViewController = [[ArticleDetailViewController alloc] initWithArticle:tappedav.article];
+    articleDetailViewController = [[BAWebViewController alloc] initWithLink:[@"http://wcs.battle.net" stringByAppendingString:tappedav.article.link]];
     [[self navigationController] pushViewController:articleDetailViewController animated:YES];
 }
 

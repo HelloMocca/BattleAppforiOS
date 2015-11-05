@@ -13,7 +13,7 @@
 #import "MainArticleView.h"
 #import "SubArticleView.h"
 #import "BAArticleView.h"
-#import "ArticleDetailViewController.h"
+#import "BAWebViewController.h"
 
 @interface HomeViewController : BAViewController
 
