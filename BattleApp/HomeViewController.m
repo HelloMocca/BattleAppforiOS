@@ -39,17 +39,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[[self navigationController] navigationBar] setShadowImage:[[UIImage alloc] init]];
-    [self setupViews];
+    [self setupSubviews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self applyTransparentBackgroundToTheNavigationBar:0];
     articleDetailViewController = nil;
-}
-
-- (void)setupViews {
-    [self setupScrollView];
-    [self setupNews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,6 +78,11 @@
 }
 
 #pragma mark -Setup View methods
+- (void)setupSubviews {
+    [self setupScrollView];
+    [self setupNews];
+}
+
 - (void)setupScrollView {
     mainScrollView = [[UIScrollView alloc] init];
     [mainScrollView setFrame:CGRectMake(0, -40, screenSize.width, screenSize.height)];

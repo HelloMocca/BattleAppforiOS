@@ -30,7 +30,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self setupViews];
+        [self allocInitSubviews];
+        [self setupSubviews];
+        [self addSubviews];
     }
     return self;
 }
@@ -54,6 +56,39 @@
 }
 
 #pragma mark -Setup Views
+- (void)allocInitSubviews {
+    thumbnail = [[UIImageView alloc] init];
+    playIdLabel = [[UILabel alloc] init];
+    teamLabel = [[UILabel alloc] init];
+    raceLabel = [[UILabel alloc] init];
+}
+
+- (void)setupSubviews {
+    [thumbnail setUserInteractionEnabled:YES];
+    [thumbnail setImage:[UIImage imageNamed:@"noprofile"]];
+    [thumbnail addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapThumbnail:)]];
+
+    [playIdLabel setTextColor:[UIColor baYellowColor]];
+    [playIdLabel setFont:[UIFont boldSystemFontOfSize:20]];
+    [playIdLabel setTextAlignment:NSTextAlignmentCenter];
+    [playIdLabel setText:@"SelectPlayer"];
+
+    [teamLabel setTextColor:[UIColor baWhiteColor]];
+    [teamLabel setTextAlignment:NSTextAlignmentCenter];
+    [teamLabel setFont:[UIFont systemFontOfSize:13]];
+
+    [raceLabel setTextColor:[UIColor baWhiteColor]];
+    [raceLabel setTextAlignment:NSTextAlignmentCenter];
+    [raceLabel setFont:[UIFont systemFontOfSize:13]];
+}
+
+- (void)addSubviews {
+    [self addSubview:thumbnail];
+    [self addSubview:playIdLabel];
+    [self addSubview:teamLabel];
+    [self addSubview:raceLabel];
+}
+
 - (void)setupPlayer:(Player *)aPlayer {
     player = aPlayer;
     [thumbnail setImage:[player thumbnail]];
@@ -62,37 +97,7 @@
     [raceLabel setText:[player race]];
 }
 
-- (void)setupViews {
-    thumbnail = [[UIImageView alloc] init];
-    [thumbnail setUserInteractionEnabled:YES];
-    [thumbnail setImage:[UIImage imageNamed:@"noprofile"]];
-    [self addSubview:thumbnail];
-    
-    playIdLabel = [[UILabel alloc] init];
-    [playIdLabel setTextColor:[UIColor baYellowColor]];
-    [playIdLabel setFont:[UIFont boldSystemFontOfSize:20]];
-    [playIdLabel setTextAlignment:NSTextAlignmentCenter];
-    [playIdLabel setText:@"SelectPlayer"];
-    [self addSubview:playIdLabel];
-    
-    teamLabel = [[UILabel alloc] init];
-    [teamLabel setTextColor:[UIColor baWhiteColor]];
-    [teamLabel setTextAlignment:NSTextAlignmentCenter];
-    [teamLabel setFont:[UIFont systemFontOfSize:13]];
-    [teamLabel setText:@""];
-    [self addSubview:teamLabel];
-    
-    raceLabel = [[UILabel alloc] init];
-    [raceLabel setTextColor:[UIColor baWhiteColor]];
-    [raceLabel setTextAlignment:NSTextAlignmentCenter];
-    [raceLabel setFont:[UIFont systemFontOfSize:13]];
-    [raceLabel setText:@""];
-    [self addSubview:raceLabel];
-    
-    [thumbnail addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapThumbnail:)]];
-}
-
-#pragma mark -Event hanlder methods
+#pragma mark -Event handle methods
 - (void)tapThumbnail:(UITapGestureRecognizer *)recongnizer {
     if (delegate != nil) [delegate requestPlayer:self];
 }

@@ -11,15 +11,15 @@
 @implementation MatchCalculator
 
 {
-    Player   *mPlayer1;
-    Player   *mPlayer2;
-    BARecord competitionRecord;
+    Player         *mPlayer1;
+    Player         *mPlayer2;
+    Score          *competitionScore;
     NSMutableArray *returnArray;
 }
 
 @synthesize mPlayer1 = mPlayer1;
 @synthesize mPlayer2 = mPlayer2;
-@synthesize competitionRecord = competitionRecord;
+@synthesize competitionScore = competitionScore;
 
 
 - (instancetype)initWithPlayer1:(Player *)player1 andPlayer2:(Player *)player2 {
@@ -32,23 +32,22 @@
     return self;
 }
 
-- (void)getCompetitionRecord {
+- (void)setCompetitionRecord {
     NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/verdict.php?pid1=%ld&pid2=%ld",mPlayer1.playerId, mPlayer2.playerId];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    competitionRecord.win = [[jsonObject valueForKey:@"win"] integerValue];
-    competitionRecord.lose = [[jsonObject valueForKey:@"lose"] integerValue];
+    competitionScore = [[Score alloc] initWithWin:[[jsonObject objectForKey:@"win"] intValue] lose:[[jsonObject objectForKey:@"lose"] intValue]];
 }
 
-- (void)getPlayerRecord {
+- (void)setPlayerRecord {
     [mPlayer1 requestRecordsData];
     [mPlayer2 requestRecordsData];
 }
 
 - (NSArray *)matchCalculate {
-    [self getCompetitionRecord];
-    [self getPlayerRecord];
+    [self setCompetitionRecord];
+    [self setPlayerRecord];
     
     float total = [self calcTotalScore];
     [returnArray addObject:@[@"Total Record",@"",@"",@(total)]];
@@ -63,56 +62,46 @@
     return [returnArray copy];
 }
 
+- (float)rateOfA:(float)a withB:(float)b {
+    float rate = a / (a + b);
+    rate = (isnan(rate)) ? 0.50f : rate;
+    return rate;
+}
+
 - (float)calcTotalScore {
-    float player1WinRate = [mPlayer1 totalRecord].win*1.0f / ([mPlayer1 totalRecord].win + [mPlayer1 totalRecord].lose)*1.0f;
-    float player2WinRate = [mPlayer2 totalRecord].win*1.0f / ([mPlayer2 totalRecord].win + [mPlayer2 totalRecord].lose)*1.0f;
-    player1WinRate = (isnan(player1WinRate)) ? 0 : player1WinRate;
-    player2WinRate = (isnan(player2WinRate)) ? 0 : player2WinRate;
-    if (player1WinRate == 0 && player2WinRate == 0) {
-        return 0.50f;
-    }
-    float winRateScore = player1WinRate*100.0f / (player1WinRate*100.0f + player2WinRate*100.0f);
-    return winRateScore;
+    float totalWinRate = mPlayer1.record.total.rate / (float)(mPlayer1.record.total.rate + mPlayer2.record.total.rate);
+    totalWinRate = (isnan(totalWinRate)) ? 0.50f : totalWinRate;
+    return totalWinRate;
 }
 
 - (float)calcCompetitionScore {
-    float competitionWinRate = competitionRecord.win*1.0f / (competitionRecord.win + competitionRecord.lose)*1.0f;
+    float competitionWinRate = competitionScore.win / (float)(competitionScore.win + competitionScore.lose);
     competitionWinRate = (isnan(competitionWinRate)) ? 0.50f : competitionWinRate;
     return competitionWinRate;
 }
 
 - (float)calcRecentGameScore {
-    float player1RecentGame = ([mPlayer1 recent5Record].win*1.0f) / ([mPlayer1 recent5Record].win + [mPlayer1 recent5Record].lose)*1.0f;
-    float player2RecentGame = ([mPlayer2 recent5Record].win*1.0f) / ([mPlayer2 recent5Record].win + [mPlayer2 recent5Record].lose)*1.0f;
-    player1RecentGame = (isnan(player1RecentGame)) ? 0 : player1RecentGame;
-    player2RecentGame = (isnan(player2RecentGame)) ? 0 : player2RecentGame;
-    if (player1RecentGame == 0 && player2RecentGame == 0) {
-        return 0.50f;
-    }
-    float recentGameWinRate = player1RecentGame*100.0f / (player1RecentGame*100.0f + player2RecentGame*100.0f);
+    float recentGameWinRate = mPlayer1.record.recent5.rate / (float)(mPlayer1.record.recent5.rate + mPlayer2.record.recent5.rate);
+    recentGameWinRate = (isnan(recentGameWinRate)) ? 0.50f : recentGameWinRate;
     return recentGameWinRate;
 }
 
 - (float)calcOppositeRaceScore {
-    BARecord p1OppositeRaceScore = [mPlayer1 getOppositeRaceRecordByRaceName:[mPlayer2 race]];
-    BARecord p2OppositeRaceScore = [mPlayer1 getOppositeRaceRecordByRaceName:[mPlayer1 race]];
-    float player1WinRate = (p1OppositeRaceScore.win*1.0f) / (p1OppositeRaceScore.win + p1OppositeRaceScore.lose)*1.0f;
-    float player2WinRate = (p2OppositeRaceScore.lose*1.0f) / (p2OppositeRaceScore.win + p2OppositeRaceScore.lose)*1.0f;
-    player1WinRate = (isnan(player1WinRate)) ? 0 : player1WinRate;
-    player2WinRate = (isnan(player2WinRate)) ? 0 : player2WinRate;
-    if (player1WinRate == 0 && player2WinRate == 0) {
-        return 0.50f;
-    }
-    float winRateScore = player1WinRate*100.0f / (player1WinRate * 100.0f + player2WinRate * 100.0f);
-    return winRateScore;
+    Score *p1OppositeRaceScore = [mPlayer1 oppositeRaceScoreByRaceName:[mPlayer2 race]];
+    Score *p2OppositeRaceScore = [mPlayer1 oppositeRaceScoreByRaceName:[mPlayer1 race]];
+    float player1WinRate = p1OppositeRaceScore.rate;
+    float player2WinRate = p2OppositeRaceScore.rate;
+    float oppositeRaceWinRate = player1WinRate / (float)(player1WinRate + player2WinRate);
+    oppositeRaceWinRate = (isnan(oppositeRaceWinRate)) ? 0.50f : oppositeRaceWinRate;
+    return oppositeRaceWinRate;
 }
 
-- (float)calcMatchScoreFromTotal:(float)totalScore competition:(float)competitionScore recentGame:(float)recentGameScore oppositeRace:(float)oppositeRaceScore {
+- (float)calcMatchScoreFromTotal:(float)totalScore competition:(float)competition recentGame:(float)recentGameScore oppositeRace:(float)oppositeRaceScore {
     totalScore *= 100.0f;
-    competitionScore *= 100.0f;
+    competition *= 100.0f;
     recentGameScore *= 100.0f;
     oppositeRaceScore *= 100.0f;
-    float matchScore = (totalScore+competitionScore+recentGameScore+oppositeRaceScore) / 400.0f;
+    float matchScore = (totalScore+competition+recentGameScore+oppositeRaceScore) / 400.0f;
     return matchScore;
 }
 

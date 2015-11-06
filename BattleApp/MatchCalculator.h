@@ -13,7 +13,7 @@
 
 @property (nonatomic, readonly)  Player   *mPlayer1;
 @property (nonatomic, readonly)  Player   *mPlayer2;
-@property (nonatomic, readwrite) BARecord competitionRecord;
+@property (nonatomic, readwrite) Score   *competitionScore;
 
 - (instancetype)initWithPlayer1:(Player *)player1 andPlayer2:(Player *)player2;
 

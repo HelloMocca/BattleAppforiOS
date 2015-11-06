@@ -154,7 +154,7 @@
 #pragma mark -Data parsing methods
 - (void)parsingJsonObject:(NSDictionary *)jsonObject {
     if ([jsonObject count] == 0) {
-        NSLog(@"player data is nil");
+        NSLog(@"JSON NOT EXIST ERROR");
         return;
     }
     players = [[NSMutableArray alloc] init];

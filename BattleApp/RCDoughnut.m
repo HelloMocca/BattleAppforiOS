@@ -13,14 +13,15 @@
 {
     float   ratio;
     float   currRatio;
-    CGPoint center;
+    
+    CGPoint center; // deprecate
     CGFloat radius;
     CGFloat padding;
     CGFloat doughnutWidth;
     UILabel *titleLabel;
     UILabel *numericLabel;
     
-    BOOL numericLabelVisible;
+    BOOL numericLabelVisible; //deprecate
 }
 
 @synthesize titleLabel = titleLabel;

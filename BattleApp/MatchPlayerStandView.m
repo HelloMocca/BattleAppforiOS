@@ -36,10 +36,19 @@
     return self;
 }
 
+#pragma mark -Setter methods
 - (void)setDelegate:(id<PlayerDescViewDelegate>)aDelegate {
     delegate = aDelegate;
     [player1View setDelegate:delegate];
     [player2View setDelegate:delegate];
+}
+
+#pragma mark -Getter methods
+- (BOOL)isAllPlayerSelected {
+    if ([player1View player] != nil && [player2View player] != nil) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark -Setup view methods
@@ -55,17 +64,6 @@
     
     [self addSubview:player1View];
     [self addSubview:player2View];
-}
-
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
-}
-
-- (BOOL)isAllPlayerSelected {
-    if ([player1View player] != nil && [player2View player] != nil) {
-        return YES;
-    }
-    return NO;
 }
 
 @end

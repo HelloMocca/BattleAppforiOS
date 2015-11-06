@@ -17,12 +17,7 @@
     NSString *race;
     NSString *team;
     UIImage  *thumbnail;
-    BARecord totalRecord;
-    BARecord recent5Record;
-    BARecord vsTerranRecord;
-    BARecord vsZergRecord;
-    BARecord vsProtossRecord;
-    NSArray *games;
+    Record   *record;
 }
 
 @synthesize playerId = playerId;
@@ -31,12 +26,7 @@
 @synthesize race = race;
 @synthesize team = team;
 @synthesize thumbnail = thumbnail;
-@synthesize totalRecord = totalRecord;
-@synthesize recent5Record = recent5Record;
-@synthesize vsTerranRecord = vsTerranRecord;
-@synthesize vsZergRecord = vsZergRecord;
-@synthesize vsProtossRecord = vsProtossRecord;
-@synthesize games = games;
+@synthesize record = record;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -57,28 +47,14 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NO error:nil];
-    totalRecord.win = [[jsonObject valueForKey:@"win"] integerValue];
-    totalRecord.lose = [[jsonObject valueForKey:@"lose"] integerValue];
-    NSString *tempStr = [jsonObject valueForKey:@"recent5Games"];
-    recent5Record.win = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:0] integerValue];
-    recent5Record.lose = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:1] integerValue];
-    tempStr = [jsonObject valueForKey:@"vsT"];
-    vsTerranRecord.win = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:0] integerValue];
-    vsTerranRecord.lose = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:1] integerValue];
-    tempStr = [jsonObject valueForKey:@"vsZ"];
-    vsZergRecord.win = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:0] integerValue];
-    vsZergRecord.lose = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:1] integerValue];
-    tempStr = [jsonObject valueForKey:@"vsP"];
-    vsProtossRecord.win = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:0] integerValue];
-    vsProtossRecord.lose = [[[tempStr componentsSeparatedByString:@"|"] objectAtIndex:1] integerValue];
-    games = [jsonObject objectForKey:@"games"];
+    record = [[Record alloc] initWithDictionary:jsonObject];
 }
 
-- (BARecord)getOppositeRaceRecordByRaceName:(NSString *)racename {
+- (Score *)oppositeRaceScoreByRaceName:(NSString *)racename {
     racename = [racename lowercaseString];
-    if ([racename isEqual:@"terran"]) return vsTerranRecord;
-    if ([racename isEqual:@"zerg"]) return vsZergRecord;
-    return vsProtossRecord;
+    if ([racename isEqual:@"terran"]) return record.vsTerran;
+    if ([racename isEqual:@"zerg"]) return record.vsZerg;
+    return record.vsProtoss;
 }
 
 - (UIImage *)thumbnail {

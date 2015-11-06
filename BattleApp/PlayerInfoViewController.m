@@ -96,7 +96,8 @@
     float labelContainerMargin = 15;
     float labelContainerWidth = 80;
     float labelContainerHeight = 65;
-    NSArray *recordArray = [NSArray arrayWithObjects:@[ @(player.totalRecord.win),@"Wins"], @[ @(player.totalRecord.lose),@"Loses"],nil];
+    //TODO Refactoring 
+    NSArray *recordArray = [NSArray arrayWithObjects:@[ @(player.record.total.win),@"Wins"], @[ @(player.record.total.lose),@"Loses"],nil];
     for (int i = 0; i < [recordArray count]; i++) {
         UIView *scoreLabelContainer = [[UIView alloc] initWithFrame:CGRectMake(marginLeft+(labelContainerMargin*i)+(i*labelContainerWidth), marginTop, labelContainerWidth, labelContainerHeight)];
         UILabel *scoreValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, scoreLabelContainer.frame.size.width, 35)];
@@ -115,7 +116,7 @@
         [totalRecordView addSubview:scoreLabelContainer];
     }
     RCDoughnut *totalScoreDonut = [[RCDoughnut alloc] init];
-    float playerWinningRate = (player.totalRecord.win * 1.00f) / (player.totalRecord.win + player.totalRecord.lose * 1.00f);
+    float playerWinningRate = player.record.total.rate;
     playerWinningRate = (isnan(playerWinningRate)) ? 0 : playerWinningRate;
     [totalScoreDonut setFrame:CGRectMake(marginLeft+205, marginTop, labelContainerHeight, labelContainerHeight)];
     [totalScoreDonut setRatio: playerWinningRate];
@@ -133,26 +134,26 @@
     [title setTextColor:[UIColor colorWithRed:0.427f green:0.427f blue:0.427f alpha:1.00f]];
     [title setFont:[UIFont boldSystemFontOfSize:15.0f]];
     [oppositeRaceRecordView addSubview:title];
-    [self setupDoughnutChart];
+    [self setupDoughnutCharts];
     [[self view] addSubview:oppositeRaceRecordView];
 }
 
-- (void)setupDoughnutChart {
+- (void)setupDoughnutCharts {
     RCDoughnut *terranDonut = [[RCDoughnut alloc] init];
     [terranDonut setFrame:CGRectMake(15, 40, (screenSize.width/3)-30, (screenSize.width/3)-30)];
-    [terranDonut setRatio:(player.vsTerranRecord.win * 1.00f) / (player.vsTerranRecord.win + player.vsTerranRecord.lose * 1.00f)];
+    [terranDonut setRatio:player.record.vsTerran.rate];
     [terranDonut setTitle:@"vs. Terran"];
     [oppositeRaceRecordView addSubview:terranDonut];
     
     RCDoughnut *zergDonut = [[RCDoughnut alloc] init];
     [zergDonut setFrame:CGRectMake((15*2)+(screenSize.width/3)-15, 40, (screenSize.width/3)-30, (screenSize.width/3)-30)];
-    [zergDonut setRatio:(player.vsZergRecord.win * 1.00f) / (player.vsZergRecord.win + player.vsZergRecord.lose * 1.00f)];
+    [zergDonut setRatio:player.record.vsZerg.rate];
     [zergDonut setTitle:@"vs. Zerg"];
     [oppositeRaceRecordView addSubview:zergDonut];
     
     RCDoughnut *protossDonut = [[RCDoughnut alloc] init];
     [protossDonut setFrame:CGRectMake((15*3)+(((screenSize.width/3)-15) * 2), 40, (screenSize.width/3)-30, (screenSize.width/3)-30)];
-    [protossDonut setRatio:(player.vsProtossRecord.win * 1.00f) / (player.vsProtossRecord.win + player.vsProtossRecord.lose * 1.00f)];
+    [protossDonut setRatio:player.record.vsProtoss.rate];
     [protossDonut setTitle:@"vs. Protoss"];
     [oppositeRaceRecordView addSubview:protossDonut];
 }
@@ -173,7 +174,7 @@
 
 #pragma mark -Event handle methods
 - (IBAction)showPlayerGames:(id)sender {
-    BAGameTableViewController *gameTableView = [[BAGameTableViewController alloc] initWithGames:player.games];
+    BAGameTableViewController *gameTableView = [[BAGameTableViewController alloc] initWithGames:player.record.games];
     [[self navigationController] pushViewController:gameTableView animated:YES];
 }
 

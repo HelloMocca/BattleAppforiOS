@@ -4,7 +4,17 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
-__[Latest Version]0.8.2__
+__[Latest Version]0.8.3__  
+* BARecord struct deprecated(use Record and Score class instead).    
+* Record Class and Score Class added. 
+* Revise Player class.
+  * Player has record object.  
+  * getOppositeRaceRecordByRaceName -> oppositeRaceScoreByRaceName.  
+* Revise MatchCalculator class.  
+  * BARecord competitionRecord -> Score *competitionScore.  
+* Published 6 November, 2015.  
+
+__0.8.2__
 * BAOperationQueue created.
 * Application has one BAOperationQueue (Single instance).  
 * BAHttpTask is not manages OperationQueue instance no more.  

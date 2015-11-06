@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BAHttpTask.h"
-
-struct BARecord {
-    NSUInteger win;
-    NSUInteger lose;
-};
-typedef struct BARecord BARecord;
+#import "Record.h"
+#import "Score.h"
 
 @interface Player : NSObject
 
@@ -24,17 +20,12 @@ typedef struct BARecord BARecord;
 @property (nonatomic, readonly)  NSString *team;
 @property (nonatomic, readonly)  NSURL    *thumbnailUrl;
 @property (nonatomic, readonly)  UIImage  *thumbnail;
-@property (nonatomic, readwrite) BARecord totalRecord;
-@property (nonatomic, readwrite) BARecord recent5Record;
-@property (nonatomic, readwrite) BARecord vsTerranRecord;
-@property (nonatomic, readwrite) BARecord vsZergRecord;
-@property (nonatomic, readwrite) BARecord vsProtossRecord;
-@property (nonatomic, readonly)  NSArray *games;
+@property (nonatomic, readonly)  Record   *record;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
 
 - (void)requestRecordsData;
 
-- (BARecord)getOppositeRaceRecordByRaceName:(NSString *)racename;
+- (Score *)oppositeRaceScoreByRaceName:(NSString *)racename;
 
 @end

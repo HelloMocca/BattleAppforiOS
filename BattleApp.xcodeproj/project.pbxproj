@@ -39,6 +39,8 @@
 		C4A96BB51BE8BD0F00412F9E /* BAHttpTask.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BB41BE8BD0F00412F9E /* BAHttpTask.m */; };
 		C4A96BBB1BEAFE1B00412F9E /* BAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BBA1BEAFE1B00412F9E /* BAWebViewController.m */; };
 		C4A96BBE1BEB409700412F9E /* BAOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BBD1BEB409700412F9E /* BAOperationQueue.m */; };
+		C4A96BC31BEC426300412F9E /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BC21BEC426300412F9E /* Record.m */; };
+		C4A96BC61BEC457700412F9E /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BC51BEC457700412F9E /* Score.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
@@ -123,6 +125,10 @@
 		C4A96BBA1BEAFE1B00412F9E /* BAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAWebViewController.m; sourceTree = "<group>"; };
 		C4A96BBC1BEB409700412F9E /* BAOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAOperationQueue.h; sourceTree = "<group>"; };
 		C4A96BBD1BEB409700412F9E /* BAOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAOperationQueue.m; sourceTree = "<group>"; };
+		C4A96BC11BEC426300412F9E /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		C4A96BC21BEC426300412F9E /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		C4A96BC41BEC457700412F9E /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
+		C4A96BC51BEC457700412F9E /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -165,6 +171,10 @@
 				C4A96A071BCFA15300412F9E /* Article.m */,
 				C4A96BB01BE885A700412F9E /* Game.h */,
 				C4A96BB11BE885A700412F9E /* Game.m */,
+				C4A96BC11BEC426300412F9E /* Record.h */,
+				C4A96BC21BEC426300412F9E /* Record.m */,
+				C4A96BC41BEC457700412F9E /* Score.h */,
+				C4A96BC51BEC457700412F9E /* Score.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -183,6 +193,60 @@
 				C4A96B9F1BE0621A00412F9E /* RCBar.m */,
 			);
 			name = RC;
+			sourceTree = "<group>";
+		};
+		C4A96BBF1BEB427300412F9E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4A96A0F1BD0B63300412F9E /* BAArticleView.h */,
+				C4A96A101BD0B63300412F9E /* BAArticleView.m */,
+				C4A96A091BD08BDC00412F9E /* MainArticleView.h */,
+				C4A96A0A1BD08BDC00412F9E /* MainArticleView.m */,
+				C4A96A0C1BD0968400412F9E /* SubArticleView.h */,
+				C4A96A0D1BD0968400412F9E /* SubArticleView.m */,
+				C4A96A181BD0DE3400412F9E /* PlayerTableViewCell.h */,
+				C4A96A191BD0DE3400412F9E /* PlayerTableViewCell.m */,
+				C4A96B371BD792F300412F9E /* MatchPlayerStandView.h */,
+				C4A96B381BD792F300412F9E /* MatchPlayerStandView.m */,
+				C4A96B3A1BD7939C00412F9E /* PlayerDescView.h */,
+				C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C4A96BC01BEB431300412F9E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C467FA9F1BCB8C6D00AAF522 /* BAViewController.h */,
+				C467FAA01BCB8C6D00AAF522 /* BAViewController.m */,
+				C467FAA61BCB8F2F00AAF522 /* BANavigationController.h */,
+				C467FAA71BCB8F2F00AAF522 /* BANavigationController.m */,
+				C4A969FD1BCF37FD00412F9E /* BASearchDisplayController.h */,
+				C4A969FE1BCF37FD00412F9E /* BASearchDisplayController.m */,
+				C4A96B431BD8A74F00412F9E /* BAPlayerSearchViewController.h */,
+				C4A96B441BD8A74F00412F9E /* BAPlayerSearchViewController.m */,
+				C4A96BAD1BE8835D00412F9E /* BAGameTableViewController.h */,
+				C4A96BAE1BE8835D00412F9E /* BAGameTableViewController.m */,
+				C4A96BB91BEAFE1B00412F9E /* BAWebViewController.h */,
+				C4A96BBA1BEAFE1B00412F9E /* BAWebViewController.m */,
+				C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */,
+				C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */,
+				C467FAB31BCCF2B100AAF522 /* PlayerTableViewController.h */,
+				C467FAB41BCCF2B100AAF522 /* PlayerTableViewController.m */,
+				C4A96A001BCF467C00412F9E /* PlayerInfoViewController.h */,
+				C4A96A011BCF467C00412F9E /* PlayerInfoViewController.m */,
+				C467FAA91BCB929400AAF522 /* LeagueViewController.h */,
+				C467FAAA1BCB929400AAF522 /* LeagueViewController.m */,
+				C467FAB71BCDF42100AAF522 /* LeagueTableViewController.h */,
+				C467FAB81BCDF42100AAF522 /* LeagueTableViewController.m */,
+				C4A96A031BCF80AE00412F9E /* LeagueInfoViewController.h */,
+				C4A96A041BCF80AE00412F9E /* LeagueInfoViewController.m */,
+				C467FAAC1BCB92A900AAF522 /* MatchViewController.h */,
+				C467FAAD1BCB92A900AAF522 /* MatchViewController.m */,
+				C4A96B461BD8B35800412F9E /* MatchPredictViewController.h */,
+				C4A96B471BD8B35800412F9E /* MatchPredictViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		C4F1AED91BC39ED8001E22D7 = {
@@ -206,6 +270,8 @@
 		C4F1AEE41BC39ED8001E22D7 /* BattleApp */ = {
 			isa = PBXGroup;
 			children = (
+				C4A96BC01BEB431300412F9E /* ViewController */,
+				C4A96BBF1BEB427300412F9E /* View */,
 				C4A96B361BD6342C00412F9E /* RC */,
 				C467FAB61BCCF2D700AAF522 /* Model */,
 				C4F1AEE91BC39ED8001E22D7 /* AppDelegate.h */,
@@ -214,52 +280,12 @@
 				C4F1AEF51BC39ED8001E22D7 /* Images.xcassets */,
 				C4F1AEF71BC39ED8001E22D7 /* LaunchScreen.xib */,
 				C4F1AEE51BC39ED8001E22D7 /* Supporting Files */,
-				C467FA9F1BCB8C6D00AAF522 /* BAViewController.h */,
-				C467FAA01BCB8C6D00AAF522 /* BAViewController.m */,
-				C467FAA61BCB8F2F00AAF522 /* BANavigationController.h */,
-				C467FAA71BCB8F2F00AAF522 /* BANavigationController.m */,
-				C4A96A0F1BD0B63300412F9E /* BAArticleView.h */,
-				C4A96A101BD0B63300412F9E /* BAArticleView.m */,
-				C4A969FD1BCF37FD00412F9E /* BASearchDisplayController.h */,
-				C4A969FE1BCF37FD00412F9E /* BASearchDisplayController.m */,
-				C4A96B431BD8A74F00412F9E /* BAPlayerSearchViewController.h */,
-				C4A96B441BD8A74F00412F9E /* BAPlayerSearchViewController.m */,
-				C4A96BAD1BE8835D00412F9E /* BAGameTableViewController.h */,
-				C4A96BAE1BE8835D00412F9E /* BAGameTableViewController.m */,
-				C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */,
-				C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */,
-				C4A96A091BD08BDC00412F9E /* MainArticleView.h */,
-				C4A96A0A1BD08BDC00412F9E /* MainArticleView.m */,
-				C4A96A0C1BD0968400412F9E /* SubArticleView.h */,
-				C4A96A0D1BD0968400412F9E /* SubArticleView.m */,
-				C467FAB31BCCF2B100AAF522 /* PlayerTableViewController.h */,
-				C467FAB41BCCF2B100AAF522 /* PlayerTableViewController.m */,
-				C4A96A181BD0DE3400412F9E /* PlayerTableViewCell.h */,
-				C4A96A191BD0DE3400412F9E /* PlayerTableViewCell.m */,
-				C4A96A001BCF467C00412F9E /* PlayerInfoViewController.h */,
-				C4A96A011BCF467C00412F9E /* PlayerInfoViewController.m */,
-				C467FAA91BCB929400AAF522 /* LeagueViewController.h */,
-				C467FAAA1BCB929400AAF522 /* LeagueViewController.m */,
-				C467FAB71BCDF42100AAF522 /* LeagueTableViewController.h */,
-				C467FAB81BCDF42100AAF522 /* LeagueTableViewController.m */,
-				C4A96A031BCF80AE00412F9E /* LeagueInfoViewController.h */,
-				C4A96A041BCF80AE00412F9E /* LeagueInfoViewController.m */,
-				C467FAAC1BCB92A900AAF522 /* MatchViewController.h */,
-				C467FAAD1BCB92A900AAF522 /* MatchViewController.m */,
-				C4A96B461BD8B35800412F9E /* MatchPredictViewController.h */,
-				C4A96B471BD8B35800412F9E /* MatchPredictViewController.m */,
-				C4A96B371BD792F300412F9E /* MatchPlayerStandView.h */,
-				C4A96B381BD792F300412F9E /* MatchPlayerStandView.m */,
-				C4A96B3A1BD7939C00412F9E /* PlayerDescView.h */,
-				C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */,
 				C4A96BA41BE6F5AF00412F9E /* MatchCalculator.h */,
 				C4A96BA51BE6F5AF00412F9E /* MatchCalculator.m */,
 				C4A96BAA1BE745DB00412F9E /* UIColorExtension.h */,
 				C4A96BAB1BE745DB00412F9E /* UIColorExtension.m */,
 				C4A96BB31BE8BD0F00412F9E /* BAHttpTask.h */,
 				C4A96BB41BE8BD0F00412F9E /* BAHttpTask.m */,
-				C4A96BB91BEAFE1B00412F9E /* BAWebViewController.h */,
-				C4A96BBA1BEAFE1B00412F9E /* BAWebViewController.m */,
 				C4A96BBC1BEB409700412F9E /* BAOperationQueue.h */,
 				C4A96BBD1BEB409700412F9E /* BAOperationQueue.m */,
 			);
@@ -422,6 +448,8 @@
 				C467FAAE1BCB92A900AAF522 /* MatchViewController.m in Sources */,
 				C4A969FF1BCF37FD00412F9E /* BASearchDisplayController.m in Sources */,
 				C4A96BB21BE885A700412F9E /* Game.m in Sources */,
+				C4A96BC61BEC457700412F9E /* Score.m in Sources */,
+				C4A96BC31BEC426300412F9E /* Record.m in Sources */,
 				C4A96B3C1BD7939C00412F9E /* PlayerDescView.m in Sources */,
 				C467FAAB1BCB929400AAF522 /* LeagueViewController.m in Sources */,
 				C467FAB21BCCDD9300AAF522 /* Player.m in Sources */,
