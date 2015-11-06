@@ -4,7 +4,11 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
-__[Latest Version]0.8.3__  
+__[Latest Version]0.8.4__  
+* PlayerInfoViewController refactored.  
+* Published 6 November, 2015.
+
+__0.8.3__  
 * BARecord struct deprecated(use Record and Score class instead).    
 * Record Class and Score Class added. 
 * Revise Player class.

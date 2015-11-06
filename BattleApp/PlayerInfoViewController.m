@@ -21,8 +21,10 @@
 #pragma mark -Initialize methods
 - (instancetype)initWithPlayer:(Player *)aPlayer {
     self = [super init];
-    player = aPlayer;
-    [self setTitle:@"Player Information"];
+    if (self) {
+        player = aPlayer;
+        [self setTitle:@"Player Information"];
+    }
     return self;
 }
 
@@ -40,9 +42,13 @@
 
 #pragma mark -Setup Views
 - (void)setupViews {
-    [self setupPlayerImageView];
-    [self setupPlayerLabelView];
+    [self setupPlayerProfileView];
     [self setupPlayerRecordView];
+}
+
+- (void)setupPlayerProfileView {
+    [self setupPlayerImageView];
+    [self setupPlayerLabelViews];
 }
 
 - (void)setupPlayerImageView {
@@ -51,23 +57,27 @@
     [[self view] addSubview:playerImageView];
 }
 
-- (void)setupPlayerLabelView {
+- (void)setupPlayerLabelViews {
     playerLabelView = [[UIView alloc] initWithFrame:CGRectMake(130, 100, screenSize.width-130, 80)];
+    
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, playerLabelView.bounds.size.width, 50)];
     [nameLabel setText:player.playId];
     [nameLabel setTextColor:[UIColor dodgerBlueColor]];
     [nameLabel setFont:[UIFont boldSystemFontOfSize:25.0f]];
+    [playerLabelView addSubview:nameLabel];
+    
     UILabel *teamLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, playerLabelView.bounds.size.width, 50)];
     [teamLabel setText:player.team];
     [teamLabel setTextColor:[UIColor peterBlueColor]];
     [teamLabel setFont:[UIFont systemFontOfSize:15.0f]];
+    [playerLabelView addSubview:teamLabel];
+    
     UILabel *raceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, playerLabelView.bounds.size.width, 50)];
     [raceLabel setText:player.race];
     [raceLabel setTextColor:[UIColor peterBlueColor]];
     [raceLabel setFont:[UIFont systemFontOfSize:15.0f]];
-    [playerLabelView addSubview:nameLabel];
-    [playerLabelView addSubview:teamLabel];
     [playerLabelView addSubview:raceLabel];
+    
     [[self view] addSubview:playerLabelView];
 }
 
@@ -81,81 +91,103 @@
 - (void)setupTotalRecordView {
     totalRecordView = [[UIView alloc] initWithFrame:CGRectMake(0, 215, screenSize.width, 120)];
     [totalRecordView setBackgroundColor:[UIColor colorWithRed:0.110f green:0.110f blue:0.125f alpha:1.00f]];
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, totalRecordView.bounds.size.width-10, 15)];
-    [title setText:@"Player Records"];
-    [title setTextColor:[UIColor colorWithRed:0.427f green:0.427f blue:0.427f alpha:1.00f]];
-    [title setFont:[UIFont boldSystemFontOfSize:15.0f]];
-    [totalRecordView addSubview:title];
-    [self setupTotalRecordSubViews];
+    [self setupTotalRecordViewTitle];
+    [self setupTotalScoreLabelViews];
     [[self view] addSubview:totalRecordView];
 }
 
-- (void)setupTotalRecordSubViews {
+- (void)setupTotalRecordViewTitle {
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, totalRecordView.bounds.size.width-10, 15)];
+    [title setText:@"Player Records"];
+    [title setTextColor:[UIColor baDarkGrayColor]];
+    [title setFont:[UIFont boldSystemFontOfSize:15.0f]];
+    [totalRecordView addSubview:title];
+}
+
+- (void)setupTotalScoreLabelViews {
     float marginLeft = (screenSize.width - 270) / 2.0f;
     float marginTop = 40;
     float labelContainerMargin = 15;
     float labelContainerWidth = 80;
     float labelContainerHeight = 65;
-    //TODO Refactoring 
-    NSArray *recordArray = [NSArray arrayWithObjects:@[ @(player.record.total.win),@"Wins"], @[ @(player.record.total.lose),@"Loses"],nil];
-    for (int i = 0; i < [recordArray count]; i++) {
-        UIView *scoreLabelContainer = [[UIView alloc] initWithFrame:CGRectMake(marginLeft+(labelContainerMargin*i)+(i*labelContainerWidth), marginTop, labelContainerWidth, labelContainerHeight)];
-        UILabel *scoreValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, scoreLabelContainer.frame.size.width, 35)];
-        UILabel *scoreTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, scoreValueLabel.frame.size.height+15, scoreLabelContainer.frame.size.width, 15)];
-        [scoreValueLabel setText:[NSString stringWithFormat:@"%@", recordArray[i][0]]];
-        [scoreValueLabel setFont:[UIFont systemFontOfSize:40]];
-        [scoreValueLabel setTextAlignment:NSTextAlignmentCenter];
-        [scoreTitleLabel setText:recordArray[i][1]];
-        [scoreTitleLabel setFont:[UIFont systemFontOfSize:15]];
-        [scoreTitleLabel setTextAlignment:NSTextAlignmentCenter];
-        [scoreValueLabel setTextColor:[UIColor cloudColor]];
-        [scoreTitleLabel setTextColor:[UIColor silverColor]];
-        
-        [scoreLabelContainer addSubview:scoreValueLabel];
-        [scoreLabelContainer addSubview:scoreTitleLabel];
-        [totalRecordView addSubview:scoreLabelContainer];
-    }
+    
+    CGRect winScoreLabelFrame = CGRectMake(marginLeft, marginTop, labelContainerWidth, labelContainerHeight);
+    [self setupTotalScoreLabelWithFrame:winScoreLabelFrame scoreValue:player.record.total.win title:@"Wins"];
+    
+    CGRect loseScoreLabelFrame = CGRectMake(marginLeft+labelContainerMargin+labelContainerWidth, marginTop, labelContainerWidth, labelContainerHeight);
+    [self setupTotalScoreLabelWithFrame:loseScoreLabelFrame scoreValue:player.record.total.lose title:@"Loses"];
+    
+    [self setupTotalScoreDonutView];
+}
+
+- (void)setupTotalScoreLabelWithFrame:(CGRect)frame scoreValue:(int)value title:(NSString *)title {
+    UIView *scoreLabelContainer = [[UIView alloc] initWithFrame:frame];
+    
+    UILabel *scoreValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, scoreLabelContainer.frame.size.width, 35)];
+    [scoreValueLabel setText:[NSString stringWithFormat:@"%d", value]];
+    [scoreValueLabel setFont:[UIFont systemFontOfSize:40]];
+    [scoreValueLabel setTextAlignment:NSTextAlignmentCenter];
+    [scoreValueLabel setTextColor:[UIColor cloudColor]];
+    [scoreLabelContainer addSubview:scoreValueLabel];
+    
+    UILabel *scoreTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, scoreLabelContainer.frame.size.height-15, scoreLabelContainer.frame.size.width, 15)];
+    [scoreTitleLabel setText:title];
+    [scoreTitleLabel setFont:[UIFont systemFontOfSize:15]];
+    [scoreTitleLabel setTextAlignment:NSTextAlignmentCenter];
+    [scoreTitleLabel setTextColor:[UIColor silverColor]];
+    [scoreLabelContainer addSubview:scoreTitleLabel];
+    
+    [totalRecordView addSubview:scoreLabelContainer];
+}
+
+- (void)setupTotalScoreDonutView {
+    float marginLeft = (screenSize.width - 270) / 2.0f;
+    float marginTop = 40;
+    float labelContainerHeight = 65;
+    
     RCDoughnut *totalScoreDonut = [[RCDoughnut alloc] init];
-    float playerWinningRate = player.record.total.rate;
-    playerWinningRate = (isnan(playerWinningRate)) ? 0 : playerWinningRate;
     [totalScoreDonut setFrame:CGRectMake(marginLeft+205, marginTop, labelContainerHeight, labelContainerHeight)];
-    [totalScoreDonut setRatio: playerWinningRate];
-    [totalScoreDonut setTitle:[NSString stringWithFormat:@"%.f%%", playerWinningRate*100]];
+    [totalScoreDonut setRatio:  player.record.total.rate];
+    [totalScoreDonut setTitle:[NSString stringWithFormat:@"%.f%%", player.record.total.percentage]];
     [totalScoreDonut setTitleFont:[UIFont systemFontOfSize:25]];
     [totalScoreDonut setNumericLabelVisible:false];
     [totalRecordView addSubview:totalScoreDonut];
 }
 
 - (void)setupOppositeRaceRecordView {
-    oppositeRaceRecordView = [[UIView alloc] initWithFrame:CGRectMake(0, totalRecordView.frame.origin.y+totalRecordView.frame.size.height+10, screenSize.width, 150)];
+    oppositeRaceRecordView = [[UIView alloc] init];
+    [oppositeRaceRecordView setFrame:CGRectMake(0, totalRecordView.frame.origin.y+totalRecordView.frame.size.height+10, screenSize.width, 150)];
     [oppositeRaceRecordView setBackgroundColor:[UIColor colorWithRed:0.110f green:0.110f blue:0.125f alpha:1.00f]];
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, oppositeRaceRecordView.bounds.size.width-10, 15)];
-    [title setText:@"Opposite Race Records"];
-    [title setTextColor:[UIColor colorWithRed:0.427f green:0.427f blue:0.427f alpha:1.00f]];
-    [title setFont:[UIFont boldSystemFontOfSize:15.0f]];
-    [oppositeRaceRecordView addSubview:title];
+    [self setupOppositeRaceRecordViewTitle];
     [self setupDoughnutCharts];
     [[self view] addSubview:oppositeRaceRecordView];
 }
 
+- (void)setupOppositeRaceRecordViewTitle {
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, oppositeRaceRecordView.bounds.size.width-10, 15)];
+    [title setText:@"Opposite Race Records"];
+    [title setTextColor:[UIColor baDarkGrayColor]];
+    [title setFont:[UIFont boldSystemFontOfSize:15.0f]];
+    [oppositeRaceRecordView addSubview:title];
+}
+
 - (void)setupDoughnutCharts {
-    RCDoughnut *terranDonut = [[RCDoughnut alloc] init];
-    [terranDonut setFrame:CGRectMake(15, 40, (screenSize.width/3)-30, (screenSize.width/3)-30)];
-    [terranDonut setRatio:player.record.vsTerran.rate];
-    [terranDonut setTitle:@"vs. Terran"];
-    [oppositeRaceRecordView addSubview:terranDonut];
+    CGRect terranDonutFrame = CGRectMake(15, 40, (screenSize.width/3)-30, (screenSize.width/3)-30);
+    [self setupDoughnutChartWithFrame:terranDonutFrame donutRatio:player.record.vsTerran.rate title:@"vs. Terran"];
     
-    RCDoughnut *zergDonut = [[RCDoughnut alloc] init];
-    [zergDonut setFrame:CGRectMake((15*2)+(screenSize.width/3)-15, 40, (screenSize.width/3)-30, (screenSize.width/3)-30)];
-    [zergDonut setRatio:player.record.vsZerg.rate];
-    [zergDonut setTitle:@"vs. Zerg"];
-    [oppositeRaceRecordView addSubview:zergDonut];
+    CGRect zergDonutFrame = CGRectMake((15*2)+(screenSize.width/3)-15, 40, (screenSize.width/3)-30, (screenSize.width/3)-30);
+    [self setupDoughnutChartWithFrame:zergDonutFrame donutRatio:player.record.vsZerg.rate title:@"vs. Zerg"];
     
-    RCDoughnut *protossDonut = [[RCDoughnut alloc] init];
-    [protossDonut setFrame:CGRectMake((15*3)+(((screenSize.width/3)-15) * 2), 40, (screenSize.width/3)-30, (screenSize.width/3)-30)];
-    [protossDonut setRatio:player.record.vsProtoss.rate];
-    [protossDonut setTitle:@"vs. Protoss"];
-    [oppositeRaceRecordView addSubview:protossDonut];
+    CGRect protossDonutFrame = CGRectMake((15*3)+(((screenSize.width/3)-15) * 2), 40, (screenSize.width/3)-30, (screenSize.width/3)-30);
+    [self setupDoughnutChartWithFrame:protossDonutFrame donutRatio:player.record.vsProtoss.rate title:@"vs. Protoss"];
+}
+
+- (void)setupDoughnutChartWithFrame:(CGRect)frame donutRatio:(float)ratio title:(NSString *)title  {
+    RCDoughnut *donut = [[RCDoughnut alloc] init];
+    [donut setFrame:frame];
+    [donut setRatio:ratio];
+    [donut setTitle:title];
+    [oppositeRaceRecordView addSubview:donut];
 }
 
 - (void)setupShowPlayerGamesBtn {

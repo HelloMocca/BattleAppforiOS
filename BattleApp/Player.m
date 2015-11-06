@@ -41,6 +41,10 @@
     return self;
 }
 
+- (void)setRecordWithDictionary:(NSDictionary *)dictionary {
+    record = [[Record alloc] initWithDictionary:dictionary];
+}
+
 - (void)requestRecordsData {
     //Synchronous request...
     NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/playerRecords.php?pid=%ld",(long)playerId];
