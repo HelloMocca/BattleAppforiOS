@@ -48,7 +48,7 @@ __0.7.3__
    * LeagueController's leaguelist request -> Async.
 * Published 4 November, 2015.
   
-__[Latest Version]0.7.2__
+__0.7.2__
 * BAHttpTask added.
   * BAHttpTask provides http request method with url.  
 * Published 4 November, 2015.
