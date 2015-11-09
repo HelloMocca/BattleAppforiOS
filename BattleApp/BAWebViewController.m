@@ -29,8 +29,8 @@
     [[self view] setBackgroundColor:[UIColor colorWithWhite:45/255.0f alpha:1]];
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
     [[self view] addSubview:webView];
-    
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:link]];
     [webView loadRequest:urlRequest];
@@ -41,7 +41,6 @@
     [super viewWillDisappear:animated];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     [webView removeFromSuperview];
-    [[self navigationController] popToRootViewControllerAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {

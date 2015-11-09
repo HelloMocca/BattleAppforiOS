@@ -12,7 +12,6 @@
 
 {
     MatchPlayerStandView         *standView;
-    UIButton                     *predictBtn;
 }
 
 @synthesize requestedView = requestedView;
@@ -27,23 +26,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupSubViews];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+- (void)setupSubViews {
+    [self setupStandView];
+    [self setupButtonView];
+}
+
+- (void)setupStandView {
     standView = [[MatchPlayerStandView alloc] initWithDelegate:self];
     [[self view] addSubview:standView];
-    
-    predictBtn = [[UIButton alloc] init];
+}
+
+- (void)setupButtonView {
     CGFloat predictBtnMargin = 60;
-    CGFloat predictBtnWidth = ([UIScreen mainScreen].bounds.size.width)-(2*predictBtnMargin);
+    CGFloat predictBtnWidth = ([UIScreen mainScreen].bounds.size.width) - (2 * predictBtnMargin);
     CGFloat predictBtnHeight = 45;
+    UIButton *predictBtn = [[UIButton alloc] init];
     [predictBtn setFrame:CGRectMake(predictBtnMargin, standView.frame.size.height+70+25, predictBtnWidth, predictBtnHeight)]
     ;
     [predictBtn setTitle:@"Match Prediction" forState:UIControlStateNormal];
     [predictBtn setBackgroundColor:[UIColor facebookBlueColor]];
     [predictBtn addTarget:self action:@selector(moveToPredictController:) forControlEvents:UIControlEventTouchUpInside];
     [[self view] addSubview:predictBtn];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark -Delegate method

@@ -64,10 +64,10 @@
 
 - (void)setupTitleView {
     titleView = [[UILabel alloc] init];
-    [self.titleView setLineBreakMode:NSLineBreakByWordWrapping];
-    [self.titleView setNumberOfLines:2];
-    [self.titleView setTextColor:[UIColor whiteColor]];
-    [self.titleView setFont:[UIFont boldSystemFontOfSize:16]];
+    [titleView setLineBreakMode:NSLineBreakByWordWrapping];
+    [titleView setNumberOfLines:2];
+    [titleView setTextColor:[UIColor whiteColor]];
+    [titleView setFont:[UIFont boldSystemFontOfSize:16]];
     [self addSubview:titleView];
 }
 
@@ -80,25 +80,25 @@
 
 - (void)setupAuthorView {
     authorView = [[UILabel alloc] init];
-    [self.authorView setFont:[UIFont systemFontOfSize:13]];
-    [self.authorView setTextColor:[UIColor baDarkGrayColor]];
-    [[self bottomView ] addSubview:authorView];
+    [authorView setFont:[UIFont systemFontOfSize:13]];
+    [authorView setTextColor:[UIColor baDarkGrayColor]];
+    [bottomView addSubview:authorView];
 }
 
 - (void)setupDateView {
     dateView = [[UILabel alloc] init];
-    [self.dateView setFont:[UIFont systemFontOfSize:13]];
-    [self.dateView setTextColor:[UIColor baDarkGrayColor]];
-    [self.dateView setTextAlignment:NSTextAlignmentRight];
-    [[self bottomView ] addSubview:dateView];
+    [dateView setFont:[UIFont systemFontOfSize:13]];
+    [dateView setTextColor:[UIColor baDarkGrayColor]];
+    [dateView setTextAlignment:NSTextAlignmentRight];
+    [bottomView addSubview:dateView];
 }
 
 - (void)attachArticleInViews:(Article *)aArticle {
     article = aArticle;
-    [self.imageView setImage:[article thumbnail]];
-    [[self titleView] setText:[article title]];
-    [[self authorView] setText:[article author]];
-    [[self dateView] setText:[article date]];
+    [imageView setImage:[article thumbnail]];
+    [titleView setText:[article title]];
+    [authorView setText:[article author]];
+    [dateView setText:[article date]];
     [spinner stopAnimating];
 }
 

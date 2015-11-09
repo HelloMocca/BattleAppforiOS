@@ -22,6 +22,7 @@
     [window makeKeyAndVisible];
     [self setWindow:window];
     [self setupWindowStyle];
+    [self createViewControllers];
     [self setupTabBarController];
     [[self window] setRootViewController:tabBarController];
     return YES;
@@ -60,7 +61,6 @@
 
 - (void)setupTabBarController {
     tabBarController = [[UITabBarController alloc] init];
-    [self createViewControllers];
     [tabBarController setViewControllers:viewControllers animated:"YES"];
     [self setupTabBar];
     [self setupTabBarStyle];

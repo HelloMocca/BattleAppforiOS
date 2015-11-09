@@ -12,8 +12,6 @@
 @implementation BAPlayerSearchViewController
 
 {
-    NSString                  *url;
-    
     NSMutableArray            *players;
     NSUInteger                offset;
     
@@ -30,15 +28,6 @@
 #define EVEN_COLOR [UIColor colorWithWhite:25/255.0f alpha:.6f]
 
 @synthesize delegate = delegate;
-
-#pragma mark -Initialize methods
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        url = @"http://125.209.198.90/battleapp/players.php?q=";
-    }
-    return self;
-}
 
 #pragma mark -UIViewController implements
 - (void)viewDidLoad {
@@ -130,7 +119,18 @@
     [[self tableView] setTableFooterView:morePlayerBtn];
 }
 
-- (void)didRequestStart {
+#pragma mark -Data request methods
+- (void)requestPlayerList:(NSString *)query {
+    [self requestDidSend];
+    query = ([query isEqual:nil]) ? @"" : query;
+    NSString *url = @"http://125.209.198.90/battleapp/players.php?q=";
+    id handler = ^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError){
+       [self performSelectorOnMainThread:@selector(parsingJsonObject:) withObject:jsonObject waitUntilDone:NO];
+    };
+    [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:[url stringByAppendingString:query]] compeleteHandler:handler asynchronous:YES];
+}
+
+- (void)requestDidSend {
     [morePlayerBtn setHidden:YES];
     if (![spinner isAnimating]) {
         [spinner setFrame:self.view.frame];
@@ -139,20 +139,10 @@
     }
 }
 
-- (void)didRequestEnd {
+- (void)requestDidEnd {
     offset = 0;
     [self morePlayerRequest:nil];
     [spinner stopAnimating];
-}
-
-#pragma mark -Data request methods
-- (void)requestPlayerList:(NSString *)query {
-    [self didRequestStart];
-    query = ([query isEqual:nil]) ? @"" : query;
-    id handler = ^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError){
-       [self performSelectorOnMainThread:@selector(parsingJsonObject:) withObject:jsonObject waitUntilDone:NO];
-    };
-    [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:[url stringByAppendingString:query]] compeleteHandler:handler asynchronous:YES];
 }
 
 #pragma mark -Data parsing methods
@@ -166,7 +156,7 @@
     for (NSDictionary *currPlayer in result) {
         [players addObject:[[Player alloc] initWithDictionary:currPlayer]];
     }
-    [self didRequestEnd];
+    [self requestDidEnd];
 }
 
 #pragma mark -Event handle methods

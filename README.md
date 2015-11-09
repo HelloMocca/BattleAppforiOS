@@ -4,7 +4,11 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
-__[Latest Version]0.8.5__
+__[Latest Version]0.8.6__
+* Custom Cell GameTableViewCell for GameTableView added.
+* Published 9 November, 2015.
+
+__0.8.5__
 * BAArticle, MainArticle and SubArticle refactored.  
   * Move alloc and Init subviews task into BAArticle Class.  
 * Published 9 November, 2015.  

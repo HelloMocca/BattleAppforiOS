@@ -32,7 +32,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"gameCell"];
+    [[self tableView] registerClass:[GameTableViewCell class] forCellReuseIdentifier:@"gameCell"];
+    [[self tableView] setRowHeight:80];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -53,11 +54,9 @@
     return [games count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gameCell" forIndexPath:indexPath];
+    GameTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gameCell" forIndexPath:indexPath];
     Game *game = [games objectAtIndex:[indexPath row]];
-    NSString *matchName = [NSString stringWithFormat:@"%@ - %@ vs %@",[game title], [game player1], [game player2]];
-    [[cell textLabel] setText:matchName];
-    [[cell detailTextLabel] setText:[game title]];
+    [cell setupWithGame:game];
     return cell;
 }
 

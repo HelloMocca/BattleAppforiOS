@@ -41,6 +41,7 @@
 		C4A96BBE1BEB409700412F9E /* BAOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BBD1BEB409700412F9E /* BAOperationQueue.m */; };
 		C4A96BC31BEC426300412F9E /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BC21BEC426300412F9E /* Record.m */; };
 		C4A96BC61BEC457700412F9E /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BC51BEC457700412F9E /* Score.m */; };
+		C4A96BD21BF03AA200412F9E /* GameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96BD11BF03AA200412F9E /* GameTableViewCell.m */; };
 		C4F1AEE81BC39ED8001E22D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEE71BC39ED8001E22D7 /* main.m */; };
 		C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1AEEA1BC39ED8001E22D7 /* AppDelegate.m */; };
 		C4F1AEF41BC39ED8001E22D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F1AEF21BC39ED8001E22D7 /* Main.storyboard */; };
@@ -129,6 +130,8 @@
 		C4A96BC21BEC426300412F9E /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
 		C4A96BC41BEC457700412F9E /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
 		C4A96BC51BEC457700412F9E /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
+		C4A96BD01BF03AA200412F9E /* GameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTableViewCell.h; sourceTree = "<group>"; };
+		C4A96BD11BF03AA200412F9E /* GameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTableViewCell.m; sourceTree = "<group>"; };
 		C4F1AEE21BC39ED8001E22D7 /* BattleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F1AEE61BC39ED8001E22D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4F1AEE71BC39ED8001E22D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				C4A96A0D1BD0968400412F9E /* SubArticleView.m */,
 				C4A96A181BD0DE3400412F9E /* PlayerTableViewCell.h */,
 				C4A96A191BD0DE3400412F9E /* PlayerTableViewCell.m */,
+				C4A96BD01BF03AA200412F9E /* GameTableViewCell.h */,
+				C4A96BD11BF03AA200412F9E /* GameTableViewCell.m */,
 				C4A96B371BD792F300412F9E /* MatchPlayerStandView.h */,
 				C4A96B381BD792F300412F9E /* MatchPlayerStandView.m */,
 				C4A96B3A1BD7939C00412F9E /* PlayerDescView.h */,
@@ -447,6 +452,7 @@
 				C4A96B391BD792F300412F9E /* MatchPlayerStandView.m in Sources */,
 				C467FAAE1BCB92A900AAF522 /* MatchViewController.m in Sources */,
 				C4A969FF1BCF37FD00412F9E /* BASearchDisplayController.m in Sources */,
+				C4A96BD21BF03AA200412F9E /* GameTableViewCell.m in Sources */,
 				C4A96BB21BE885A700412F9E /* Game.m in Sources */,
 				C4A96BC61BEC457700412F9E /* Score.m in Sources */,
 				C4A96BC31BEC426300412F9E /* Record.m in Sources */,
