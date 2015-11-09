@@ -3,8 +3,13 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 
 # Screen Shot
 
-# Version History
-__[Latest Version]0.8.6__
+# Version History  
+__[Latest Version]0.8.7__
+* ScrollView insert into PlayerInformationView.  
+  * to Supports iPhone4 and iPhone5.  
+* Published 9 November, 2015.
+
+__0.8.6__
 * Custom Cell GameTableViewCell for GameTableView added.
 * Published 9 November, 2015.
 

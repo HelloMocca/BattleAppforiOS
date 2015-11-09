@@ -16,6 +16,7 @@
     UIView   *playerLabelView;
     UIView   *totalRecordView;
     UIView   *oppositeRaceRecordView;
+    UIScrollView *mainScrollView;
 }
 
 #pragma mark -Initialize methods
@@ -42,8 +43,19 @@
 
 #pragma mark -Setup Views
 - (void)setupViews {
+    [self setupScrollView];
     [self setupPlayerProfileView];
     [self setupPlayerRecordView];
+}
+
+- (void)setupScrollView {
+    mainScrollView = [[UIScrollView alloc] init];
+    [mainScrollView setFrame:CGRectMake(0, -40, screenSize.width, screenSize.height)];
+    [mainScrollView setContentSize:CGSizeMake(screenSize.width, 520)];
+    [mainScrollView setShowsVerticalScrollIndicator:NO];
+    [mainScrollView setShowsHorizontalScrollIndicator:NO];
+    [mainScrollView setScrollEnabled:YES];
+    [[self view] addSubview:mainScrollView];
 }
 
 - (void)setupPlayerProfileView {
@@ -54,7 +66,7 @@
 - (void)setupPlayerImageView {
     UIImageView *playerImageView = [[UIImageView alloc] initWithImage:[player thumbnail]];
     [playerImageView setFrame:CGRectMake(15, 80, 95, 110)];
-    [[self view] addSubview:playerImageView];
+    [mainScrollView addSubview:playerImageView];
 }
 
 - (void)setupPlayerLabelViews {
@@ -78,7 +90,7 @@
     [raceLabel setFont:[UIFont systemFontOfSize:15.0f]];
     [playerLabelView addSubview:raceLabel];
     
-    [[self view] addSubview:playerLabelView];
+    [mainScrollView addSubview:playerLabelView];
 }
 
 - (void)setupPlayerRecordView {
@@ -93,7 +105,7 @@
     [totalRecordView setBackgroundColor:[UIColor colorWithRed:0.110f green:0.110f blue:0.125f alpha:1.00f]];
     [self setupTotalRecordViewTitle];
     [self setupTotalScoreLabelViews];
-    [[self view] addSubview:totalRecordView];
+    [mainScrollView addSubview:totalRecordView];
 }
 
 - (void)setupTotalRecordViewTitle {
@@ -160,7 +172,7 @@
     [oppositeRaceRecordView setBackgroundColor:[UIColor colorWithRed:0.110f green:0.110f blue:0.125f alpha:1.00f]];
     [self setupOppositeRaceRecordViewTitle];
     [self setupDoughnutCharts];
-    [[self view] addSubview:oppositeRaceRecordView];
+    [mainScrollView addSubview:oppositeRaceRecordView];
 }
 
 - (void)setupOppositeRaceRecordViewTitle {
@@ -196,7 +208,7 @@
     [showPlayerGamesBtn setBackgroundColor:[UIColor facebookBlueColor]];
     [showPlayerGamesBtn setTitle:@"Show Player Games" forState:UIControlStateNormal];
     [showPlayerGamesBtn addTarget:self action:@selector(showPlayerGames:) forControlEvents:UIControlEventTouchUpInside];
-    [[self view] addSubview:showPlayerGamesBtn];
+    [mainScrollView addSubview:showPlayerGamesBtn];
 }
 
 #pragma mark -Data request methods

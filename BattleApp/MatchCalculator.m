@@ -33,7 +33,7 @@
 }
 
 - (void)setCompetitionRecord {
-    NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/verdict.php?pid1=%ld&pid2=%ld",mPlayer1.playerId, mPlayer2.playerId];
+    NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/verdict.php?pid1=%ld&pid2=%ld",(long)mPlayer1.playerId, (long)mPlayer2.playerId];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
