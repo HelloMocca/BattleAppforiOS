@@ -18,7 +18,7 @@
     NSUInteger                offset;
     
     CGSize                    screenSize;
-    UIView                    *cellView;
+    UIView                    *selectedCellView;
     UIButton                  *morePlayerBtn;
     
     BASearchDisplayController *searchController;
@@ -69,7 +69,7 @@
     } else {
         [cell setBackgroundColor:EVEN_COLOR];
     }
-    [cell setSelectedBackgroundView:cellView];
+    [cell setSelectedBackgroundView:selectedCellView];
     [[cell textLabel] setTextColor:[UIColor whiteColor]];
     return cell;
 }
@@ -113,9 +113,13 @@
     [[self tableView] setRowHeight:80];
     [[self tableView] registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:@"playerCell"];
     [[self tableView] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    cellView = [[UIView alloc] init];
-    [cellView setBackgroundColor:[UIColor blackColor]];
+    [self setupSelectedCellView];
     [self setupMoreBtn];
+}
+
+- (void)setupSelectedCellView {
+    selectedCellView = [[UIView alloc] init];
+    [selectedCellView setBackgroundColor:[UIColor blackColor]];
 }
 
 - (void)setupMoreBtn {

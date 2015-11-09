@@ -54,15 +54,16 @@
 #pragma mark -Setup view methods
 - (void)setupViews {
     [self setFrame:CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, 300)];
-    player1View = [[PlayerDescView alloc] init];
-    player2View = [[PlayerDescView alloc] init];
     CGFloat playerViewMargin = 10;
-    CGFloat playerViewWidth = ([UIScreen mainScreen].bounds.size.width/2)-(2*playerViewMargin);
+    CGFloat playerViewWidth = ([UIScreen mainScreen].bounds.size.width / 2) - (2 * playerViewMargin);
     CGFloat playerViewHeight = self.frame.size.height - 20;
-    [player1View setFrame:CGRectMake(playerViewMargin, 0, playerViewWidth, playerViewHeight)];
-    [player2View setFrame:CGRectMake(playerViewWidth+(3*playerViewMargin), 0, playerViewWidth, playerViewHeight)];
     
+    player1View = [[PlayerDescView alloc] init];
+    [player1View setFrame:CGRectMake(playerViewMargin, 0, playerViewWidth, playerViewHeight)];
     [self addSubview:player1View];
+    
+    player2View = [[PlayerDescView alloc] init];
+    [player2View setFrame:CGRectMake(playerViewWidth + (3 * playerViewMargin), 0, playerViewWidth, playerViewHeight)];
     [self addSubview:player2View];
 }
 

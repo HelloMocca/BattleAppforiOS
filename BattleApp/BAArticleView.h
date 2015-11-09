@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Article.h"
+#import "UIColorExtension.h"
 
 @interface BAArticleView : UIView
 
@@ -18,8 +19,10 @@
 @property (nonatomic, readwrite) UILabel     *dateView;
 @property (nonatomic, readwrite) Article     *article;
 
-- (instancetype)initWithFrame:(CGRect)frame andArticle:(Article *)aArticle;
+@property (nonatomic, readonly)  UIActivityIndicatorView *spinner;
 
 - (void)setupViews;
+
+- (void)attachArticleInViews:(Article *)aArticle;
 
 @end

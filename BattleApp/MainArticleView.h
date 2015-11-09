@@ -12,6 +12,4 @@
 
 @interface MainArticleView : BAArticleView
 
-- (void)attachArticle:(Article *)aArticle;
-
 @end

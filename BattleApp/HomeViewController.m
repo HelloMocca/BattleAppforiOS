@@ -107,7 +107,7 @@
 - (void)setupMainArticle {
     if ([articles count] == 0) return;
     Article *mainArticle = [articles objectAtIndex:0];
-    [mainArticleView attachArticle:mainArticle];
+    [mainArticleView attachArticleInViews:mainArticle];
     [mainArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
 }
 
@@ -131,7 +131,9 @@
     int maxArticle = (int)[articles count];
     if (maxArticle < endOffset) endOffset = maxArticle;
     for (int i = beganOffset, r = 0; i < endOffset; i++) {
-        SubArticleView *subArticleView = [[SubArticleView alloc] initWithFrame:CGRectMake(0, (totalArticleCount*82)+(r*82), screenSize.width, 80) andArticle:[articles objectAtIndex:i]];
+        SubArticleView *subArticleView = [[SubArticleView alloc] init];
+        [subArticleView setFrame:CGRectMake(0, (totalArticleCount*82)+(r*82), screenSize.width, 80)];
+        [subArticleView attachArticleInViews:[articles objectAtIndex:i]];
         [subArticleContainerView addSubview:subArticleView];
         [subArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
         r++;

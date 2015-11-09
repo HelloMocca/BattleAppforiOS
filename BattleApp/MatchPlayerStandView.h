@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PlayerDescView.h"
 
-
-
 @interface MatchPlayerStandView : UIView
 
 @property (nonatomic, readonly) PlayerDescView *player1View;
