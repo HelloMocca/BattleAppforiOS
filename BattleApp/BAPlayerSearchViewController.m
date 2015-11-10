@@ -25,7 +25,7 @@
 }
 
 #define ODD_COLOR [UIColor colorWithWhite:14/255.0f alpha:.6f]
-#define EVEN_COLOR [UIColor colorWithWhite:25/255.0f alpha:.6f]
+#define EVEN_COLOR [UIColor colorWithWhite:25/255.0f alpha:.2f]
 
 @synthesize delegate = delegate;
 

@@ -22,7 +22,7 @@
 - (void)setupViews {
     [super setupViews];
     [self.titleView setBackgroundColor:[UIColor colorWithWhite:14/255.0f alpha:0.6f]];
-    [self.titleView setFont:[UIFont boldSystemFontOfSize:25]];
+    [self.titleView setFont:[UIFont boldSystemFontOfSize:20]];
 }
 
 @end

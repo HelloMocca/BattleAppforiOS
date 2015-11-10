@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "BANavigationController.h"
 #import "HomeViewController.h"
+#import "ScheduleTableViewController.h"
 #import "PlayerTableViewController.h"
 #import "LeagueViewController.h"
 #import "MatchViewController.h"
+#import "NotificationManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

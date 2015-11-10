@@ -33,12 +33,11 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    //TODO: background Timer -> after 5min -> clear webview and return homeviewcontroller -> timer invalidate.
+    [[NotificationManager getNotificationManager] showNotifications];
     NSLog(@"Application Enter Background");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    //TODO: If background timer exist -> timer invalidate.
     NSLog(@"Application Enter Foreground");
 }
 
@@ -61,7 +60,7 @@
 
 - (void)setupTabBarController {
     tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:viewControllers animated:"YES"];
+    [tabBarController setViewControllers:viewControllers animated:YES];
     [self setupTabBar];
     [self setupTabBarStyle];
 }
@@ -91,6 +90,7 @@
 - (void)createViewControllers {
     NSArray *viewControllerArray = [NSArray arrayWithObjects:
                                     @[@"News", [HomeViewController class]],
+                                    @[@"Schedule",[ScheduleTableViewController class]],
                                     @[@"Player", [PlayerTableViewController class]],
                                     @[@"League", [LeagueViewController class]],
                                     @[@"Match", [MatchViewController class]],
@@ -106,5 +106,4 @@
         [viewControllers addObject:navigationController];
     }
 }
-
 @end

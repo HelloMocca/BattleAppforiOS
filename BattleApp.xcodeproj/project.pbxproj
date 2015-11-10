@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C45316BA1BF0826A000B2ADA /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C45316B91BF0826A000B2ADA /* ScheduleTableViewController.m */; };
+		C45316BD1BF082CF000B2ADA /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = C45316BC1BF082CF000B2ADA /* Schedule.m */; };
+		C45316C01BF08426000B2ADA /* ScheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C45316BF1BF08426000B2ADA /* ScheduleCell.m */; };
+		C45316C31BF0A437000B2ADA /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C45316C21BF0A437000B2ADA /* NotificationManager.m */; };
 		C467FAA11BCB8C6D00AAF522 /* BAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAA01BCB8C6D00AAF522 /* BAViewController.m */; };
 		C467FAA41BCB8E2A00AAF522 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */; };
 		C467FAA81BCB8F2F00AAF522 /* BANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAA71BCB8F2F00AAF522 /* BANavigationController.m */; };
@@ -61,6 +65,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C45316B81BF0826A000B2ADA /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
+		C45316B91BF0826A000B2ADA /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
+		C45316BB1BF082CF000B2ADA /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		C45316BC1BF082CF000B2ADA /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		C45316BE1BF08426000B2ADA /* ScheduleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleCell.h; sourceTree = "<group>"; };
+		C45316BF1BF08426000B2ADA /* ScheduleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleCell.m; sourceTree = "<group>"; };
+		C45316C11BF0A437000B2ADA /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
+		C45316C21BF0A437000B2ADA /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		C467FA9F1BCB8C6D00AAF522 /* BAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAViewController.h; sourceTree = "<group>"; };
 		C467FAA01BCB8C6D00AAF522 /* BAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAViewController.m; sourceTree = "<group>"; };
 		C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -178,6 +190,8 @@
 				C4A96BC21BEC426300412F9E /* Record.m */,
 				C4A96BC41BEC457700412F9E /* Score.h */,
 				C4A96BC51BEC457700412F9E /* Score.m */,
+				C45316BB1BF082CF000B2ADA /* Schedule.h */,
+				C45316BC1BF082CF000B2ADA /* Schedule.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -215,6 +229,8 @@
 				C4A96B381BD792F300412F9E /* MatchPlayerStandView.m */,
 				C4A96B3A1BD7939C00412F9E /* PlayerDescView.h */,
 				C4A96B3B1BD7939C00412F9E /* PlayerDescView.m */,
+				C45316BE1BF08426000B2ADA /* ScheduleCell.h */,
+				C45316BF1BF08426000B2ADA /* ScheduleCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -236,6 +252,8 @@
 				C4A96BBA1BEAFE1B00412F9E /* BAWebViewController.m */,
 				C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */,
 				C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */,
+				C45316B81BF0826A000B2ADA /* ScheduleTableViewController.h */,
+				C45316B91BF0826A000B2ADA /* ScheduleTableViewController.m */,
 				C467FAB31BCCF2B100AAF522 /* PlayerTableViewController.h */,
 				C467FAB41BCCF2B100AAF522 /* PlayerTableViewController.m */,
 				C4A96A001BCF467C00412F9E /* PlayerInfoViewController.h */,
@@ -293,6 +311,8 @@
 				C4A96BB41BE8BD0F00412F9E /* BAHttpTask.m */,
 				C4A96BBC1BEB409700412F9E /* BAOperationQueue.h */,
 				C4A96BBD1BEB409700412F9E /* BAOperationQueue.m */,
+				C45316C11BF0A437000B2ADA /* NotificationManager.h */,
+				C45316C21BF0A437000B2ADA /* NotificationManager.m */,
 			);
 			path = BattleApp;
 			sourceTree = "<group>";
@@ -432,9 +452,11 @@
 				C4A96BBB1BEAFE1B00412F9E /* BAWebViewController.m in Sources */,
 				C467FAB51BCCF2B100AAF522 /* PlayerTableViewController.m in Sources */,
 				C4A96A1A1BD0DE3400412F9E /* PlayerTableViewCell.m in Sources */,
+				C45316BD1BF082CF000B2ADA /* Schedule.m in Sources */,
 				C4A96A021BCF467C00412F9E /* PlayerInfoViewController.m in Sources */,
 				C4A96B481BD8B35800412F9E /* MatchPredictViewController.m in Sources */,
 				C4A96A051BCF80AE00412F9E /* LeagueInfoViewController.m in Sources */,
+				C45316C31BF0A437000B2ADA /* NotificationManager.m in Sources */,
 				C4A96B451BD8A74F00412F9E /* BAPlayerSearchViewController.m in Sources */,
 				C4F1AEEB1BC39ED8001E22D7 /* AppDelegate.m in Sources */,
 				C4A96BBE1BEB409700412F9E /* BAOperationQueue.m in Sources */,
@@ -457,8 +479,10 @@
 				C4A96BC61BEC457700412F9E /* Score.m in Sources */,
 				C4A96BC31BEC426300412F9E /* Record.m in Sources */,
 				C4A96B3C1BD7939C00412F9E /* PlayerDescView.m in Sources */,
+				C45316BA1BF0826A000B2ADA /* ScheduleTableViewController.m in Sources */,
 				C467FAAB1BCB929400AAF522 /* LeagueViewController.m in Sources */,
 				C467FAB21BCCDD9300AAF522 /* Player.m in Sources */,
+				C45316C01BF08426000B2ADA /* ScheduleCell.m in Sources */,
 				C467FAA41BCB8E2A00AAF522 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
