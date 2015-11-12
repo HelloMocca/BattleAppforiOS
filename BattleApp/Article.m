@@ -44,6 +44,7 @@
     return self;
 }
 
+#pragma mark -Getting property methods
 - (UIImage *)thumbnail {
     if (thumbnail == nil) {
         thumbnail = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:thumbnailUrl]]];
@@ -61,6 +62,5 @@
     }
     return thumbnail;
 }
-
 
 @end

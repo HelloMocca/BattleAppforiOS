@@ -14,14 +14,12 @@
     NSMutableArray              *articles;
     CGSize                      screenSize;
     UIScrollView                *mainScrollView;
-    UITapGestureRecognizer      *tapRecognizer;
     UIButton                    *moreArticleBtn;
     UIView                      *subArticleContainerView;
     BAWebViewController         *articleDetailViewController;
     MainArticleView             *mainArticleView;
     
-    int currOffset;
-    int totalArticleCount;
+    int totalSubArticleCount;
 }
 
 #pragma mark -Initialize methods
@@ -29,8 +27,7 @@
     self = [super init];
     if (self) {
         screenSize = [[UIScreen mainScreen] bounds].size;
-        totalArticleCount = 0;
-        currOffset = 0;
+        totalSubArticleCount = 0;
     }
     return self;
 }
@@ -43,6 +40,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self applyTransparentBackgroundToTheNavigationBar:0];
     articleDetailViewController = nil;
 }
@@ -72,7 +70,7 @@
         [articles addObject:[[Article alloc] initWithDictionary:currArticle]];
     }
     result = nil;
-    [self setupMainArticle];
+    [self attachMainArticle];
     [self setupSubArticle];
     [self setupMoreArticleBtn];
 }
@@ -104,13 +102,6 @@
     [mainScrollView addSubview:mainArticleView];
 }
 
-- (void)setupMainArticle {
-    if ([articles count] == 0) return;
-    Article *mainArticle = [articles objectAtIndex:0];
-    [mainArticleView attachArticleInViews:mainArticle];
-    [mainArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
-}
-
 - (void)setupSubArticle {
     subArticleContainerView = [[UIView alloc] init];
     [self attachSubArticleBegan:1 toEnd:5];
@@ -126,27 +117,34 @@
     [mainScrollView addSubview:moreArticleBtn];
 }
 
+- (void)attachMainArticle {
+    if ([articles count] == 0) return;
+    Article *mainArticle = [articles objectAtIndex:0];
+    [mainArticleView attachArticleInViews:mainArticle];
+    [mainArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
+}
+
 - (void)attachSubArticleBegan:(int)beganOffset toEnd:(int)endOffset {
-    if (beganOffset == endOffset) return;
+    if (beganOffset >= endOffset) return;
     int maxArticle = (int)[articles count];
     if (maxArticle < endOffset) endOffset = maxArticle;
     for (int i = beganOffset, r = 0; i < endOffset; i++) {
         SubArticleView *subArticleView = [[SubArticleView alloc] init];
-        [subArticleView setFrame:CGRectMake(0, (totalArticleCount*82)+(r*82), screenSize.width, 80)];
+        [subArticleView setFrame:CGRectMake(0, (totalSubArticleCount*82)+(r*82), screenSize.width, 80)];
         [subArticleView attachArticleInViews:[articles objectAtIndex:i]];
         [subArticleContainerView addSubview:subArticleView];
         [subArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
         r++;
     }
-    totalArticleCount += endOffset - beganOffset;
-    [subArticleContainerView setFrame:CGRectMake(0, 260, screenSize.width, totalArticleCount*82)];
+    totalSubArticleCount += endOffset - beganOffset;
+    [subArticleContainerView setFrame:CGRectMake(0, 260, screenSize.width, totalSubArticleCount*82)];
     [mainScrollView setContentSize:CGSizeMake(screenSize.width, subArticleContainerView.frame.origin.y + subArticleContainerView.frame.size.height + 40)];
-    currOffset = endOffset;
+    totalSubArticleCount = endOffset-1;
 }
 
 - (void)refreshMoreArticleBtnPosition {
     if (moreArticleBtn == nil) return;
-    [moreArticleBtn setFrame:CGRectMake(5, 260+(totalArticleCount*82)+2, screenSize.width-10, 40)];
+    [moreArticleBtn setFrame:CGRectMake(5, 260+(totalSubArticleCount*82)+2, screenSize.width-10, 40)];
 }
 
 #pragma mark -Event handle methods
@@ -157,7 +155,7 @@
 }
 
 - (IBAction)moreArticleRequest:(id)sender {
-    [self attachSubArticleBegan:currOffset toEnd:currOffset+5];
+    [self attachSubArticleBegan:totalSubArticleCount+1 toEnd:totalSubArticleCount+1+5];
     [self refreshMoreArticleBtnPosition];
 }
 

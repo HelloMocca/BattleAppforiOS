@@ -19,4 +19,12 @@
     [self.dateView setFrame:CGRectMake([self.bottomView bounds].size.width / 2, 0, [self.bottomView bounds].size.width / 2, 15)];
 }
 
+- (void)setupViews {
+    [super setupViews];
+    [self.titleView setLineBreakMode:NSLineBreakByTruncatingTail];
+    [self.titleView setNumberOfLines:2];
+    [self.titleView setFont:[UIFont boldSystemFontOfSize:16]];
+    [self.titleView setTextColor:[UIColor whiteColor]];
+}
+
 @end

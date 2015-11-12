@@ -4,7 +4,12 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History  
-__[Latest Version]0.9.1__
+__[Latest Version]0.9.2__
+* HomeViewController and BAArticleView and BAArticleView's Subclass refactored.  
+* Create [BattleApp Wiki](https://github.com/HelloMocca/BattleAppforiOS/wiki/)
+* Published 12 November, 2015.  
+
+__0.9.1__
 * BattleApp provides league schedule and alram function.  
 * ScheduleTableViewContainer and SceduleCell View added.  
 * NotificationManager Class for managing notifications added.  

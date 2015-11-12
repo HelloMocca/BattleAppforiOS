@@ -9,20 +9,43 @@
 #import "MainArticleView.h"
 
 @implementation MainArticleView
+{
+    CAGradientLayer *gradientLayer;
+    UILabel *titleTextView;
+}
 
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
-    [[self imageView] setFrame:CGRectMake(15, 15, [self bounds].size.width-30, 200)];
-    [[self titleView] setFrame:CGRectMake(20, 120, [self bounds].size.width-40, 80)];
+    [[self imageView] setFrame:CGRectMake(0, 15, [self bounds].size.width, 200)];
+    [[self titleView] setFrame:CGRectMake(0, 120, [self bounds].size.width, 95)];
     [[self bottomView] setFrame:CGRectMake(0, 220, [self bounds].size.width, 30)];
     [[self authorView] setFrame:CGRectMake(15, 0, [self bounds].size.width/2-15, 20)];
     [[self dateView] setFrame:CGRectMake([self bounds].size.width/2, 0, [self bounds].size.width/2-15, 20)];
+    
+    gradientLayer.frame = self.titleView.bounds;
+    [titleTextView setFrame:CGRectMake(15, self.imageView.bounds.origin.y+self.imageView.bounds.size.height-65, self.bounds.size.width-30, 75)];
 }
 
 - (void)setupViews {
     [super setupViews];
-    [self.titleView setBackgroundColor:[UIColor colorWithWhite:14/255.0f alpha:0.6f]];
-    [self.titleView setFont:[UIFont boldSystemFontOfSize:20]];
+    
+    gradientLayer = [CAGradientLayer layer];
+    gradientLayer.colors = [NSArray arrayWithObjects:(id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
+    [self.titleView.layer insertSublayer:gradientLayer atIndex:0];
+    
+    titleTextView = [[UILabel alloc] init];
+    [titleTextView setTextColor:[UIColor cloudColor]];
+    [titleTextView setFont:[UIFont boldSystemFontOfSize:25]];
+    [titleTextView setLineBreakMode:NSLineBreakByTruncatingTail];
+    [titleTextView setNumberOfLines:2];
+    
+    [self addSubview:titleTextView];
+}
+
+- (void)attachArticleInViews:(Article *)aArticle {
+    [super attachArticleInViews:aArticle];
+    [self.titleView setText:@""];
+    [titleTextView setText:[aArticle title]];
 }
 
 @end

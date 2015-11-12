@@ -10,11 +10,11 @@
 
 @implementation BAWebViewController
 {
-    CGSize screenSize;
-    NSString *link;
+    NSString  *link;
     UIWebView *webView;
 }
 
+#pragma mark -Initialize methods
 - (instancetype)initWithLink:(NSString *)url {
     self = [super init];
     if (self) {
@@ -23,21 +23,24 @@
     return self;
 }
 
+#pragma mark -UIViewController Override methods
 - (void)viewDidLoad {
     [super viewDidLoad];
-    screenSize = [UIScreen mainScreen].bounds.size;
-    [[self view] setBackgroundColor:[UIColor colorWithWhite:45/255.0f alpha:1]];
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
-    [[self view] addSubview:webView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (link == nil) return;
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:link]];
     [webView loadRequest:urlRequest];
     [self.view addSubview:webView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (link == nil) return;
     [super viewWillDisappear:animated];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     [webView removeFromSuperview];

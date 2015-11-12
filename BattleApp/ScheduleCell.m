@@ -98,7 +98,7 @@
 - (void)updateAlramBtn {
     NSArray *notifications = [[NotificationManager getNotificationManager] scheduledNotifications];
     UILocalNotification *noti;
-    for (int i = 0, count = [notifications count]; i < count; i++) {
+    for (int i = 0, count = (int)[notifications count]; i < count; i++) {
         noti = [notifications objectAtIndex:i];
         if ([[noti alertBody] isEqualToString:alramBody]) {
             alramChecked = YES;
@@ -127,7 +127,7 @@
 - (void)alramTap:(UITapGestureRecognizer *)recognizer {
     alramChecked = !alramChecked;
     if (alramChecked) {
-        [[NotificationManager getNotificationManager] addNotificationWithDate:[NSDate dateWithTimeIntervalSinceNow:15] body:alramBody];
+        [[NotificationManager getNotificationManager] addNotificationWithDate:[NSDate dateWithTimeIntervalSinceNow:10] body:alramBody];
     } else {
         [[NotificationManager getNotificationManager] removeNotificationWithBody:alramBody];
     }

@@ -64,10 +64,6 @@
 
 - (void)setupTitleView {
     titleView = [[UILabel alloc] init];
-    [titleView setLineBreakMode:NSLineBreakByWordWrapping];
-    [titleView setNumberOfLines:2];
-    [titleView setTextColor:[UIColor whiteColor]];
-    [titleView setFont:[UIFont boldSystemFontOfSize:16]];
     [self addSubview:titleView];
 }
 
