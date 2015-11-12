@@ -82,9 +82,11 @@
 }
 
 - (void)setupScrollView {
+    float mainScrollViewContentHeight = 620;
+    
     mainScrollView = [[UIScrollView alloc] init];
     [mainScrollView setFrame:CGRectMake(0, -40, screenSize.width, screenSize.height)];
-    [mainScrollView setContentSize:CGSizeMake(screenSize.width, 600)];
+    [mainScrollView setContentSize:CGSizeMake(screenSize.width, mainScrollViewContentHeight)];
     [mainScrollView setShowsVerticalScrollIndicator:NO];
     [mainScrollView setShowsHorizontalScrollIndicator:NO];
     [mainScrollView setScrollEnabled:YES];
@@ -97,8 +99,10 @@
 }
 
 - (void)setupMainArticleView {
+    float mainArticleViewHeight = 250;
+    
     mainArticleView = [[MainArticleView alloc] init];
-    [mainArticleView setFrame:CGRectMake(0, 0, screenSize.width, 250)];
+    [mainArticleView setFrame:CGRectMake(0, 0, screenSize.width, mainArticleViewHeight)];
     [mainScrollView addSubview:mainArticleView];
 }
 
@@ -110,15 +114,17 @@
 
 - (void)setupMoreArticleBtn {
     moreArticleBtn = [[UIButton alloc] init];
-    [moreArticleBtn setFrame:CGRectMake(5, 590, screenSize.width-10, 40)];
     [moreArticleBtn setBackgroundColor:[UIColor facebookBlueColor]];
     [moreArticleBtn setTitle:@"View More Articles" forState:UIControlStateNormal];
     [moreArticleBtn addTarget:self action:@selector(moreArticleRequest:) forControlEvents:UIControlEventTouchUpInside];
     [mainScrollView addSubview:moreArticleBtn];
+    
+    [self refreshMoreArticleBtnPosition];
 }
 
 - (void)attachMainArticle {
     if ([articles count] == 0) return;
+    
     Article *mainArticle = [articles objectAtIndex:0];
     [mainArticleView attachArticleInViews:mainArticle];
     [mainArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
@@ -126,25 +132,35 @@
 
 - (void)attachSubArticleBegan:(int)beganOffset toEnd:(int)endOffset {
     if (beganOffset >= endOffset) return;
+    
+    float subArticleViewHeight = 82;
+    float subArticleViewMarginTop = 2;
     int maxArticle = (int)[articles count];
     if (maxArticle < endOffset) endOffset = maxArticle;
+    
     for (int i = beganOffset, r = 0; i < endOffset; i++) {
         SubArticleView *subArticleView = [[SubArticleView alloc] init];
-        [subArticleView setFrame:CGRectMake(0, (totalSubArticleCount*82)+(r*82), screenSize.width, 80)];
+        [subArticleView setFrame:CGRectMake(0, (totalSubArticleCount*subArticleViewHeight)+(r*subArticleViewHeight), screenSize.width, subArticleViewHeight-subArticleViewMarginTop)];
         [subArticleView attachArticleInViews:[articles objectAtIndex:i]];
         [subArticleContainerView addSubview:subArticleView];
         [subArticleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(articleTap:)]];
         r++;
     }
-    totalSubArticleCount += endOffset - beganOffset;
-    [subArticleContainerView setFrame:CGRectMake(0, 260, screenSize.width, totalSubArticleCount*82)];
-    [mainScrollView setContentSize:CGSizeMake(screenSize.width, subArticleContainerView.frame.origin.y + subArticleContainerView.frame.size.height + 40)];
     totalSubArticleCount = endOffset-1;
+    
+    //refresh subArticleContainerView and mainScrollView
+    float heightOfMainArticleView = mainArticleView.frame.size.height;
+    [subArticleContainerView setFrame:CGRectMake(0, heightOfMainArticleView+10, screenSize.width, totalSubArticleCount*subArticleViewHeight)];
+    [mainScrollView setContentSize:CGSizeMake(screenSize.width, subArticleContainerView.frame.origin.y + subArticleContainerView.frame.size.height + moreArticleBtn.frame.size.height + 20)];
 }
 
 - (void)refreshMoreArticleBtnPosition {
     if (moreArticleBtn == nil) return;
-    [moreArticleBtn setFrame:CGRectMake(5, 260+(totalSubArticleCount*82)+2, screenSize.width-10, 40)];
+    
+    float margin = 5;
+    float BtnHeight = 40;
+    
+    [moreArticleBtn setFrame:CGRectMake(margin, subArticleContainerView.frame.origin.y+subArticleContainerView.frame.size.height+margin, screenSize.width - (2 * margin), BtnHeight)];
 }
 
 #pragma mark -Event handle methods

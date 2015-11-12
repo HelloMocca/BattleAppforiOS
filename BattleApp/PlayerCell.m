@@ -1,14 +1,14 @@
 //
-//  PlayerTableViewCell.m
+//  PlayerCell.m
 //  BattleApp
 //
 //  Created by mocca on 2015. 10. 16..
 //  Copyright (c) 2015년 mocca. All rights reserved.
 //
 
-#import "PlayerTableViewCell.h"
+#import "PlayerCell.h"
 
-@implementation PlayerTableViewCell
+@implementation PlayerCell
 
 {
     UIImageView *thumbnailView;
@@ -17,6 +17,7 @@
     UILabel     *raceView;
 }
 
+#pragma mark -Initialize methods
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -32,6 +33,7 @@
     return self;
 }
 
+#pragma mark -Setup view methods
 - (void)setupWithPlayer:(Player *)player {
     CGSize size = self.contentView.frame.size;
     [thumbnailView setFrame:CGRectMake(5, 5, ((size.height-10) * (5 / 6.0f)), size.height-10)];
@@ -50,6 +52,7 @@
     [raceView setFont:[UIFont systemFontOfSize:13]];
 }
 
+#pragma mark -Event handle methods
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }

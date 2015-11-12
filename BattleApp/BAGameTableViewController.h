@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 #import "BAWebViewController.h"
-#import "GameTableViewCell.h"
+#import "GameCell.h"
 
 @interface BAGameTableViewController : UITableViewController
 

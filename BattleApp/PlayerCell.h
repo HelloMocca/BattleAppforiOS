@@ -1,5 +1,5 @@
 //
-//  PlayerTableViewCell.h
+//  PlayerCell.h
 //  BattleApp
 //
 //  Created by mocca on 2015. 10. 16..
@@ -10,7 +10,7 @@
 #import "Player.h"
 #import "UIColorExtension.h"
 
-@interface PlayerTableViewCell : UITableViewCell
+@interface PlayerCell : UITableViewCell
 
 -(void)setupWithPlayer:(Player *)player;
 

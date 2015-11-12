@@ -1,14 +1,14 @@
 //
-//  GameTableViewCell.m
+//  GameCell.m
 //  BattleApp
 //
 //  Created by mocca on 2015. 11. 9..
 //  Copyright (c) 2015년 mocca. All rights reserved.
 //
 
-#import "GameTableViewCell.h"
+#import "GameCell.h"
 
-@implementation GameTableViewCell
+@implementation GameCell
 
 {
     UILabel *dateView;

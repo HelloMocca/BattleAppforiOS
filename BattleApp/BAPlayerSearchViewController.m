@@ -19,7 +19,7 @@
     UIView                    *selectedCellView;
     UIButton                  *morePlayerBtn;
     
-    BASearchDisplayController *searchController;
+    UISearchDisplayController *searchController;
     UIActivityIndicatorView   *spinner;
     
 }
@@ -49,8 +49,8 @@
     return offset;
 }
 
-- (PlayerTableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playerCell" forIndexPath:indexPath];
+- (PlayerCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playerCell" forIndexPath:indexPath];
     Player *player = [players objectAtIndex:[indexPath row]];
     [cell setupWithPlayer:player];
     if ([indexPath row] % 2 == 0) {
@@ -92,7 +92,7 @@
 
 - (void)setupSearchBar {
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 44)];
-    searchController = [[BASearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+    searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
     searchController.searchResultsDataSource = self;
     searchController.delegate = self;
     self.navigationItem.titleView = searchController.searchBar;
@@ -100,7 +100,7 @@
 
 - (void)setupTableView {
     [[self tableView] setRowHeight:80];
-    [[self tableView] registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:@"playerCell"];
+    [[self tableView] registerClass:[PlayerCell class] forCellReuseIdentifier:@"playerCell"];
     [[self tableView] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self setupSelectedCellView];
     [self setupMoreBtn];

@@ -15,6 +15,7 @@
     BAWebViewController *vodViewController;
 }
 
+#pragma mark -Initialize methods
 - (instancetype)initWithGames:(NSArray *)array {
     self = [super init];
     if (self) {
@@ -30,13 +31,15 @@
     return self;
 }
 
+#pragma mark -UITableViewCell Override methods
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self tableView] registerClass:[GameTableViewCell class] forCellReuseIdentifier:@"gameCell"];
+    [[self tableView] registerClass:[GameCell class] forCellReuseIdentifier:@"gameCell"];
     [[self tableView] setRowHeight:80];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     vodViewController = nil;
 }
 
@@ -45,7 +48,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -54,7 +56,7 @@
     return [games count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GameTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gameCell" forIndexPath:indexPath];
+    GameCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gameCell" forIndexPath:indexPath];
     Game *game = [games objectAtIndex:[indexPath row]];
     [cell setupWithGame:game];
     return cell;

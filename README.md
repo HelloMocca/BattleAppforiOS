@@ -1,10 +1,18 @@
 # BattleApp for iOS
 BattleApp serves information of Starcraft2 Worldwide Championship Series. See more information and fork at https://github.com/HelloMocca/BattleAppforiOS.git
-
+Wiki: https://github.com/HelloMocca/BattleAppforiOS/wiki/
+  
 # Screen Shot
 
-# Version History  
-__[Latest Version]0.9.2__
+# Version History 
+__[Latest Version]0.9.3__
+* Player class requestRecordData deprecated.  
+* GameTableViewCell -> GameCell.  
+* PlayerTableViewCell -> PlayerCell. 
+* PlayerSearchDisplayController deleted.   
+* Published 12 November, 2015.  
+ 
+__0.9.2__
 * HomeViewController and BAArticleView and BAArticleView's Subclass refactored.  
 * Create [BattleApp Wiki](https://github.com/HelloMocca/BattleAppforiOS/wiki/)
 * Published 12 November, 2015.  

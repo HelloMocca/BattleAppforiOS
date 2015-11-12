@@ -1,5 +1,5 @@
 //
-//  GameTableViewCell.h
+//  GameCell.h
 //  BattleApp
 //
 //  Created by mocca on 2015. 11. 9..
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 
-@interface GameTableViewCell : UITableViewCell
+@interface GameCell : UITableViewCell
 
 - (void)setupWithGame:(Game *)game;
 
