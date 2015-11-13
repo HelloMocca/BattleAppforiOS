@@ -50,7 +50,7 @@
     return [UIColor colorWithRed:0.133f green:0.420f blue:0.667f alpha:1.00f];
 }
 + (UIColor *) wetAsphaltColor {
-    return [UIColor colorWithRed:0.157f green:0.220f blue:0.294f alpha:1.00f];
+    return [UIColor colorWithRed:0.114f green:0.129f blue:0.145f alpha:1.00f];
 }
 + (UIColor *) greenSeaColor {
     return [UIColor colorWithRed:0.129f green:0.184f blue:0.243f alpha:1.00f];

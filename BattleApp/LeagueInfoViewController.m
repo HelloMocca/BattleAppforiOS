@@ -37,7 +37,7 @@
 }
 
 - (void)setupLeagueLabelView {
-    [[self view] setBackgroundColor:[UIColor colorWithRed:14/255.0f green:14/255.0f blue:14/255.0f alpha:1]];
+    [[self view] setBackgroundColor:[UIColor wetAsphaltColor]];
     leagueLabelView = [[UIView alloc] initWithFrame:CGRectMake(0, 65, screenSize.width, 80)];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, screenSize.width-20, 25)];
     [titleLabel setText:[league title]];
@@ -57,7 +57,7 @@
 - (void)setupLeagueGameView:(NSDictionary *)jsonObject {
     games = [jsonObject objectForKey:@"games"];
     BAGameTableViewController *gameTableVC = [[BAGameTableViewController alloc] initWithGames:games];
-    [[gameTableVC tableView] setFrame:CGRectMake(0, leagueLabelView.frame.origin.y+leagueLabelView.frame.size.height+10, screenSize.width, screenSize.height - leagueLabelView.frame.size.height - 10)];
+    [[gameTableVC tableView] setFrame:CGRectMake(0, leagueLabelView.frame.origin.y+leagueLabelView.frame.size.height+10, screenSize.width, screenSize.height - leagueLabelView.frame.size.height - 130)];
     [self addChildViewController:gameTableVC];
     [[self view] addSubview:[gameTableVC tableView]];
 }

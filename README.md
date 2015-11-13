@@ -5,7 +5,12 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History 
-__[Latest Version]0.9.4__  
+__[Latest Version]0.9.5__
+* GameTableView Height revised.  
+* Player Profile View redesigned.
+* Published 13 November, 2015.
+
+__0.9.4__  
 * Player Information -> Player Profile.
 * PlayerTableViewController -> PlayerViewController.  
 * Cell color define move to UIColorExtension class.  

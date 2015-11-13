@@ -58,6 +58,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GameCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gameCell" forIndexPath:indexPath];
     Game *game = [games objectAtIndex:[indexPath row]];
+    if (indexPath.row % 2 == 0) {
+        [cell setBackgroundColor:[UIColor oddCellColor]];
+    } else {
+        [cell setBackgroundColor:[UIColor evenCellColor]];
+    }
     [cell setupWithGame:game];
     return cell;
 }

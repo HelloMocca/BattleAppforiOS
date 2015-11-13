@@ -26,6 +26,7 @@
 
 @synthesize titleLabel = titleLabel;
 @synthesize numericLabelVisible = numericLabelVisible;
+@synthesize doughnutWidth = doughnutWidth;
 
 
 - (instancetype)initWithFrame:(CGRect)frame {
