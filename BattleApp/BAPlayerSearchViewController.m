@@ -17,6 +17,7 @@
     
     CGSize                    screenSize;
     UIView                    *selectedCellView;
+    UILabel                   *playerNotFoundView;
     UIButton                  *morePlayerBtn;
     
     UISearchDisplayController *searchController;
@@ -24,12 +25,9 @@
     
 }
 
-#define ODD_COLOR [UIColor colorWithWhite:14/255.0f alpha:.6f]
-#define EVEN_COLOR [UIColor colorWithWhite:25/255.0f alpha:.2f]
-
 @synthesize delegate = delegate;
 
-#pragma mark -UIViewController implements
+#pragma mark -UIViewController Override methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];
@@ -40,7 +38,7 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark -UITableViewController implements
+#pragma mark -UITableViewController Override methods
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -54,9 +52,9 @@
     Player *player = [players objectAtIndex:[indexPath row]];
     [cell setupWithPlayer:player];
     if ([indexPath row] % 2 == 0) {
-        [cell setBackgroundColor:ODD_COLOR];
+        [cell setBackgroundColor:[UIColor oddCellColor]];
     } else {
-        [cell setBackgroundColor:EVEN_COLOR];
+        [cell setBackgroundColor:[UIColor evenCellColor]];
     }
     [cell setSelectedBackgroundView:selectedCellView];
     [[cell textLabel] setTextColor:[UIColor whiteColor]];
@@ -68,7 +66,7 @@
     [delegate selectPlayer:player];
 }
 
-#pragma mark -UISearchDisplayDelegate implements
+#pragma mark -UISearchDisplayController methods
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self requestPlayerList:searchString];
@@ -82,6 +80,7 @@
     [[self view] setBackgroundColor:[UIColor clearColor]];
     [self setupSpinnerView];
     [self setupSearchBar];
+    [self setupPlayerNotFoundView];
     [self setupTableView];
 }
 
@@ -96,6 +95,15 @@
     searchController.searchResultsDataSource = self;
     searchController.delegate = self;
     self.navigationItem.titleView = searchController.searchBar;
+}
+
+- (void)setupPlayerNotFoundView {
+    playerNotFoundView = [[UILabel alloc] init];
+    [playerNotFoundView setFrame:CGRectMake(0, 80, screenSize.width, 25)];
+    [playerNotFoundView setFont:[UIFont boldSystemFontOfSize:20]];
+    [playerNotFoundView setTextAlignment:NSTextAlignmentCenter];
+    [playerNotFoundView setTextColor:[UIColor silverColor]];
+    [playerNotFoundView setText:@"Player Not Found!"];
 }
 
 - (void)setupTableView {
@@ -133,7 +141,7 @@
 - (void)requestDidSend {
     [morePlayerBtn setHidden:YES];
     if (![spinner isAnimating]) {
-        [spinner setFrame:self.view.frame];
+        [spinner setFrame:CGRectMake(0, 150, screenSize.width, 25)];
         spinner.color = [UIColor cloudColor];
         [spinner startAnimating];
     }
@@ -151,8 +159,15 @@
         NSLog(@"JSON NOT EXIST ERROR");
         return;
     }
-    players = [[NSMutableArray alloc] init];
+    
     NSArray *result = [jsonObject objectForKey:@"players"];
+    if ([result count] == 0) {
+        [self.view addSubview:playerNotFoundView];
+    } else {
+        [playerNotFoundView removeFromSuperview];
+    }
+    
+    players = [[NSMutableArray alloc] init];
     for (NSDictionary *currPlayer in result) {
         [players addObject:[[Player alloc] initWithDictionary:currPlayer]];
     }

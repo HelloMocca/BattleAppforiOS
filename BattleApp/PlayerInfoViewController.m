@@ -24,12 +24,12 @@
     self = [super init];
     if (self) {
         player = aPlayer;
-        [self setTitle:@"Player Information"];
+        [self setTitle:@"Player Profile"];
     }
     return self;
 }
 
-#pragma mark -UIViewController implements
+#pragma mark -UIViewController Override methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     screenSize = [[UIScreen mainScreen] bounds].size;
@@ -41,7 +41,7 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark -Setup Views
+#pragma mark -Setup view methods
 - (void)setupViews {
     [self setupScrollView];
     [self setupPlayerProfileView];

@@ -59,4 +59,12 @@
     return [UIColor colorWithRed:0.098f green:0.376f blue:0.675f alpha:1.00f];
 }
 
++ (UIColor *) oddCellColor {
+    return [UIColor colorWithWhite:14/255.0f alpha:.6f];
+}
+
++ (UIColor *) evenCellColor {
+    return [UIColor colorWithWhite:25/255.0f alpha:.2f];
+}
+
 @end

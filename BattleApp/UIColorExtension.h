@@ -29,4 +29,7 @@
 + (UIColor *) greenSeaColor;
 + (UIColor *) facebookBlueColor;
 
++ (UIColor *) oddCellColor;
++ (UIColor *) evenCellColor;
+
 @end

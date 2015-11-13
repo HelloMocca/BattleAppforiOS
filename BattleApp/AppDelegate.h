@@ -10,7 +10,7 @@
 #import "BANavigationController.h"
 #import "HomeViewController.h"
 #import "ScheduleTableViewController.h"
-#import "PlayerTableViewController.h"
+#import "PlayerViewController.h"
 #import "LeagueViewController.h"
 #import "MatchViewController.h"
 #import "NotificationManager.h"

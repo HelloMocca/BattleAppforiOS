@@ -15,9 +15,6 @@
     UIView  *cellView;
 }
 
-#define ODD_COLOR [UIColor colorWithWhite:14/255.0f alpha:.6f]
-#define EVEN_COLOR [UIColor colorWithWhite:25/255.0f alpha:.2f]
-
 #pragma mark -Initialize methods
 - (instancetype) initWithLeagues:(NSMutableArray *)aLeagues {
     self = [super init];
@@ -55,9 +52,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"default cell" forIndexPath:indexPath];
     League *league = [leagues objectAtIndex:[indexPath row]];
     if ([indexPath row] % 2 == 0) {
-        [cell setBackgroundColor:EVEN_COLOR];
+        [cell setBackgroundColor:[UIColor oddCellColor]];
     } else {
-        [cell setBackgroundColor:ODD_COLOR];
+        [cell setBackgroundColor:[UIColor evenCellColor]];
     }
     [cell setSelectedBackgroundView:cellView];
     [[cell textLabel] setText:[league title]];

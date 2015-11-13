@@ -17,9 +17,6 @@
 #define MAJOR_STATE 1
 #define MINOR_STATE 2
 
-#define ODD_COLOR [UIColor colorWithWhite:14/255.0f alpha:.6f]
-#define EVEN_COLOR [UIColor colorWithWhite:25/255.0f alpha:.2f]
-
 #pragma mark -UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,9 +47,9 @@
     ScheduleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scheduleCell" forIndexPath:indexPath];
     Schedule *schedule = [schedules objectAtIndex:[indexPath row]];
     if ([indexPath row] % 2 == 0) {
-        [cell setBackgroundColor:ODD_COLOR];
+        [cell setBackgroundColor:[UIColor oddCellColor]];
     } else {
-        [cell setBackgroundColor:EVEN_COLOR];
+        [cell setBackgroundColor:[UIColor evenCellColor]];
     }
     [cell setupWithSchedule:schedule];
     return cell;

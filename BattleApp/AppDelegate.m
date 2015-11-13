@@ -91,7 +91,7 @@
     NSArray *viewControllerArray = [NSArray arrayWithObjects:
                                     @[@"News", [HomeViewController class]],
                                     @[@"Schedule",[ScheduleTableViewController class]],
-                                    @[@"Player", [PlayerTableViewController class]],
+                                    @[@"Player", [PlayerViewController class]],
                                     @[@"League", [LeagueViewController class]],
                                     @[@"Match", [MatchViewController class]],
                                     nil];

@@ -6,11 +6,11 @@
 //  Copyright (c) 2015년 mocca. All rights reserved.
 //
 
-#import "PlayerTableViewController.h"
+#import "PlayerViewController.h"
 
-@implementation PlayerTableViewController
+@implementation PlayerViewController
 
-#pragma mark -UIViewController implements
+#pragma mark -BAPlayerSearchViewController Override method
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setDelegate:self];

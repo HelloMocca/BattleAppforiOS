@@ -13,6 +13,6 @@
 #import "BANavigationController.h"
 #import "BAPlayerSearchViewController.h"
 
-@interface PlayerTableViewController : BAPlayerSearchViewController <PlayerTableSelectDelegate>
+@interface PlayerViewController : BAPlayerSearchViewController <PlayerTableSelectDelegate>
 
 @end

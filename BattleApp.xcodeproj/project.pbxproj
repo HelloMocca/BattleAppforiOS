@@ -17,7 +17,7 @@
 		C467FAAB1BCB929400AAF522 /* LeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAAA1BCB929400AAF522 /* LeagueViewController.m */; };
 		C467FAAE1BCB92A900AAF522 /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAAD1BCB92A900AAF522 /* MatchViewController.m */; };
 		C467FAB21BCCDD9300AAF522 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAB11BCCDD9300AAF522 /* Player.m */; };
-		C467FAB51BCCF2B100AAF522 /* PlayerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAB41BCCF2B100AAF522 /* PlayerTableViewController.m */; };
+		C467FAB51BCCF2B100AAF522 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAB41BCCF2B100AAF522 /* PlayerViewController.m */; };
 		C467FAB91BCDF42100AAF522 /* LeagueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAB81BCDF42100AAF522 /* LeagueTableViewController.m */; };
 		C4A969FC1BCE1FAF00412F9E /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A969FB1BCE1FAF00412F9E /* League.m */; };
 		C4A96A021BCF467C00412F9E /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A96A011BCF467C00412F9E /* PlayerInfoViewController.m */; };
@@ -84,8 +84,8 @@
 		C467FAAD1BCB92A900AAF522 /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
 		C467FAB01BCCDD9300AAF522 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		C467FAB11BCCDD9300AAF522 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
-		C467FAB31BCCF2B100AAF522 /* PlayerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewController.h; sourceTree = "<group>"; };
-		C467FAB41BCCF2B100AAF522 /* PlayerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewController.m; sourceTree = "<group>"; };
+		C467FAB31BCCF2B100AAF522 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		C467FAB41BCCF2B100AAF522 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		C467FAB71BCDF42100AAF522 /* LeagueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueTableViewController.h; sourceTree = "<group>"; };
 		C467FAB81BCDF42100AAF522 /* LeagueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueTableViewController.m; sourceTree = "<group>"; };
 		C4A969FA1BCE1FAF00412F9E /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
@@ -249,8 +249,8 @@
 				C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */,
 				C45316B81BF0826A000B2ADA /* ScheduleTableViewController.h */,
 				C45316B91BF0826A000B2ADA /* ScheduleTableViewController.m */,
-				C467FAB31BCCF2B100AAF522 /* PlayerTableViewController.h */,
-				C467FAB41BCCF2B100AAF522 /* PlayerTableViewController.m */,
+				C467FAB31BCCF2B100AAF522 /* PlayerViewController.h */,
+				C467FAB41BCCF2B100AAF522 /* PlayerViewController.m */,
 				C4A96A001BCF467C00412F9E /* PlayerInfoViewController.h */,
 				C4A96A011BCF467C00412F9E /* PlayerInfoViewController.m */,
 				C467FAA91BCB929400AAF522 /* LeagueViewController.h */,
@@ -445,7 +445,7 @@
 				C467FAB91BCDF42100AAF522 /* LeagueTableViewController.m in Sources */,
 				C4A96BAF1BE8835D00412F9E /* BAGameTableViewController.m in Sources */,
 				C4A96BBB1BEAFE1B00412F9E /* BAWebViewController.m in Sources */,
-				C467FAB51BCCF2B100AAF522 /* PlayerTableViewController.m in Sources */,
+				C467FAB51BCCF2B100AAF522 /* PlayerViewController.m in Sources */,
 				C4A96A1A1BD0DE3400412F9E /* PlayerCell.m in Sources */,
 				C45316BD1BF082CF000B2ADA /* Schedule.m in Sources */,
 				C4A96A021BCF467C00412F9E /* PlayerInfoViewController.m in Sources */,
