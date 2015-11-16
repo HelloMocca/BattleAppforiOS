@@ -5,7 +5,13 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History 
-__[Latest Version]0.9.6__
+__[Latest Version]0.10.1__
+* 20news shows when each request in HomeViewController.
+* more article button shows spinner when request is working.  
+* more article button is inactivated when there is no more articles data.  
+* Published 16 November, 2015.  
+
+__0.9.6__
 * Player Profile View redesign.  
 * PlayerInfoViewController separated class of view works to PlayerTotalRecordView and RaceRecordView.
 * PlayerTotalRecordView creates subviews of player's total records.  

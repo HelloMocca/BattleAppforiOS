@@ -15,11 +15,13 @@
     CGSize                      screenSize;
     UIScrollView                *mainScrollView;
     UIButton                    *moreArticleBtn;
+    UIActivityIndicatorView     *btnSpinner;
     UIView                      *subArticleContainerView;
     BAWebViewController         *articleDetailViewController;
     MainArticleView             *mainArticleView;
     
     int totalSubArticleCount;
+    int apiPageIdx;
 }
 
 #pragma mark -Initialize methods
@@ -27,7 +29,9 @@
     self = [super init];
     if (self) {
         screenSize = [[UIScreen mainScreen] bounds].size;
+        articles = [[NSMutableArray alloc] init];
         totalSubArticleCount = 0;
+        apiPageIdx = 0;
     }
     return self;
 }
@@ -52,27 +56,27 @@
 
 #pragma mark -Request data method
 - (void)requestNewsData {
-    NSString *url = @"http://125.209.198.90/battleapp/wcsnews.php";
+    [self requestDidSend];
+    apiPageIdx++;
+    NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/wcsnews.php?page=%d", apiPageIdx];
     [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
         [self performSelectorOnMainThread:@selector(attachNewsArticles:) withObject:jsonObject waitUntilDone:NO];
-    }  asynchronous:NO];
+    }  asynchronous:YES];
 }
 
 - (void)attachNewsArticles:(NSDictionary *)jsonObject {
     if ([jsonObject count] == 0) {
         NSLog(@"news article data is nil");
+        [self newdataDidEnd];
         return;
     }
     NSArray *result = [jsonObject objectForKey:@"articles"];
-    articles = [[NSMutableArray alloc] init];
     NSDictionary *currArticle;
     for (currArticle in result) {
         [articles addObject:[[Article alloc] initWithDictionary:currArticle]];
     }
     result = nil;
-    [self attachMainArticle];
-    [self setupSubArticle];
-    [self setupMoreArticleBtn];
+    [self requestDidEnd];
 }
 
 #pragma mark -Setup View methods
@@ -108,7 +112,7 @@
 
 - (void)setupSubArticle {
     subArticleContainerView = [[UIView alloc] init];
-    [self attachSubArticleBegan:1 toEnd:5];
+    [self attachSubArticleBegan:1 toEnd:20];
     [mainScrollView addSubview:subArticleContainerView];
 }
 
@@ -119,11 +123,15 @@
     [moreArticleBtn addTarget:self action:@selector(moreArticleRequest:) forControlEvents:UIControlEventTouchUpInside];
     [mainScrollView addSubview:moreArticleBtn];
     
+    btnSpinner = [[UIActivityIndicatorView alloc] init];
+    [btnSpinner setFrame:CGRectMake(0, 0, screenSize.width, 40)];
+    [moreArticleBtn addSubview:btnSpinner];
+    
     [self refreshMoreArticleBtnPosition];
 }
 
 - (void)attachMainArticle {
-    if ([articles count] == 0) return;
+    if ([articles count] == 0) return; //√ empty array check
     
     Article *mainArticle = [articles objectAtIndex:0];
     [mainArticleView attachArticleInViews:mainArticle];
@@ -131,12 +139,11 @@
 }
 
 - (void)attachSubArticleBegan:(int)beganOffset toEnd:(int)endOffset {
-    if (beganOffset >= endOffset) return;
+    if (beganOffset >= endOffset) return;                           //√ prevent bad request
+    if ([articles count] < endOffset) endOffset = [articles count]; //√ prevent Out of Bound exception
     
     float subArticleViewHeight = 82;
     float subArticleViewMarginTop = 2;
-    int maxArticle = (int)[articles count];
-    if (maxArticle < endOffset) endOffset = maxArticle;
     
     for (int i = beganOffset, r = 0; i < endOffset; i++) {
         SubArticleView *subArticleView = [[SubArticleView alloc] init];
@@ -163,6 +170,32 @@
     [moreArticleBtn setFrame:CGRectMake(margin, subArticleContainerView.frame.origin.y+subArticleContainerView.frame.size.height+margin, screenSize.width - (2 * margin), BtnHeight)];
 }
 
+- (void)requestDidSend {
+    if (totalSubArticleCount != 0) {
+        [btnSpinner startAnimating];
+        [moreArticleBtn setTitle:@"" forState:UIControlStateNormal];
+    }
+}
+
+- (void)requestDidEnd {
+    if (totalSubArticleCount == 0) {
+        [self attachMainArticle];
+        [self setupSubArticle];
+        [self setupMoreArticleBtn];
+    } else {
+        [self attachSubArticleBegan:totalSubArticleCount+1 toEnd:totalSubArticleCount+1+20];
+        [self refreshMoreArticleBtnPosition];
+        [btnSpinner stopAnimating];
+        [moreArticleBtn setTitle:@"View More Articles" forState:UIControlStateNormal];
+    }
+}
+
+- (void)newdataDidEnd {
+    [btnSpinner stopAnimating];
+    [moreArticleBtn setTitle:@"No More Article Exists" forState:UIControlStateNormal];
+    [moreArticleBtn setBackgroundColor:[UIColor concreteColor]];
+}
+
 #pragma mark -Event handle methods
 - (void)articleTap:(UITapGestureRecognizer *)recognizer {
     BAArticleView *tappedav = (BAArticleView *)recognizer.view;
@@ -171,8 +204,9 @@
 }
 
 - (IBAction)moreArticleRequest:(id)sender {
-    [self attachSubArticleBegan:totalSubArticleCount+1 toEnd:totalSubArticleCount+1+5];
-    [self refreshMoreArticleBtnPosition];
+    if ([btnSpinner isAnimating]) return;
+    
+    [self requestNewsData];
 }
 
 @end
