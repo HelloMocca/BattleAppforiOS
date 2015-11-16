@@ -25,7 +25,7 @@
     self = [super init];
     if (self) {
         player = aPlayer;
-        [self setTitle:@"Player Profile"];
+        [self setTitle:@"PROFILE"];
     }
     return self;
 }

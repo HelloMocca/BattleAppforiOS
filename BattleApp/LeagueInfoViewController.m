@@ -21,6 +21,7 @@
     self = [super init];
     if (self) {
         league = aLeague;
+        [self setTitle:@"INFOMATION"];
     }
     return self;
 }
@@ -38,18 +39,29 @@
 
 - (void)setupLeagueLabelView {
     [[self view] setBackgroundColor:[UIColor wetAsphaltColor]];
-    leagueLabelView = [[UIView alloc] initWithFrame:CGRectMake(0, 65, screenSize.width, 80)];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, screenSize.width-20, 25)];
+    leagueLabelView = [[UIView alloc] initWithFrame:CGRectMake(0, 65, screenSize.width, 120)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, screenSize.width-20, 50)];
     [titleLabel setText:[league title]];
-    [titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
+    [titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    [titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    [titleLabel setNumberOfLines:2];
     [titleLabel setTextColor:[UIColor baWhiteColor]];
     [leagueLabelView addSubview:titleLabel];
     
-    UILabel *openDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 25+5, screenSize.width-20, 25)];
-    [openDateLabel setText:[league openDate]];
-    [openDateLabel setFont:[UIFont systemFontOfSize:15]];
-    [openDateLabel setTextColor:[UIColor baWhiteColor]];
-    [leagueLabelView addSubview:openDateLabel];
+    BADoubleLabelView *opendateLabel = [[BADoubleLabelView alloc] init];
+    [opendateLabel setFrame:CGRectMake(10, titleLabel.frame.origin.y+titleLabel.frame.size.height+5, screenSize.width-20, 15)];
+    [opendateLabel setLeftLabelText:@"OPEN DATE" rightLabelText:[league openDate]];
+    [leagueLabelView addSubview:opendateLabel];
+    
+    BADoubleLabelView *enddateLabel = [[BADoubleLabelView alloc] init];
+    [enddateLabel setFrame:CGRectMake(10, opendateLabel.frame.origin.y+opendateLabel.frame.size.height+5, screenSize.width-20, 15)];
+    [enddateLabel setLeftLabelText:@"END DATE" rightLabelText:@"ON GOING"];
+    [leagueLabelView addSubview:enddateLabel];
+    
+    BADoubleLabelView *locationLabel = [[BADoubleLabelView alloc] init];
+    [locationLabel setFrame:CGRectMake(10, enddateLabel.frame.origin.y+enddateLabel.frame.size.height+5, screenSize.width-20, 15)];
+    [locationLabel setLeftLabelText:@"LOCATION" rightLabelText:@"KOREA"];
+    [leagueLabelView addSubview:locationLabel];
     
     [[self view] addSubview:leagueLabelView];
 }

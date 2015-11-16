@@ -13,6 +13,7 @@
 		C45316C31BF0A437000B2ADA /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C45316C21BF0A437000B2ADA /* NotificationManager.m */; };
 		C45A91281BF5E0C5007BE862 /* PlayerTotalRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = C45A91271BF5E0C5007BE862 /* PlayerTotalRecordView.m */; };
 		C45A912B1BF5E52F007BE862 /* RaceRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = C45A912A1BF5E52F007BE862 /* RaceRecordView.m */; };
+		C45A912E1BF9C2D3007BE862 /* BADoubleLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C45A912D1BF9C2D3007BE862 /* BADoubleLabelView.m */; };
 		C467FAA11BCB8C6D00AAF522 /* BAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAA01BCB8C6D00AAF522 /* BAViewController.m */; };
 		C467FAA41BCB8E2A00AAF522 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAA31BCB8E2A00AAF522 /* HomeViewController.m */; };
 		C467FAA81BCB8F2F00AAF522 /* BANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C467FAA71BCB8F2F00AAF522 /* BANavigationController.m */; };
@@ -78,6 +79,8 @@
 		C45A91271BF5E0C5007BE862 /* PlayerTotalRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTotalRecordView.m; sourceTree = "<group>"; };
 		C45A91291BF5E52F007BE862 /* RaceRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceRecordView.h; sourceTree = "<group>"; };
 		C45A912A1BF5E52F007BE862 /* RaceRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaceRecordView.m; sourceTree = "<group>"; };
+		C45A912C1BF9C2D3007BE862 /* BADoubleLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BADoubleLabelView.h; sourceTree = "<group>"; };
+		C45A912D1BF9C2D3007BE862 /* BADoubleLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BADoubleLabelView.m; sourceTree = "<group>"; };
 		C467FA9F1BCB8C6D00AAF522 /* BAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAViewController.h; sourceTree = "<group>"; };
 		C467FAA01BCB8C6D00AAF522 /* BAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAViewController.m; sourceTree = "<group>"; };
 		C467FAA21BCB8E2A00AAF522 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				C45A91271BF5E0C5007BE862 /* PlayerTotalRecordView.m */,
 				C45A91291BF5E52F007BE862 /* RaceRecordView.h */,
 				C45A912A1BF5E52F007BE862 /* RaceRecordView.m */,
+				C45A912C1BF9C2D3007BE862 /* BADoubleLabelView.h */,
+				C45A912D1BF9C2D3007BE862 /* BADoubleLabelView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -485,6 +490,7 @@
 				C4A96BC61BEC457700412F9E /* Score.m in Sources */,
 				C4A96BC31BEC426300412F9E /* Record.m in Sources */,
 				C4A96B3C1BD7939C00412F9E /* PlayerDescView.m in Sources */,
+				C45A912E1BF9C2D3007BE862 /* BADoubleLabelView.m in Sources */,
 				C45316BA1BF0826A000B2ADA /* ScheduleTableViewController.m in Sources */,
 				C467FAAB1BCB929400AAF522 /* LeagueViewController.m in Sources */,
 				C467FAB21BCCDD9300AAF522 /* Player.m in Sources */,

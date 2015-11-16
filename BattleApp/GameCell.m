@@ -12,6 +12,7 @@
 
 {
     UILabel *dateView;
+    UILabel *providerView;
     UILabel *titleView;
     UILabel *locationView;
     UILabel *leagueNameView;
@@ -32,6 +33,7 @@
     [self setupLeagueNameView];
     [self setupTitleView];
     [self setupDateView];
+    [self setupProviderView];
 }
 
 - (void)setupLeagueNameView {
@@ -40,6 +42,7 @@
     leagueNameView = [[UILabel alloc] init];
     [leagueNameView setFrame:CGRectMake(cellMargin, 5, cellWidth, 15)];
     [leagueNameView setFont:[UIFont systemFontOfSize:13]];
+    [leagueNameView setTextColor:[UIColor baDarkGrayColor]];
     [self addSubview:leagueNameView];
 }
 
@@ -56,18 +59,31 @@
 
 - (void)setupDateView {
     float cellMargin = 15;
-    float cellWidth = screenSize.width - (2 * cellMargin);
+    float cellWidth = (screenSize.width/2) - cellMargin;
     dateView = [[UILabel alloc] init];
     [dateView setFrame:CGRectMake(cellMargin, titleView.frame.origin.y+titleView.frame.size.height, cellWidth, 15)];
     [dateView setFont:[UIFont systemFontOfSize:13]];
+    [dateView setTextColor:[UIColor concreteColor]];
     [self addSubview:dateView];
+}
+
+- (void)setupProviderView {
+    float cellMargin = 15;
+    float cellWidth = (screenSize.width/2) - cellMargin;
+    providerView = [[UILabel alloc] init];
+    [providerView setFrame:CGRectMake(self.frame.size.width-cellWidth-15, titleView.frame.origin.y+titleView.frame.size.height, cellWidth, 15)];
+    [providerView setTextAlignment:NSTextAlignmentRight];
+    [providerView setFont:[UIFont systemFontOfSize:13]];
+    [providerView setTextColor:[UIColor concreteColor]];
+    [self addSubview:providerView];
 }
 
 - (void)setupWithGame:(Game *)game {
     NSString *matchName = [NSString stringWithFormat:@"Round %@ - %@SET %@ vs %@", [game round], [game set], [game player1], [game player2]];
-    [dateView setText:[game time]];
+    [dateView setText:[game date]];
     [titleView setText:matchName];
     [leagueNameView setText:[game title]];
+    [providerView setText:[game provider]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -17,7 +17,9 @@
 @property (nonatomic, readonly) NSString *set;
 @property (nonatomic, readonly) NSString *winner;
 @property (nonatomic, readonly) NSString *time;
+@property (nonatomic, readonly) NSString *date;
 @property (nonatomic, readonly) NSString *link;
+@property (nonatomic, readonly) NSString *provider;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
 

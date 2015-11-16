@@ -5,7 +5,14 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History 
-__[Latest Version]0.10.1__
+__[Latest Version]0.10.2__
+* BADoubleLabelView class added.
+* LeagueInfomationView redesign.
+* Game class has 'provider' property.
+* Game class has 'date' property.
+* Published 16 November, 2015.
+
+__0.10.1__
 * 20news shows when each request in HomeViewController.
 * more article button shows spinner when request is working.  
 * more article button is inactivated when there is no more articles data.  

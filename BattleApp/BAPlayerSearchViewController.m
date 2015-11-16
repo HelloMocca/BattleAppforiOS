@@ -77,7 +77,7 @@
 - (void)setupViews {
     screenSize = [[UIScreen mainScreen] bounds].size;
     [[[self navigationController] navigationBar] setBarTintColor:[UIColor blackColor]];
-    [[self view] setBackgroundColor:[UIColor clearColor]];
+    [[self view] setBackgroundColor:[UIColor wetAsphaltColor]];
     [self setupSpinnerView];
     [self setupSearchBar];
     [self setupPlayerNotFoundView];

@@ -17,7 +17,9 @@
     NSString *set;
     NSString *winner;
     NSString *time;
+    NSString *date;
     NSString *link;
+    NSString *provider;
 }
 
 @synthesize player1 = player1;
@@ -27,7 +29,9 @@
 @synthesize set = set;
 @synthesize winner = winner;
 @synthesize time = time;
+@synthesize date = date;
 @synthesize link = link;
+@synthesize provider = provider;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -39,7 +43,9 @@
         set = [dictionary valueForKey:@"gameSet"];
         winner = [dictionary valueForKey:@"winnerName"];
         time = [dictionary valueForKey:@"matchDate"];
+        date = [[time componentsSeparatedByString:@" "] objectAtIndex:0];
         link = [dictionary valueForKey:@"vodLink"];
+        provider = @"SPOTV";
     }
     return self;
 }

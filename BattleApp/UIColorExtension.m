@@ -91,7 +91,7 @@
 }
 
 + (UIColor *) evenCellColor {
-    return [UIColor colorWithWhite:25/255.0f alpha:.2f];
+    return [UIColor colorWithWhite:50/255.0f alpha:.6f];
 }
 
 @end

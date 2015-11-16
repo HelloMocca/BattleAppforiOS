@@ -59,9 +59,9 @@
     GameCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gameCell" forIndexPath:indexPath];
     Game *game = [games objectAtIndex:[indexPath row]];
     if (indexPath.row % 2 == 0) {
-        [cell setBackgroundColor:[UIColor oddCellColor]];
+        [cell setBackgroundColor:[UIColor baWhiteColor]];
     } else {
-        [cell setBackgroundColor:[UIColor evenCellColor]];
+        [cell setBackgroundColor:[UIColor colorWithWhite:200/255.0f alpha:1]];
     }
     [cell setupWithGame:game];
     return cell;
