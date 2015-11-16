@@ -31,7 +31,8 @@
     
     id navigationBarAppearance = self.navigationController.navigationBar;
     [navigationBarAppearance setBackgroundImage:transparentBackground forBarMetrics:UIBarMetricsDefault];
-    [navigationBarAppearance setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [navigationBarAppearance setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.231f green:0.702f blue:0.753f alpha:1.00f]}];
+    [navigationBarAppearance setTintColor:[UIColor concreteColor]];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColorExtension.h"
 
 @interface BAViewController : UIViewController
 

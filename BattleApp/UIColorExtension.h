@@ -18,6 +18,12 @@
 + (UIColor *) concreteColor;
 + (UIColor *) asbestosColor;
 
++ (UIColor *) alizalinColor;
++ (UIColor *) pomegranateColor;
+
++ (UIColor *) pumpkinColor;
++ (UIColor *) carrotColor;
+
 + (UIColor *) baYellowColor;
 + (UIColor *) sunflowerColor;
 + (UIColor *) baOrangeColor;

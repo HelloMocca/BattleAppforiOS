@@ -5,7 +5,16 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History 
-__[Latest Version]0.9.5__
+__[Latest Version]0.9.6__
+* Player Profile View redesign.  
+* PlayerInfoViewController separated class of view works to PlayerTotalRecordView and RaceRecordView.
+* PlayerTotalRecordView creates subviews of player's total records.  
+* RaceRecordView creates subviews of player's opposite race record views.
+* setupDoughnutChartsWithFrame:donutRatio:title method change to setupDoughnutChartWithFrame:score:title method.  
+* navigation bar back button tint color changed.
+* Published 16 November, 2015.
+
+__0.9.5__
 * GameTableView Height revised.  
 * Player Profile View redesigned.
 * Published 13 November, 2015.

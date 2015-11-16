@@ -9,6 +9,8 @@
 #import "BAViewController.h"
 #import "BAGameTableViewController.h"
 #import "Player.h"
+#import "PlayerTotalRecordView.h"
+#import "RaceRecordView.h"
 #import "UIColorExtension.h"
 #import "Racoon.h"
 

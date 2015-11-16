@@ -21,6 +21,8 @@
     UILabel *titleLabel;
     UILabel *numericLabel;
     
+    UIColor *color;
+    
     BOOL numericLabelVisible; //deprecate
 }
 
@@ -38,6 +40,7 @@
         [self setFrame:frame];
         [self addSubview:numericLabel];
         [self addSubview:titleLabel];
+        color = [UIColor colorWithRed:0.278f green:0.757f blue:0.816f alpha:1.00f];
     }
     return self;
 }
@@ -64,7 +67,7 @@
     CGContextMoveToPoint(context, center.x, center.y);
     CGContextAddArc(context, center.x, center.y, radius-doughnutWidth, -(M_PI/2), -(M_PI/2)+(M_PI*2) * currRatio, NO);
     CGContextClosePath(context);
-    CGContextSetRGBFillColor(context, 0.141f, 0.431f, 0.608f, 1);
+    CGContextSetFillColorWithColor(context, [color CGColor]);
     CGContextEOFillPath(context);
     
     if (currRatio != ratio) {
