@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>D91D63F1-659C-4BCD-8025-02C06644A1A2</string>
 	<key>IDESourceControlProjectName</key>
-	<string>BattleApp</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>11E205F386977D98D353B046E4E0E21C807BC05B</key>
 		<string>https://github.com/hellomocca/battleappforios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>BattleApp.xcodeproj</string>
+	<string>BattleApp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>11E205F386977D98D353B046E4E0E21C807BC05B</key>

@@ -11,10 +11,11 @@
 @implementation MatchPredictViewController
 
 {
-    CGSize       ScreenSize;
+    CGSize       screenSize;
     Player       *player1;
     Player       *player2;
     NSArray      *calcResult;
+    UIScrollView *mainScrollView;
 }
 
 #pragma mark -Initialize methods
@@ -23,6 +24,7 @@
     if (self) {
         player1 = aPlayer1;
         player2 = aPlayer2;
+        [self setTitle:@"REPORT"];
     }
     return self;
 }
@@ -30,8 +32,8 @@
 #pragma mark -UIViewController implement methods
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self view] setBackgroundColor:[UIColor colorWithWhite:13/225.0f alpha:1]];
-    ScreenSize = [[UIScreen mainScreen] bounds].size;
+    [[self view] setBackgroundColor:[UIColor wetAsphaltColor]];
+    screenSize = [[UIScreen mainScreen] bounds].size;
     [self setupViews];
 }
 
@@ -42,38 +44,66 @@
 #pragma mark -Setup view methods
 - (void)setupViews {
     if([self checkEmptyPlayer]) return;
+    [self setupMainScrollView];
     [self setupPlayerStandView];
     [self setupPredictView];
+}
+
+- (void)setupMainScrollView {
+    mainScrollView = [[UIScrollView alloc] init];
+    [mainScrollView setFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
+    [mainScrollView setContentSize:CGSizeMake(screenSize.width, 600)];
+    [[self view] addSubview:mainScrollView];
 }
 
 - (void)setupPlayerStandView {
     MatchPlayerStandView *standView = [[MatchPlayerStandView alloc] initWithDelegate:self];
     [[standView player1View] setupPlayer:player1];
     [[standView player2View] setupPlayer:player2];
-    [[self view] addSubview:standView];
+    [standView setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 150)];
+    [mainScrollView addSubview:standView];
 }
 
 - (void)setupPredictView {
     [self matchCalculate];
     CGFloat origin;
     CGFloat target;
-    int stackBarHeight = 25;
+    int stackBarHeight = 60;
     int stackBarMargin = 5;
-    UIView *predictView = [[UIView alloc] initWithFrame:CGRectMake(20, 350, ScreenSize.width-40, 200)];
+    
+    UIView *predictView = [[UIView alloc] initWithFrame:CGRectMake(20, 250, screenSize.width-40, 200)];
+    
     for (int i = 0; i < [calcResult count]; i++) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, stackBarMargin + i * (stackBarHeight + stackBarMargin*2), predictView.frame.size.width, 15)];
-        [label setText:calcResult[i][0]];
-        [label setTextAlignment:NSTextAlignmentCenter];
-        [label setTextColor:[UIColor cloudColor]];
         RCStackBar *stackBar = [[RCStackBar alloc] init];
-        [stackBar setFrame:CGRectMake(0, i * (stackBarHeight + stackBarMargin*2), predictView.frame.size.width, stackBarHeight)];
-        origin = [calcResult[i][3] floatValue];
+        [stackBar setFrame:CGRectMake(0, i * (stackBarHeight + stackBarMargin*2), predictView.frame.size.width, 4)];
+        origin = [[calcResult[i] objectForKey:@"origin"] floatValue];
         target = 1.0f - origin;
         [stackBar setData:[NSArray arrayWithObjects:@(origin),@(target),nil]];
+        [stackBar setBarColors:[NSArray arrayWithObjects:[UIColor emeraldColor],[UIColor baPurpleColor],nil]];
         [predictView addSubview:stackBar];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, (i * (stackBarHeight + stackBarMargin*2))-18, predictView.frame.size.width, 13)];
+        [label setText:[calcResult[i] valueForKey:@"title"]];
+        [label setFont:[UIFont boldSystemFontOfSize:13]];
+        [label setTextColor:[UIColor silverColor]];
         [predictView addSubview:label];
+        
+        UILabel *leftLabel = [[UILabel alloc] init];
+        [leftLabel setFrame:CGRectMake(0, stackBar.frame.origin.y+stackBar.frame.size.height+3, stackBar.frame.size.width / 2, 25)];
+        [leftLabel setText:[calcResult[i] valueForKey:@"leftLabel"]];
+        [leftLabel setTextColor:[UIColor emeraldColor]];
+        [leftLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:30]];
+        [predictView addSubview:leftLabel];
+        
+        UILabel *rightLabel = [[UILabel alloc] init];
+        [rightLabel setFrame:CGRectMake(stackBar.frame.size.width / 2, stackBar.frame.origin.y+stackBar.frame.size.height+3, stackBar.frame.size.width / 2, 25)];
+        [rightLabel setText:[calcResult[i] valueForKey:@"rightLabel"]];
+        [rightLabel setTextColor:[UIColor baPurpleColor]];
+        [rightLabel setTextAlignment:NSTextAlignmentRight];
+        [rightLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Thin" size:30]];
+        [predictView addSubview:rightLabel];
     }
-    [[self view] addSubview:predictView];
+    [mainScrollView addSubview:predictView];
 }
 
 #pragma mark -Condition check methods

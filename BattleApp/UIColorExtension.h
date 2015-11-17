@@ -35,6 +35,9 @@
 + (UIColor *) greenSeaColor;
 + (UIColor *) facebookBlueColor;
 
++ (UIColor *) emeraldColor;
++ (UIColor *) baPurpleColor;
+
 + (UIColor *) oddCellColor;
 + (UIColor *) evenCellColor;
 

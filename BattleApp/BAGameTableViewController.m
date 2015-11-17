@@ -69,7 +69,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Game *currGame = [games objectAtIndex:[indexPath row]];
-    vodViewController = [[BAWebViewController alloc] initWithLink:@"https://youtu.be/MeH_z7Qe0CE"];
+    vodViewController = [[BAWebViewController alloc] initWithLink:[currGame link]];
     [[self navigationController] pushViewController:vodViewController animated:NO];
 }
 

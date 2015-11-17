@@ -16,20 +16,20 @@
     NSUInteger leagueId;
     NSString   *title;
     NSString   *sponsor;
-    NSString   *openDatetime;
     NSString   *openDate;
-    NSString   *endDatetime;
     NSString   *endDate;
+    NSString   *winner;
+    NSString   *organizer;
     NSString   *location;
 }
 
 @synthesize leagueId = leagueId;
 @synthesize title = title;
 @synthesize sponsor = sponsor;
-@synthesize openDatetime = openDatetime;
 @synthesize openDate = openDate;
-@synthesize endDatetime = endDatetime;
 @synthesize endDate = endDate;
+@synthesize winner = winner;
+@synthesize organizer = organizer;
 @synthesize location = location;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
@@ -38,12 +38,20 @@
         leagueId = [[dictionary valueForKey:@"id"] integerValue];
         title = [dictionary valueForKey:@"name"];
         sponsor = [dictionary valueForKey:@"sponsor"];
-        openDatetime = [dictionary valueForKey:@"openDate"];
-        openDate = [openDatetime componentsSeparatedByString:@" "][0];
+        openDate = [[dictionary valueForKey:@"openDate"] componentsSeparatedByString:@" "][0];
+        endDate = [[dictionary valueForKey:@"endDate"] componentsSeparatedByString:@" "][0];
+        winner = [dictionary valueForKey:@"winner"];
+        location = [dictionary valueForKey:@"location"];
     }
     return self;
 }
 
+- (NSString *)endDate {
+    return ([endDate isEqualToString:@""]) ? @"ON GOING" : endDate;
+}
 
+- (NSString *)winner {
+    return ([winner isEqualToString:@""]) ? @"TBD" : winner;
+}
 
 @end

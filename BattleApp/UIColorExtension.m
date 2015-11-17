@@ -86,6 +86,14 @@
     return [UIColor colorWithRed:0.098f green:0.376f blue:0.675f alpha:1.00f];
 }
 
++ (UIColor *) emeraldColor {
+    return [UIColor colorWithRed:0.267f green:0.702f blue:0.765f alpha:1.00f];
+}
+
++ (UIColor *) baPurpleColor {
+    return [UIColor colorWithRed:0.427f green:0.451f blue:0.969f alpha:1.00f];
+}
+
 + (UIColor *) oddCellColor {
     return [UIColor colorWithWhite:14/255.0f alpha:.6f];
 }

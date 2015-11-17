@@ -79,7 +79,7 @@
 }
 
 - (void)setupWithGame:(Game *)game {
-    NSString *matchName = [NSString stringWithFormat:@"Round %@ - %@SET %@ vs %@", [game round], [game set], [game player1], [game player2]];
+    NSString *matchName = [NSString stringWithFormat:@"%@ - %@set %@ vs %@", [game round], [game set], [game player1], [game player2]];
     [dateView setText:[game date]];
     [titleView setText:matchName];
     [leagueNameView setText:[game title]];

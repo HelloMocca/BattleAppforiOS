@@ -51,6 +51,13 @@
     return NO;
 }
 
+- (BOOL)isSamePlayerSelected {
+    if ([[[player1View player] playId] isEqualToString:[[player2View player] playId]]) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark -Setup view methods
 - (void)setupViews {
     [self setFrame:CGRectMake(0, 70, [UIScreen mainScreen].bounds.size.width, 300)];

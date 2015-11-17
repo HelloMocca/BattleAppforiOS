@@ -4,8 +4,15 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
   
 # Screen Shot
 
-# Version History 
-__[Latest Version]0.10.2__
+# Version History
+__[Latest Version]0.10.3__
+* Match Simulator menu redesign.
+* Check duplicate player before simulating.  
+* View Report Button invalid when selected players are not acceptable.
+* Player list order by player's play ID.
+* Published 17 November, 2015.  
+ 
+__0.10.2__
 * BADoubleLabelView class added.
 * LeagueInfomationView redesign.
 * Game class has 'provider' property.

@@ -19,5 +19,7 @@
 
 - (BOOL)isAllPlayerSelected;
 
+- (BOOL)isSamePlayerSelected;
+
 @end
 

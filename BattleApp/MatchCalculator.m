@@ -50,22 +50,46 @@
     [self setPlayerRecord];
     
     float total = [self calcTotalScore];
-    [returnArray addObject:@[@"Total Record",@"",@"",@(total)]];
+    NSLog(@"%f", total);
+    [returnArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+                            @"Total Record", @"title",
+                            [NSString stringWithFormat:@"%.f%%", total*100], @"leftLabel",
+                            [NSString stringWithFormat:@"%.f%%", (1-total)*100], @"rightLabel",
+                            @(total), @"origin",
+                            nil]];
     float competition = [self calcCompetitionScore];
-    [returnArray addObject:@[@"vs Record",@"",@"",@(competition)]];
+    [returnArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+                            @"vs Record", @"title",
+                            [NSString stringWithFormat:@"%.f%%", competition*100], @"leftLabel",
+                            [NSString stringWithFormat:@"%.f%%", (1-competition)*100], @"rightLabel",
+                            @(competition), @"origin",
+                            nil]];
+    
     float recent = [self calcRecentGameScore];
-    [returnArray addObject:@[@"Recent 5 Games",@"",@"",@(recent)]];
+    [returnArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+                            @"Recent 5 Games", @"title",
+                            [NSString stringWithFormat:@"%.f%%", recent*100], @"leftLabel",
+                            [NSString stringWithFormat:@"%.f%%", (1-recent)*100], @"rightLabel",
+                            @(recent), @"origin",
+                            nil]];
+    
     float opposite = [self calcOppositeRaceScore];
-    [returnArray addObject:@[@"Opposite Race",@"",@"",@(opposite)]];
+    [returnArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+                            @"vs Opposite Race Record", @"title",
+                            [NSString stringWithFormat:@"%.f%%", opposite*100], @"leftLabel",
+                            [NSString stringWithFormat:@"%.f%%", (1-opposite)*100], @"rightLabel",
+                            @(opposite), @"origin",
+                            nil]];
+    
     float result = [self calcMatchScoreFromTotal:total competition:competition recentGame:recent oppositeRace:opposite];
-    [returnArray addObject:@[@"Match Result",@"",@"",@(result)]];
+    [returnArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:
+                            @"Match Result", @"title",
+                            [NSString stringWithFormat:@"%.f%%", result*100], @"leftLabel",
+                            [NSString stringWithFormat:@"%.f%%", (1-result)*100], @"rightLabel",
+                            @(result), @"origin",
+                            nil]];
+    
     return [returnArray copy];
-}
-
-- (float)rateOfA:(float)a withB:(float)b {
-    float rate = a / (a + b);
-    rate = (isnan(rate)) ? 0.50f : rate;
-    return rate;
 }
 
 - (float)calcTotalScore {

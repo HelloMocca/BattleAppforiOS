@@ -10,17 +10,19 @@
 
 @interface Game : NSObject
 
-@property (nonatomic, readonly) NSString *player1;
-@property (nonatomic, readonly) NSString *player2;
-@property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) NSString *round;
-@property (nonatomic, readonly) NSString *set;
-@property (nonatomic, readonly) NSString *winner;
-@property (nonatomic, readonly) NSString *time;
-@property (nonatomic, readonly) NSString *date;
-@property (nonatomic, readonly) NSString *link;
-@property (nonatomic, readonly) NSString *provider;
+@property (nonatomic, readonly) NSString  *player1;
+@property (nonatomic, readonly) NSString  *player2;
+@property (nonatomic, readonly) NSString  *title;
+@property (nonatomic, readonly) NSString  *round;
+@property (nonatomic, readonly) NSString  *set;
+@property (nonatomic, readonly) NSString  *winner;
+@property (nonatomic, readonly) NSString  *time;
+@property (nonatomic, readonly) NSString  *date;
+@property (nonatomic, readonly) NSString  *link;
+@property (nonatomic, readonly) NSString  *provider;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
+
+- (NSString *) roundName;
 
 @end
