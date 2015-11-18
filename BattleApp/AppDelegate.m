@@ -109,11 +109,19 @@
 
 #pragma mark - LocalNotification handle methods
 - (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
-    BANavigationController *currNavigationController = (BANavigationController *)[[[self window] rootViewController] presentingViewController];
-    if (![[[currNavigationController viewControllers] objectAtIndex:0] isKindOfClass:[LiveViewController class]]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[notif alertTitle] message:[notif alertBody] delegate:self cancelButtonTitle:@"Show" otherButtonTitles:@"Cancel",nil];
-        [alert show];
+    if ([self isLiveViewControllerAlreadyLoaded]) {
+        NSLog(@"SKIP: %@", [notif alertBody]);
+        return;
     }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[notif alertTitle] message:[notif alertBody] delegate:self cancelButtonTitle:@"Show" otherButtonTitles:@"Cancel",nil];
+    [alert show];
+}
+
+- (BOOL)isLiveViewControllerAlreadyLoaded {
+    id currNavigationController = [[[self window] rootViewController] presentedViewController];
+    id currViewController = [[currNavigationController viewControllers] lastObject];
+    return ([currViewController isKindOfClass:[LiveViewController class]]) ? YES : NO;
 }
 
 #pragma mark - AlertView Event delegate
@@ -124,7 +132,6 @@
 }
 
 - (void)presentLiveViewcontroller {
-    
     UINavigationController *viewcontroller = (UINavigationController *)[tabBarController selectedViewController];
     LiveViewController *onLiveViewController = [[LiveViewController alloc] initWithLink:@"https://www.youtube.com/user/WCSStarCraft"];
     BANavigationController *liveViewNavigationController = [[BANavigationController alloc] initWithRootViewController:onLiveViewController title:@"TITLE"];

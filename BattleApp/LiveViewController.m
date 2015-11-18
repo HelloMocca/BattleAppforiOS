@@ -26,7 +26,6 @@
 }
 
 - (IBAction)closeViewController:(id)sender {
-    NSLog(@"dismiss");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
