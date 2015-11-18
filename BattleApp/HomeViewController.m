@@ -53,7 +53,6 @@
     [super didReceiveMemoryWarning];
 }
 
-
 #pragma mark -Request data method
 - (void)requestNewsData {
     [self requestDidSend];
@@ -140,7 +139,7 @@
 
 - (void)attachSubArticleBegan:(int)beganOffset toEnd:(int)endOffset {
     if (beganOffset >= endOffset) return;                           //√ prevent bad request
-    if ([articles count] < endOffset) endOffset = [articles count]; //√ prevent Out of Bound exception
+    if ([articles count] < endOffset) endOffset = (int)[articles count]; //√ prevent Out of Bound exception
     
     float subArticleViewHeight = 82;
     float subArticleViewMarginTop = 2;

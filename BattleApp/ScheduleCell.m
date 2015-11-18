@@ -97,7 +97,7 @@
 }
 
 - (void)setupAlramBody {
-    alramBody = [NSString stringWithFormat:@"%@ starts after 5min.", [schedule title]];
+    alramBody = [NSString stringWithFormat:@"%@ now began!", [schedule title]];
 }
 
 - (void)updateAlramBtn {

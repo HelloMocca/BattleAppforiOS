@@ -11,7 +11,7 @@
 @implementation AppDelegate
 
 {
-    UITabBarController *tabBarController;
+    BATabBarController *tabBarController;
     NSMutableArray     *viewControllers;
 }
 
@@ -59,7 +59,7 @@
 }
 
 - (void)setupTabBarController {
-    tabBarController = [[UITabBarController alloc] init];
+    tabBarController = [[BATabBarController alloc] init];
     [tabBarController setViewControllers:viewControllers animated:YES];
     [self setupTabBar];
     [self setupTabBarStyle];
@@ -106,4 +106,29 @@
         [viewControllers addObject:navigationController];
     }
 }
+
+#pragma mark - LocalNotification handle methods
+- (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
+    BANavigationController *currNavigationController = (BANavigationController *)[[[self window] rootViewController] presentingViewController];
+    if (![[[currNavigationController viewControllers] objectAtIndex:0] isKindOfClass:[LiveViewController class]]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[notif alertTitle] message:[notif alertBody] delegate:self cancelButtonTitle:@"Show" otherButtonTitles:@"Cancel",nil];
+        [alert show];
+    }
+}
+
+#pragma mark - AlertView Event delegate
+- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self presentLiveViewcontroller];
+    }
+}
+
+- (void)presentLiveViewcontroller {
+    
+    UINavigationController *viewcontroller = (UINavigationController *)[tabBarController selectedViewController];
+    LiveViewController *onLiveViewController = [[LiveViewController alloc] initWithLink:@"https://www.youtube.com/user/WCSStarCraft"];
+    BANavigationController *liveViewNavigationController = [[BANavigationController alloc] initWithRootViewController:onLiveViewController title:@"TITLE"];
+    [viewcontroller presentViewController:liveViewNavigationController animated:YES completion:nil];
+}
+
 @end

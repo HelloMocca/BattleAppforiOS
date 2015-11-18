@@ -23,6 +23,4 @@
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
 
-- (NSString *) roundName;
-
 @end

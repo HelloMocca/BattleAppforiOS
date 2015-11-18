@@ -51,7 +51,7 @@
     @synchronized(self) {
         NSMutableArray *notifications = [[NSMutableArray alloc] initWithArray:[self scheduledNotifications]];
         UILocalNotification *noti;
-        for (int i = 0, count = [notifications count]; i < count; i++) {
+        for (int i = 0, count = (int)[notifications count]; i < count; i++) {
             noti = [notifications objectAtIndex:i];
             if ([[noti alertBody] isEqualToString:bodyString]) {
                 [notifications removeObjectAtIndex:i]; printf("REMOVE NOTY! \n");
@@ -71,7 +71,7 @@
             return;
         }
         UILocalNotification *noti;
-        for (int i = 0, count = [notifications count]; i < count; i++) {
+        for (int i = 0, count = (int)[notifications count]; i < count; i++) {
             noti = [notifications objectAtIndex:i];
             printf("NOTY #%d: %s \n", i, [[noti alertBody] UTF8String]);
         }

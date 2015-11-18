@@ -75,7 +75,7 @@
 }
 
 - (void)requestLeagueGameData {
-    NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/games.php?lid=%d", [league leagueId]];
+    NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/games.php?lid=%lu", (unsigned long)[league leagueId]];
     [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
         [self performSelectorOnMainThread:@selector(setupLeagueGameView:) withObject:jsonObject waitUntilDone:NO];
     } asynchronous:YES];

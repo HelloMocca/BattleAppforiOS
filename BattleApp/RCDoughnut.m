@@ -110,8 +110,8 @@
     [[self titleLabel] setText:title];
 }
 
-- (void)setTitleColor:(UIColor*)color {
-    [[self titleLabel] setTextColor:color];
+- (void)setTitleColor:(UIColor*)uiColor {
+    [[self titleLabel] setTextColor:uiColor];
 }
 
 - (void)setTitleFont:(UIFont *)font {

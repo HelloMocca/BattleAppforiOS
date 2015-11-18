@@ -50,7 +50,6 @@
     [self setPlayerRecord];
     
     float total = [self calcTotalScore];
-    NSLog(@"%f", total);
     [returnArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:
                             @"Total Record", @"title",
                             [NSString stringWithFormat:@"%.f%%", total*100], @"leftLabel",

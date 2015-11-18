@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BATabBarController.h"
 #import "BANavigationController.h"
 #import "HomeViewController.h"
 #import "ScheduleTableViewController.h"
@@ -14,6 +15,7 @@
 #import "LeagueViewController.h"
 #import "MatchViewController.h"
 #import "NotificationManager.h"
+#import "LiveViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
