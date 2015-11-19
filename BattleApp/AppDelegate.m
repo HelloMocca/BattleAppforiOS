@@ -76,14 +76,7 @@
 }
 
 - (void)setupTabBarStyle {
-    UIImage *transparentBackground;
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(1, 1), NO, tabBarController.tabBar.layer.contentsScale);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetRGBFillColor(context, 14/255.0f, 14/255.0f, 14/255.0f, 0.8f);
-    UIRectFill(CGRectMake(0, 0, 1, 1));
-    transparentBackground = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    [[tabBarController tabBar] setBackgroundImage:transparentBackground];
+    [[tabBarController tabBar] setBarStyle:UIBarStyleBlack];
     [[tabBarController tabBar] setTintColor:[UIColor dodgerBlueColor]];
 }
 

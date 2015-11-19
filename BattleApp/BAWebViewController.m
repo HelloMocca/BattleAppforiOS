@@ -33,6 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (link == nil) return;
+    
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:link]];
     [webView loadRequest:urlRequest];
     [self.view addSubview:webView];
@@ -41,6 +42,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if (link == nil) return;
+    
     [super viewWillDisappear:animated];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     [webView removeFromSuperview];

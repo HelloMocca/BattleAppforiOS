@@ -13,16 +13,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Close"
-                                                                   style:UIBarButtonItemStylePlain
-                                                                  target:self
-                                                                   action:@selector(closeViewController:)];
-    [[self navigationItem] setLeftBarButtonItem:closeButton];
+    [self setupCloseButton];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)setupCloseButton {
+    UIBarButtonItem *closeButton = [UIBarButtonItem alloc];
+    closeButton = [closeButton init];
+    [closeButton setTitle:@"Close"];
+    [closeButton setStyle:UIBarButtonItemStylePlain];
+    [closeButton setTarget:self];
+    [closeButton setAction:@selector(closeViewController:)];
+//    closeButton = [closeButton initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(closeViewController:)];
+    [[self navigationItem] setLeftBarButtonItem:closeButton];
 }
 
 - (IBAction)closeViewController:(id)sender {

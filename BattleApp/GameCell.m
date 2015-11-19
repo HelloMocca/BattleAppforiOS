@@ -58,20 +58,20 @@
 }
 
 - (void)setupDateView {
-    float cellMargin = 15;
-    float cellWidth = (screenSize.width/2) - cellMargin;
+    float leftMargin = 15;
+    float width = (screenSize.width/2) - leftMargin;
     dateView = [[UILabel alloc] init];
-    [dateView setFrame:CGRectMake(cellMargin, titleView.frame.origin.y+titleView.frame.size.height, cellWidth, 15)];
+    [dateView setFrame:CGRectMake(leftMargin, titleView.frame.origin.y+titleView.frame.size.height, width, 15)];
     [dateView setFont:[UIFont systemFontOfSize:13]];
     [dateView setTextColor:[UIColor concreteColor]];
     [self addSubview:dateView];
 }
 
 - (void)setupProviderView {
-    float cellMargin = 15;
-    float cellWidth = (screenSize.width/2) - cellMargin;
+    float rightMargin = 15;
+    float width = (screenSize.width/2) - rightMargin;
     providerView = [[UILabel alloc] init];
-    [providerView setFrame:CGRectMake(self.frame.size.width-cellWidth-15, titleView.frame.origin.y+titleView.frame.size.height, cellWidth, 15)];
+    [providerView setFrame:CGRectMake(self.frame.size.width/2, dateView.frame.origin.y, width, 15)];
     [providerView setTextAlignment:NSTextAlignmentRight];
     [providerView setFont:[UIFont systemFontOfSize:13]];
     [providerView setTextColor:[UIColor concreteColor]];

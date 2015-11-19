@@ -5,7 +5,13 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
-__[Latest Version]0.11.2__
+__[Latest Version]0.11.3__
+* Player search result interval change to 20.
+* Set Tab Bar Style -> UIBarStyleBlack.  
+* Revise player profile view layout.  
+* Published 19 November, 2015.
+
+__0.11.2__
 * Skip notification when LiveViewController loaded already.  
 * Publishde 18 November, 2015.  
 

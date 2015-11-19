@@ -53,7 +53,6 @@
 - (void)setupScrollView {
     mainScrollView = [[UIScrollView alloc] init];
     [mainScrollView setFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
-    [mainScrollView setContentSize:CGSizeMake(screenSize.width, 550)];
     [mainScrollView setShowsVerticalScrollIndicator:NO];
     [mainScrollView setShowsHorizontalScrollIndicator:NO];
     [mainScrollView setScrollEnabled:YES];
@@ -120,7 +119,8 @@
 }
 
 - (void)setupOppositeRaceRecordView {
-    oppositeRaceRecordView = [[RaceRecordView alloc] initWithFrame:CGRectMake(0, totalRecordView.frame.origin.y+totalRecordView.frame.size.height+10, screenSize.width, 150)];
+    NSInteger height = ((screenSize.width / 3) - 30) + 80;
+    oppositeRaceRecordView = [[RaceRecordView alloc] initWithFrame:CGRectMake(0, totalRecordView.frame.origin.y+totalRecordView.frame.size.height+10, screenSize.width, height)];
     [oppositeRaceRecordView setBackgroundColor:[UIColor colorWithRed:0.110f green:0.110f blue:0.125f alpha:1.00f]];
     [oppositeRaceRecordView setupViewsWithPlayer:player];
     [mainScrollView addSubview:oppositeRaceRecordView];
@@ -129,13 +129,16 @@
 - (void)setupShowPlayerGamesBtn {
     if ([player.record.games count] == 0) return;
     
+    NSInteger height = 35;
+    NSInteger margin = 10;
     UIButton *showPlayerGamesBtn = [[UIButton alloc] init];
-    [showPlayerGamesBtn setFrame:CGRectMake(5, oppositeRaceRecordView.frame.origin.y+oppositeRaceRecordView.frame.size.height+10, screenSize.width-10, 35)];
-    [showPlayerGamesBtn setBackgroundColor:[UIColor colorWithRed:0.353f green:0.376f blue:0.784f alpha:1.00f]];
+    [showPlayerGamesBtn setFrame:CGRectMake(5, oppositeRaceRecordView.frame.origin.y+oppositeRaceRecordView.frame.size.height+margin, screenSize.width-margin, height)];
     [showPlayerGamesBtn setBackgroundColor:[UIColor alizalinColor]];
     [showPlayerGamesBtn setTitle:@"Show Player Games" forState:UIControlStateNormal];
     [showPlayerGamesBtn addTarget:self action:@selector(showPlayerGames:) forControlEvents:UIControlEventTouchUpInside];
     [mainScrollView addSubview:showPlayerGamesBtn];
+    
+    [mainScrollView setContentSize:CGSizeMake(screenSize.width, showPlayerGamesBtn.frame.origin.y+height+25)];
 }
 
 #pragma mark -Data request methods

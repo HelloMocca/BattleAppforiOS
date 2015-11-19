@@ -176,7 +176,7 @@
 
 #pragma mark -Event handle methods
 - (IBAction)morePlayerRequest:(id)sender {
-    offset += 10;
+    offset += 20;
     if (offset > [players count]) {
         offset = [players count];
         [morePlayerBtn setHidden:YES];
