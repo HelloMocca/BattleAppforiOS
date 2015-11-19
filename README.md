@@ -5,7 +5,12 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
-__[Latest Version]0.11.3__
+__[Latest Version]0.11.4__
+* Issue of http request failed in iOS9 has fixed.
+* Spinner of BAArticleView Style -> UIActivityIndicatorViewStyleWhiteLarge.
+* Published 19 November, 2015.
+
+__0.11.3__
 * Player search result interval change to 20.
 * Set Tab Bar Style -> UIBarStyleBlack.  
 * Revise player profile view layout.  

@@ -45,7 +45,7 @@
 
 - (void)setupSpinner {
     spinner = [[UIActivityIndicatorView alloc] init];
-    [spinner setColor:[UIColor cloudColor]];
+    [spinner setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self addSubview:spinner];
 }
 

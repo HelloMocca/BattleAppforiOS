@@ -25,6 +25,7 @@
         title = [dictionary valueForKey:@"title"];
         leagueName = [dictionary objectForKey:@"leagueName"];
         time = [dictionary valueForKey:@"time"];
+        //NSLog(@"%@",time);
     }
     return self;
 }

@@ -128,6 +128,7 @@
     UINavigationController *viewcontroller = (UINavigationController *)[tabBarController selectedViewController];
     LiveViewController *onLiveViewController = [[LiveViewController alloc] initWithLink:@"https://www.youtube.com/user/WCSStarCraft"];
     BANavigationController *liveViewNavigationController = [[BANavigationController alloc] initWithRootViewController:onLiveViewController title:@"TITLE"];
+    [liveViewNavigationController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [viewcontroller presentViewController:liveViewNavigationController animated:YES completion:nil];
 }
 

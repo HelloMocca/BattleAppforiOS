@@ -23,6 +23,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+    NSLog(@"webview dealloc");
+}
+
 #pragma mark -UIViewController Override methods
 - (void)viewDidLoad {
     [super viewDidLoad];
