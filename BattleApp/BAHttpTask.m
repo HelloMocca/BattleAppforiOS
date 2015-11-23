@@ -10,17 +10,13 @@
 
 @implementation BAHttpTask
 
-+ (void)requestJSONObjectFromURL:(NSURL *)url compeleteHandler:(void (^)(NSURLResponse* response, NSDictionary* jsonObject, NSError* connectionError)) handler asynchronous:(BOOL)async{
++ (void)requestJSONObjectFromURL:(NSURL *)url compeleteHandler:(void (^)(NSURLResponse* response, NSDictionary* jsonObject, NSError* connectionError)) handler {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    if (async) {
-        NSOperationQueue *queue = [BAOperationQueue getOperationQueue];
-        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse* response, NSData* data, NSError* connectionError){
-            [BAHttpTask didRequestCompleteWithData:data withHandler:handler];
-        }];
-    } else {
-        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         [BAHttpTask didRequestCompleteWithData:data withHandler:handler];
-    }
+    }];
+    [task resume];
 }
 
 + (void)didRequestCompleteWithData:(NSData *)data withHandler:(void (^)(NSURLResponse* response, NSDictionary* jsonObject, NSError* connectionError))handler {

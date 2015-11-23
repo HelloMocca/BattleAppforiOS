@@ -17,9 +17,11 @@
 + (UIColor *) baDarkGrayColor;
 + (UIColor *) concreteColor;
 + (UIColor *) asbestosColor;
++ (UIColor *) germanGreyColor;
 
 + (UIColor *) alizalinColor;
 + (UIColor *) pomegranateColor;
++ (UIColor *) lightCoralColor;
 
 + (UIColor *) pumpkinColor;
 + (UIColor *) carrotColor;

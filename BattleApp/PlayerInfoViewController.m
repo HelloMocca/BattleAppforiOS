@@ -34,9 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     screenSize = [[UIScreen mainScreen] bounds].size;
-    [[self view] setBackgroundColor:[UIColor colorWithRed:14/255.0f green:14/255.0f blue:14/255.0f alpha:1]];
-    [[self view] setBackgroundColor:[UIColor wetAsphaltColor]];
-    [self setupViews];
+    [[self view] setBackgroundColor:[UIColor germanGreyColor]];
+    [self requestPlayerData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +51,7 @@
 
 - (void)setupScrollView {
     mainScrollView = [[UIScrollView alloc] init];
-    [mainScrollView setFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
+    [mainScrollView setFrame:CGRectMake(0, 55, screenSize.width, screenSize.height)];
     [mainScrollView setShowsVerticalScrollIndicator:NO];
     [mainScrollView setShowsHorizontalScrollIndicator:NO];
     [mainScrollView setScrollEnabled:YES];
@@ -105,7 +104,6 @@
 }
 
 - (void)setupPlayerRecordView {
-    [self requestPlayerData];
     [self setupTotalRecordView];
     [self setupOppositeRaceRecordView];
     [self setupShowPlayerGamesBtn];
@@ -120,10 +118,11 @@
 
 - (void)setupOppositeRaceRecordView {
     NSInteger height = ((screenSize.width / 3) - 30) + 80;
-    oppositeRaceRecordView = [[RaceRecordView alloc] initWithFrame:CGRectMake(0, totalRecordView.frame.origin.y+totalRecordView.frame.size.height+10, screenSize.width, height)];
+    oppositeRaceRecordView = [[RaceRecordView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(totalRecordView.frame) + 10, screenSize.width, height)];
     [oppositeRaceRecordView setBackgroundColor:[UIColor colorWithRed:0.110f green:0.110f blue:0.125f alpha:1.00f]];
     [oppositeRaceRecordView setupViewsWithPlayer:player];
     [mainScrollView addSubview:oppositeRaceRecordView];
+    [mainScrollView setContentSize:CGSizeMake(screenSize.width, CGRectGetMaxY(oppositeRaceRecordView.frame) + 160)];
 }
 
 - (void)setupShowPlayerGamesBtn {
@@ -132,18 +131,25 @@
     NSInteger height = 35;
     NSInteger margin = 10;
     UIButton *showPlayerGamesBtn = [[UIButton alloc] init];
-    [showPlayerGamesBtn setFrame:CGRectMake(5, oppositeRaceRecordView.frame.origin.y+oppositeRaceRecordView.frame.size.height+margin, screenSize.width-margin, height)];
+    [showPlayerGamesBtn setFrame:CGRectMake(5, CGRectGetMaxY(oppositeRaceRecordView.frame) + margin, screenSize.width - margin, height)];
     [showPlayerGamesBtn setBackgroundColor:[UIColor alizalinColor]];
     [showPlayerGamesBtn setTitle:@"Show Player Games" forState:UIControlStateNormal];
     [showPlayerGamesBtn addTarget:self action:@selector(showPlayerGames:) forControlEvents:UIControlEventTouchUpInside];
     [mainScrollView addSubview:showPlayerGamesBtn];
-    
-    [mainScrollView setContentSize:CGSizeMake(screenSize.width, showPlayerGamesBtn.frame.origin.y+height+25)];
 }
 
 #pragma mark -Data request methods
 - (void)requestPlayerData {
-    [player requestRecordsData];
+    NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/playerRecords.php?pid=%lu",(long)[player playerId]];
+    id handler = ^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
+        [self performSelectorOnMainThread:@selector(playerDataReceived:) withObject:jsonObject waitUntilDone:NO];
+    };
+    [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:handler];
+}
+
+- (void)playerDataReceived:(NSDictionary *)dict {
+    [player setRecordWithDictionary:dict];
+    [self setupViews];
 }
 
 #pragma mark -Event handle methods

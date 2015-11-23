@@ -22,33 +22,18 @@
 @synthesize competitionScore = competitionScore;
 
 
-- (instancetype)initWithPlayer1:(Player *)player1 andPlayer2:(Player *)player2 {
+- (instancetype)initWithPlayer1:(Player *)player1 andPlayer2:(Player *)player2 andCompetitionScore:(Score *)score {
     self = [super init];
     if (self) {
         mPlayer1 = player1;
         mPlayer2 = player2;
+        competitionScore = score;
         returnArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (void)setCompetitionRecord {
-    NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/verdict.php?pid1=%ld&pid2=%ld",(long)mPlayer1.playerId, (long)mPlayer2.playerId];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    competitionScore = [[Score alloc] initWithWin:[[jsonObject objectForKey:@"win"] intValue] lose:[[jsonObject objectForKey:@"lose"] intValue]];
-}
-
-- (void)setPlayerRecord {
-    [mPlayer1 requestRecordsData];
-    [mPlayer2 requestRecordsData];
-}
-
 - (NSArray *)matchCalculate {
-    [self setCompetitionRecord];
-    [self setPlayerRecord];
-    
     float total = [self calcTotalScore];
     [returnArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:
                             @"Total Record", @"title",

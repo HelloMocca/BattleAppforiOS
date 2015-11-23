@@ -63,7 +63,7 @@
     NSString *url =  @"http://125.209.198.90/battleapp/scheduleDummy.json";
     [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
         [self performSelectorOnMainThread:@selector(parsingJsonObject:) withObject:jsonObject waitUntilDone:NO];
-    } asynchronous:YES];
+    }];
 }
 
 - (void)parsingJsonObject:(NSDictionary *)jsonObject {

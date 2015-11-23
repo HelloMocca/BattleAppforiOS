@@ -20,7 +20,7 @@
 
 @end
 
-@interface BAPlayerSearchViewController : UITableViewController <UISearchDisplayDelegate>
+@interface BAPlayerSearchViewController : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate>
 
 @property (nonatomic, weak) id<PlayerTableSelectDelegate> delegate;
 

@@ -21,7 +21,6 @@
 #define MAJOR_STATE 1
 #define MINOR_STATE 2
 
-
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -74,7 +73,7 @@
     else url =  @"http://125.209.198.90/battleapp/minor.json";
     [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
         [self performSelectorOnMainThread:@selector(parseLeagueData:) withObject:jsonObject waitUntilDone:NO];
-    } asynchronous:YES];
+    }];
 }
 
 - (void)parseLeagueData:(NSDictionary *)jsonObject {

@@ -26,8 +26,6 @@
 
 - (void)setRecordWithDictionary:(NSDictionary *)dictionary;
 
-- (void)requestRecordsData;
-
 - (Score *)oppositeRaceScoreByRaceName:(NSString *)racename;
 
 @end

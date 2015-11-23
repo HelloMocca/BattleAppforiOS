@@ -30,12 +30,21 @@
     return [UIColor colorWithRed:0.486f green:0.549f blue:0.553f alpha:1.00f];
 }
 
++ (UIColor *) germanGreyColor {
+    //return [UIColor colorWithRed:0.227f green:0.263f blue:0.349f alpha:1.00f];
+    return [UIColor colorWithRed:0.167f green:0.194f blue:0.257f alpha:1.00f];
+}
+
 + (UIColor *) asbestosColor {
     return [UIColor colorWithRed:0.424f green:0.475f blue:0.478f alpha:1.00f];
 }
 
 + (UIColor *) alizalinColor {
     return [UIColor colorWithRed:0.910f green:0.302f blue:0.192f alpha:1.00f];
+}
+
++ (UIColor *) lightCoralColor {
+    return [UIColor colorWithRed:0.961f green:0.298f blue:0.333f alpha:1.00f];
 }
 
 + (UIColor *) pomegranateColor {

@@ -20,9 +20,7 @@
     UILabel                   *playerNotFoundView;
     UIButton                  *morePlayerBtn;
     
-    UISearchDisplayController *searchController;
     UIActivityIndicatorView   *spinner;
-    
 }
 
 @synthesize delegate = delegate;
@@ -66,11 +64,9 @@
     [delegate selectPlayer:player];
 }
 
-#pragma mark -UISearchDisplayController methods
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self requestPlayerList:searchString];
-    return YES;
+#pragma mark -UISearchBar delegate methods
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self requestPlayerList:searchText];
 }
 
 #pragma mark -Setup view methods
@@ -91,10 +87,8 @@
 
 - (void)setupSearchBar {
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 44)];
-    searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-    searchController.searchResultsDataSource = self;
-    searchController.delegate = self;
-    self.navigationItem.titleView = searchController.searchBar;
+    searchBar.delegate = self;
+    self.navigationItem.titleView = searchBar;
 }
 
 - (void)setupPlayerNotFoundView {
@@ -135,7 +129,7 @@
     id handler = ^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError){
        [self performSelectorOnMainThread:@selector(parsingJsonObject:) withObject:jsonObject waitUntilDone:NO];
     };
-    [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:[url stringByAppendingString:query]] compeleteHandler:handler asynchronous:YES];
+    [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:[url stringByAppendingString:query]] compeleteHandler:handler];
 }
 
 - (void)requestDidSend {

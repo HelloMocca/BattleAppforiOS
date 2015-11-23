@@ -45,15 +45,6 @@
     record = [[Record alloc] initWithDictionary:dictionary];
 }
 
-- (void)requestRecordsData {
-    //Synchronous request...
-    NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/playerRecords.php?pid=%ld",(long)playerId];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NO error:nil];
-    record = [[Record alloc] initWithDictionary:jsonObject];
-}
-
 - (Score *)oppositeRaceScoreByRaceName:(NSString *)racename {
     racename = [racename lowercaseString];
     if ([racename isEqual:@"terran"]) return record.vsTerran;

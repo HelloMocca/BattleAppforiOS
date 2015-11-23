@@ -15,7 +15,7 @@
 @property (nonatomic, readonly)  Player   *mPlayer2;
 @property (nonatomic, readwrite) Score   *competitionScore;
 
-- (instancetype)initWithPlayer1:(Player *)player1 andPlayer2:(Player *)player2;
+- (instancetype)initWithPlayer1:(Player *)player1 andPlayer2:(Player *)player2 andCompetitionScore:(Score *)score;
 
 - (NSArray *)matchCalculate;
 

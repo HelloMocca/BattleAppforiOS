@@ -51,11 +51,7 @@
 
 #pragma mark - Setup methods
 - (void)setupWindowStyle {
-    UIGraphicsBeginImageContext(self.window.frame.size);
-    [[UIImage imageNamed:@"bg1242x2208"] drawInRect:self.window.bounds];
-    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.window.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    [[self window] setBackgroundColor:[UIColor germanGreyColor]];
 }
 
 - (void)setupTabBarController {
@@ -103,12 +99,10 @@
 #pragma mark - LocalNotification handle methods
 - (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
     if ([self isLiveViewControllerAlreadyLoaded]) {
-        NSLog(@"SKIP: %@", [notif alertBody]);
+        NSLog(@"SKIP NOTY: %@", [notif alertBody]);
         return;
     }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[notif alertTitle] message:[notif alertBody] delegate:self cancelButtonTitle:@"Show" otherButtonTitles:@"Cancel",nil];
-    [alert show];
+    [self showAlarm:notif];
 }
 
 - (BOOL)isLiveViewControllerAlreadyLoaded {
@@ -117,11 +111,17 @@
     return ([currViewController isKindOfClass:[LiveViewController class]]) ? YES : NO;
 }
 
-#pragma mark - AlertView Event delegate
-- (void)alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        [self presentLiveViewcontroller];
-    }
+- (void)showAlarm:(UILocalNotification *)notif {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[notif alertTitle] message:[notif alertBody] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"SHOW" style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action) { [self presentLiveViewcontroller]; }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alert addAction:okAction];
+    [alert addAction:cancelAction];
+    
+    UINavigationController *currNavigationController = (UINavigationController *)[tabBarController selectedViewController];
+    [currNavigationController presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)presentLiveViewcontroller {

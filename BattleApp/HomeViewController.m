@@ -60,7 +60,7 @@
     NSString *url = [NSString stringWithFormat:@"http://125.209.198.90/battleapp/wcsnews.php?page=%d", apiPageIdx];
     [BAHttpTask requestJSONObjectFromURL:[NSURL URLWithString:url] compeleteHandler:^(NSURLResponse *response, NSDictionary *jsonObject, NSError *connectionError) {
         [self performSelectorOnMainThread:@selector(attachNewsArticles:) withObject:jsonObject waitUntilDone:NO];
-    }  asynchronous:YES];
+    }];
 }
 
 - (void)attachNewsArticles:(NSDictionary *)jsonObject {

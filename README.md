@@ -5,7 +5,15 @@ BattleApp serves information of Starcraft2 Worldwide Championship Series. See mo
 # Screen Shot
 
 # Version History
-__[Latest Version]0.11.4__
+__[Latest Version]0.12.1__
+* Refactoring code for supporting to iOS 9.  
+* UIAlertView is deprecated. Use UIAlertController instead.  
+* sendAsynchronousRequest and sendSynchronousRequest are deprecated. Use dataTaskWithRequest instead.
+* Player class's requestPlayerRecord method deprecated.  
+* UISearchDisplayController deprecated. Use only UISearchBar and UISearchBarDelegate protocol instead.  
+* Published 23 November, 2015.
+
+__0.11.4__
 * Issue of http request failed in iOS9 has fixed.
 * Spinner of BAArticleView Style -> UIActivityIndicatorViewStyleWhiteLarge.
 * Published 19 November, 2015.
