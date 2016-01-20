@@ -2,7 +2,8 @@
 BattleApp serves information of Starcraft2 Worldwide Championship Series. See more information and fork at https://github.com/HelloMocca/BattleAppforiOS.git
   Wiki: https://github.com/HelloMocca/BattleAppforiOS/wiki/
   
-# Screen Shot
+# ScreenShot
+<img width="200" alt="2016-01-20 5 20 17" src="https://cloud.githubusercontent.com/assets/6482127/12443319/66c52720-bf9a-11e5-808b-525fa1139cf4.png"> <img width="200" alt="2016-01-20 5 21 08" src="https://cloud.githubusercontent.com/assets/6482127/12443323/68d4c67e-bf9a-11e5-8e54-e3cd3b4924a2.png"> <img width="200" alt="2016-01-20 5 24 42" src="https://cloud.githubusercontent.com/assets/6482127/12443368/c24f8612-bf9a-11e5-9b60-c74f377573bf.png">
 
 # Version History
 __[Latest Version]0.12.1__
